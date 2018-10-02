@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c83514a-c4fc-4bc8-9e0b-cc08eae0448f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Episode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Film.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Program.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Season.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Serie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6c83514a-c4fc-4bc8-9e0b-cc08eae0448f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +15,9 @@
           <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -58,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="34">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,7 +63,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/UserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="895">
+            <state relative-caret-position="918">
               <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -92,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Film.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -170,9 +163,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="width" value="1558" />
-    <option name="height" value="1542" />
+    <option name="x" value="-13" />
+    <option name="width" value="1560" />
+    <option name="height" value="1544" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -180,7 +173,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,15 +219,19 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -288,16 +284,17 @@
       <workItem from="1537881273979" duration="4147000" />
       <workItem from="1537988453661" duration="120000" />
       <workItem from="1538398612490" duration="1614000" />
+      <workItem from="1538477381516" duration="301000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8054000" />
+    <option name="totallyTimeSpent" value="8355000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="890" height="881" extended-state="0" />
+    <frame x="-7" y="0" width="891" height="882" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25721154" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26290515" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -337,24 +334,17 @@
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/ViewInitializer.java" />
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="34">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/UI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/UserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="895">
+        <state relative-caret-position="918">
           <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -372,7 +362,7 @@
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Film.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -387,6 +377,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
         </state>
       </provider>
     </entry>
