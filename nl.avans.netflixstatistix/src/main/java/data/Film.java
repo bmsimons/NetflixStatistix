@@ -34,4 +34,23 @@ public class Film implements ITable{
     public void setDuration(int newDuration) {
         this.Duration = newDuration;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Film f = (Film) o;
+
+        if (f.getFilmID() == this.getFilmID()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

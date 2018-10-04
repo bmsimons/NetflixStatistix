@@ -232,36 +232,46 @@ public class DataModel {
         }
     }
 
-    public void removeFromTable(Table table, ITable object) throws SQLException {
+    public void removeFromTable(Table table, ITable object) {
         switch (table) {
             case PROGRAM:
                 Program program = (Program) object;
 
-                sqlConnection.executeSQLDeleteStatement("DELETE FROM Program WHERE ProgramID = " + program.getProgramID());
+                if (sqlConnection.executeSQLDeleteStatement("DELETE FROM Program WHERE ProgramID = " + program.getProgramID())) {
+                    programs.remove(program);
+                }
 
                 break;
             case FILM:
                 Film film = (Film) object;
 
-                sqlConnection.executeSQLDeleteStatement("DELETE FROM Film WHERE FilmID = " + film.getFilmID());
+                if (sqlConnection.executeSQLDeleteStatement("DELETE FROM Film WHERE FilmID = " + film.getFilmID())) {
+                    films.remove(film);
+                }
 
                 break;
             case SERIE:
                 Serie serie = (Serie) object;
 
-                sqlConnection.executeSQLDeleteStatement("DELETE FROM Serie WHERE SerieID = " + serie.getSerieID());
+                if (sqlConnection.executeSQLDeleteStatement("DELETE FROM Serie WHERE SerieID = " + serie.getSerieID())) {
+                    series.remove(serie);
+                }
 
                 break;
             case SEASON:
                 Season season = (Season) object;
 
-                sqlConnection.executeSQLDeleteStatement("DELETE FROM Season WHERE SeasonID = " + season.getSeasonID());
+                if (sqlConnection.executeSQLDeleteStatement("DELETE FROM Season WHERE SeasonID = " + season.getSeasonID())) {
+                    seasons.remove(season);
+                }
 
                 break;
             case EPISODE:
                 Episode episode = (Episode) object;
 
-                sqlConnection.executeSQLDeleteStatement("DELETE FROM Episode WHERE EpisodeID = " + episode.getEpisodeID());
+                if (sqlConnection.executeSQLDeleteStatement("DELETE FROM Episode WHERE EpisodeID = " + episode.getEpisodeID())) {
+                    episodes.remove(episode);
+                }
 
                 break;
         }

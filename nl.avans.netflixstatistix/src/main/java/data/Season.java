@@ -34,4 +34,23 @@ public class Season implements ITable {
     public void setSeasonNumber(int newSeasonNumber) {
         this.SeasonNumber = newSeasonNumber;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Season s = (Season) o;
+
+        if (s.getSeasonID() == this.getSeasonID()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

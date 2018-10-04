@@ -24,4 +24,23 @@ public class Serie implements ITable {
     public void setSerieID(int newSerieID) {
         this.SerieID = newSerieID;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Serie s = (Serie) o;
+
+        if (s.getSerieID() == this.getSerieID()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

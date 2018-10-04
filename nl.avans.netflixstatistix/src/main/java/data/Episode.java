@@ -54,4 +54,23 @@ public class Episode implements ITable {
     public void setEpisodeNumber(int newEpisodeNumber) {
         this.EpisodeNumber = newEpisodeNumber;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Episode e = (Episode) o;
+
+        if (e.getEpisodeID() == this.getEpisodeID()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

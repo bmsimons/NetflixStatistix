@@ -64,4 +64,23 @@ public class Program implements ITable {
     public void setMinAge(int newMinAge) {
         this.MinAge = newMinAge;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Program p = (Program) o;
+
+        if (p.getProgramID() == this.getProgramID()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
