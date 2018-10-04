@@ -1,6 +1,6 @@
 package main.java.data;
 
-public class Program {
+public class Program implements ITable {
     private int ProgramID;
     private String Title;
     private String Genre;

@@ -1,26 +1,18 @@
 package main.java.data;
 
-public class Episode {
-    private int SeasonID;
+public class Episode implements ITable {
     private int EpisodeID;
+    private int SerieID;
+    private int SeasonID;
     private String ShortDescription;
-    private int SeasonNumber;
     private int EpisodeNumber;
 
-    public Episode(int seasonID, int episodeID, String shortDescription, int seasonNumber, int episodeNumber) {
-        this.SeasonID = seasonID;
+    public Episode(int episodeID, int serieID, int seasonID, String shortDescription, int episodeNumber) {
         this.EpisodeID = episodeID;
+        this.SerieID = serieID;
+        this.SeasonID = seasonID;
         this.ShortDescription = shortDescription;
-        this.SeasonNumber = seasonNumber;
         this.EpisodeNumber = episodeNumber;
-    }
-
-    public int getSeasonID() {
-        return this.SeasonID;
-    }
-
-    public void setSeasonID(int newSeasonID) {
-        this.SeasonID = newSeasonID;
     }
 
     public int getEpisodeID() {
@@ -31,20 +23,28 @@ public class Episode {
         this.EpisodeID = newEpisodeID;
     }
 
+    public int getSerieID() {
+        return this.SerieID;
+    }
+
+    public void setSerieID(int newSerieID) {
+        this.SerieID = newSerieID;
+    }
+
+    public int getSeasonID() {
+        return this.SeasonID;
+    }
+
+    public void setSeasonID(int newSeasonID) {
+        this.SeasonID = newSeasonID;
+    }
+
     public String getShortDescription() {
         return this.ShortDescription;
     }
 
     public void setShortDescription(String newShortDescription) {
         this.ShortDescription = newShortDescription;
-    }
-
-    public int getSeasonNumber() {
-        return this.SeasonNumber;
-    }
-
-    public void setSeasonNumber(int newSeasonNumber) {
-        this.SeasonNumber = newSeasonNumber;
     }
 
     public int getEpisodeNumber() {
