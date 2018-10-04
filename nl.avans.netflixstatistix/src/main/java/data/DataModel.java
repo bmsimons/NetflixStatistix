@@ -35,6 +35,16 @@ public class DataModel {
         return rowList;
     }
 
+    public int resultSetKey(ResultSet rs) throws SQLException {
+        Integer id = null;
+
+        if (rs.next()) {
+            id = rs.getInt(0);
+        }
+
+        return id;
+    }
+
     public void tableToModel(Table table) throws SQLException {
         switch (table) {
             case PROGRAM:
@@ -98,9 +108,34 @@ public class DataModel {
         for (Table table : Table.values()) {
             tableToModel(table);
         }
+    }
 
-        for (Program program : programs) {
-            System.out.println(program.getProgramID());
+    public Program getProgram(int id) throws SQLException {
+        Program program = null;
+
+        ResultSet rs = sqlConnection.executeSQLSelectStatement("SELECT * FROM Program WHERE ProgramID = " + String.valueOf(id));
+
+        if (rs != null) {
+            List<List<String>> rowList = formatResultSet(rs);
+
+            for (List<String> subList : rowList) {
+                program = new Program(Integer.valueOf(subList.get(0)), subList.get(1), subList.get(2), subList.get(3), subList.get(4), Integer.valueOf(subList.get(5)));
+            }
+        }
+
+        return program;
+    }
+
+    public void newProgram(String title, String genre, String language, String shortDescription, int minAge) throws SQLException {
+        ResultSet rs = sqlConnection.executeSQLInsertStatement("INSERT INTO Program (Titel, Genre, Language, ShortDescription, MinAge) VALUES ('" + title + "', '" + genre + "', '" + language + "', '" + shortDescription + "', '" + minAge + "')");
+
+        if (rs != null) {
+            int programID = resultSetKey(rs);
+
+            System.out.println("hi");
+
+            Program program = getProgram(programID);
+            programs.add(program);
         }
     }
 }

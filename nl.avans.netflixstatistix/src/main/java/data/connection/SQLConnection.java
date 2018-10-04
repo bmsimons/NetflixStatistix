@@ -121,6 +121,34 @@ public class SQLConnection {
         return resultset;
     }
 
+    public ResultSet executeSQLInsertStatement(String query)
+    {
+        ResultSet resultset = null;
+
+        // First, check whether a some query was passed and the connection with
+        // the database.
+        if(query != null && connectionIsOpen())
+        {
+            // Then, if succeeded, execute the query.
+            try
+            {
+                Statement stmt = connection.createStatement();
+
+                int affectedrows = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+                if (affectedrows != 0) {
+                    resultset = stmt.getResultSet();
+                }
+            }
+            catch(SQLException e)
+            {
+                e.printStackTrace();
+                resultset = null;
+            }
+        }
+
+        return resultset;
+    }
+
     public boolean executeSQLDeleteStatement(String query)
     {
         boolean result = false;

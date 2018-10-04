@@ -15,6 +15,7 @@ public class Main {
 
         try {
             DataModel dataModel = new DataModel();
+            dataModel.newProgram("AAAA", "Drama", "NL", "iets", 12);
         } catch (SQLException e) {
             e.printStackTrace();
         }
