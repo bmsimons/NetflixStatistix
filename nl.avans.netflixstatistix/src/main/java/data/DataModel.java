@@ -232,6 +232,41 @@ public class DataModel {
         }
     }
 
+    public void removeFromTable(Table table, ITable object) throws SQLException {
+        switch (table) {
+            case PROGRAM:
+                Program program = (Program) object;
+
+                sqlConnection.executeSQLDeleteStatement("DELETE FROM Program WHERE ProgramID = " + program.getProgramID());
+
+                break;
+            case FILM:
+                Film film = (Film) object;
+
+                sqlConnection.executeSQLDeleteStatement("DELETE FROM Film WHERE FilmID = " + film.getFilmID());
+
+                break;
+            case SERIE:
+                Serie serie = (Serie) object;
+
+                sqlConnection.executeSQLDeleteStatement("DELETE FROM Serie WHERE SerieID = " + serie.getSerieID());
+
+                break;
+            case SEASON:
+                Season season = (Season) object;
+
+                sqlConnection.executeSQLDeleteStatement("DELETE FROM Season WHERE SeasonID = " + season.getSeasonID());
+
+                break;
+            case EPISODE:
+                Episode episode = (Episode) object;
+
+                sqlConnection.executeSQLDeleteStatement("DELETE FROM Episode WHERE EpisodeID = " + episode.getEpisodeID());
+
+                break;
+        }
+    }
+
     public DataModel() throws SQLException {
         programs = new ArrayList<ITable>();
         films = new ArrayList<ITable>();
@@ -278,5 +313,25 @@ public class DataModel {
         Episode episode = new Episode(0, serieID, seasonID, shortDescription, episodeNumber);
 
         addToTable(Table.EPISODE, episode);
+    }
+
+    public void removeProgram(ITable program) throws SQLException {
+        removeFromTable(Table.PROGRAM, program);
+    }
+
+    public void removeFilm(ITable film) throws SQLException {
+        removeFromTable(Table.FILM, film);
+    }
+
+    public void removeSerie(ITable serie) throws SQLException {
+        removeFromTable(Table.SERIE, serie);
+    }
+
+    public void removeSeason(ITable season) throws SQLException {
+        removeFromTable(Table.SEASON, season);
+    }
+
+    public void removeEpisode(ITable episode) throws SQLException {
+        removeFromTable(Table.EPISODE, episode);
     }
 }
