@@ -277,6 +277,21 @@ public class DataModel {
         }
     }
 
+    public void updateTable(Table table, ITable object) {
+        switch (table) {
+            case PROGRAM:
+                Program program = (Program) object;
+            case FILM:
+                Film film = (Film) object;
+            case SERIE:
+                Serie serie = (Serie) object;
+            case SEASON:
+                Season season = (Season) object;
+            case EPISODE:
+                Episode episode = (Episode) object;
+        }
+    }
+
     public DataModel() throws SQLException {
         programs = new ArrayList<ITable>();
         films = new ArrayList<ITable>();
