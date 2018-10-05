@@ -1,6 +1,6 @@
 package main.java.data;
 
-public class Account {
+public class Account implements ITable {
     private int SubscriptionID;
     private String Name;
     private String Email;
@@ -45,6 +45,14 @@ public class Account {
         return this.Postcode;
     }
 
+    public String getHouseNumber() {
+        return this.HouseNumber;
+    }
+
+    public String getCity() {
+        return this.City;
+    }
+
     public void setSubscriptionID(int subscriptionID) {
         this.SubscriptionID = subscriptionID;
     }
@@ -67,5 +75,13 @@ public class Account {
 
     public void setPostcode(String postcode) {
         this.Postcode = postcode;
+    }
+
+    public void setHouseNumber(String houseNumber) {
+        this.HouseNumber = houseNumber;
+    }
+
+    public void setCity(String city) {
+        this.City = city;
     }
 }

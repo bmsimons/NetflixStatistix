@@ -2,7 +2,7 @@ package main.java.data;
 
 import java.util.Date;
 
-public class Profile {
+public class Profile implements ITable {
     private int ProfileID;
     private int SubscriptionID;
     private Date BirthDate;

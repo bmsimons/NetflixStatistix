@@ -15,6 +15,8 @@ public class DataModel {
     private List<ITable> series;
     private List<ITable> seasons;
     private List<ITable> episodes;
+    private List<ITable> accounts;
+    private List<ITable> profiles;
 
     private SQLConnection sqlConnection;
 
@@ -274,6 +276,20 @@ public class DataModel {
                 }
 
                 break;
+            case ACCOUNT:
+                Account account = (Account) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("DELETE FROM Account WHERE SubscriptionID = " + account.getSubscriptionID())) {
+                    accounts.remove(account);
+                }
+
+                break;
+            case PROFILE:
+                Profile profile = (Profile) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("DELETE FROM Profile WHERE ProfileID = " + profile.getProfileID())) {
+                    profiles.remove(profile);
+                }
         }
     }
 
@@ -298,6 +314,8 @@ public class DataModel {
         series = new ArrayList<ITable>();
         seasons = new ArrayList<ITable>();
         episodes = new ArrayList<ITable>();
+        accounts = new ArrayList<ITable>();
+        profiles = new ArrayList<ITable>();
 
         sqlConnection = new SQLConnection();
 

@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6c83514a-c4fc-4bc8-9e0b-cc08eae0448f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DataModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Table.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,12 +45,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="16" />
-          <entry key="java" value="17735" />
+          <entry key="java" value="18617" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="17735" />
+          <entry key="JAVA" value="18617" />
           <entry key="PLAIN_TEXT" value="16" />
         </counts>
       </usages-collector>
@@ -55,11 +58,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DataModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
+            <state relative-caret-position="391">
+              <caret line="317" column="43" selection-start-line="317" selection-start-column="43" selection-end-line="317" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+            <state relative-caret-position="221">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="27" />
               <folding>
                 <element signature="e#734#735#0" expanded="true" />
                 <element signature="e#776#777#0" expanded="true" />
@@ -85,6 +88,10 @@
                 <element signature="e#1045#1046#0" expanded="true" />
                 <element signature="e#1097#1098#0" expanded="true" />
                 <element signature="e#1132#1133#0" expanded="true" />
+                <element signature="e#1151#1152#0" expanded="true" />
+                <element signature="e#1172#1173#0" expanded="true" />
+                <element signature="e#1225#1226#0" expanded="true" />
+                <element signature="e#1257#1258#0" expanded="true" />
                 <element signature="e#1168#1169#0" expanded="true" />
                 <element signature="e#1220#1221#0" expanded="true" />
                 <element signature="e#1262#1263#0" expanded="true" />
@@ -97,16 +104,20 @@
                 <element signature="e#1550#1551#0" expanded="true" />
                 <element signature="e#1602#1603#0" expanded="true" />
                 <element signature="e#1642#1643#0" expanded="true" />
+                <element signature="e#1680#1681#0" expanded="true" />
+                <element signature="e#1726#1727#0" expanded="true" />
+                <element signature="e#1770#1771#0" expanded="true" />
+                <element signature="e#1801#1802#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Profile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+            <state relative-caret-position="221">
+              <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
               <folding>
                 <element signature="e#391#392#0" expanded="true" />
                 <element signature="e#412#413#0" expanded="true" />
@@ -168,7 +179,7 @@
         <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Table.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+              <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -216,7 +227,6 @@
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/ViewInitializer.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/UI.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/UserInterface.java" />
-        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Table.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/connection/SQLConnection.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/ITable.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/Main.java" />
@@ -225,9 +235,10 @@
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Program.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Season.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Serie.java" />
-        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DataModel.java" />
+        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Table.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Account.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Profile.java" />
+        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DataModel.java" />
       </list>
     </option>
   </component>
@@ -361,18 +372,18 @@
       <workItem from="1538398612490" duration="1614000" />
       <workItem from="1538477381516" duration="22540000" />
       <workItem from="1538653684003" duration="10285000" />
-      <workItem from="1538718231730" duration="3710000" />
+      <workItem from="1538718231730" duration="5052000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44589000" />
+    <option name="totallyTimeSpent" value="45931000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1477" height="888" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2642706" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2642706" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -399,6 +410,34 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2642706" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2657267" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.4021164" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="TMC Test Results" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32936507" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="TMC Project List" order="4" weight="0.32980973" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -480,13 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Table.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Season.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -501,16 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DataModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Program.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="929">
@@ -518,43 +540,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Account.java">
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Table.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
-          <folding>
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#776#777#0" expanded="true" />
-            <element signature="e#808#809#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#911#912#0" expanded="true" />
-            <element signature="e#951#952#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-            <element signature="e#1024#1025#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
-            <element signature="e#1097#1098#0" expanded="true" />
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
-            <element signature="e#1220#1221#0" expanded="true" />
-            <element signature="e#1262#1263#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1340#1341#0" expanded="true" />
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1426#1427#0" expanded="true" />
-            <element signature="e#1466#1467#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
-            <element signature="e#1550#1551#0" expanded="true" />
-            <element signature="e#1602#1603#0" expanded="true" />
-            <element signature="e#1642#1643#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+        <state relative-caret-position="221">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
           <folding>
             <element signature="e#391#392#0" expanded="true" />
             <element signature="e#412#413#0" expanded="true" />
@@ -568,6 +564,57 @@
             <element signature="e#777#778#0" expanded="true" />
             <element signature="e#829#830#0" expanded="true" />
             <element signature="e#870#871#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+            <element signature="e#808#809#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+            <element signature="e#879#880#0" expanded="true" />
+            <element signature="e#911#912#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1024#1025#0" expanded="true" />
+            <element signature="e#1045#1046#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+            <element signature="e#1132#1133#0" expanded="true" />
+            <element signature="e#1151#1152#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+            <element signature="e#1257#1258#0" expanded="true" />
+            <element signature="e#1168#1169#0" expanded="true" />
+            <element signature="e#1220#1221#0" expanded="true" />
+            <element signature="e#1262#1263#0" expanded="true" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1340#1341#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
+            <element signature="e#1426#1427#0" expanded="true" />
+            <element signature="e#1466#1467#0" expanded="true" />
+            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1642#1643#0" expanded="true" />
+            <element signature="e#1680#1681#0" expanded="true" />
+            <element signature="e#1726#1727#0" expanded="true" />
+            <element signature="e#1770#1771#0" expanded="true" />
+            <element signature="e#1801#1802#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="317" column="43" selection-start-line="317" selection-start-column="43" selection-end-line="317" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
