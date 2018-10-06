@@ -1,4 +1,23 @@
 package main.java.presentation.view;
 
-public class ProfileMenuListener {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class ProfileMenuListener implements ActionListener {
+    private UserInterface ui;
+    private JPanel centerPanel, topPanel;
+
+    public ProfileMenuListener(UserInterface ui, JPanel centerPanel, JPanel topPanel){
+        this.ui = ui;
+        this.centerPanel = centerPanel;
+        this.topPanel = topPanel;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ui.disableSelectedButton(topPanel, "Profiel");
+        ui.replaceCenterPanel(centerPanel,"Profiel");
+        ui.refresh();
+    }
 }
