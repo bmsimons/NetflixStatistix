@@ -1,14 +1,14 @@
-package main.java.presentation.view;
+package presentation;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ProfileActionListener implements ActionListener {
+public class ProgramActionListener implements ActionListener {
     private UserInterface ui;
     private JPanel centerPanel, topPanel;
 
-    public ProfileActionListener(UserInterface ui, JPanel centerPanel, JPanel topPanel){
+    public ProgramActionListener(UserInterface ui, JPanel centerPanel, JPanel topPanel){
         this.ui = ui;
         this.centerPanel = centerPanel;
         this.topPanel = topPanel;
@@ -16,8 +16,8 @@ public class ProfileActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ui.disableSelectedButton(topPanel, "Profiel");
-        ui.replaceCenterPanel(centerPanel,"Profiel");
+        ui.disableSelectedButton(topPanel, "Programma");
+        ui.replaceCenterPanel(centerPanel,"Programma");
         ui.refresh();
     }
 }
