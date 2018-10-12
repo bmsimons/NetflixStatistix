@@ -2,10 +2,6 @@ package data.connection;
 
 import java.sql.*;
 
-/**
- *
- * @author ppthgast, modified by @bmsimons
- */
 public class DBConnection {
 
     private Connection connection;
