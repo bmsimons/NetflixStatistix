@@ -36,4 +36,23 @@ public class Profile implements ITable {
     public void setBirthDate(Date birthDate) {
         this.BirthDate = birthDate;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Profile p = (Profile) o;
+
+        if (p.getProfileID() == this.getProfileID()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

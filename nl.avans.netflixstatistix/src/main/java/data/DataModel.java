@@ -5,6 +5,8 @@ import main.java.data.connection.SQLConnection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,6 +19,8 @@ public class DataModel {
     private List<ITable> episodes;
     private List<ITable> accounts;
     private List<ITable> profiles;
+    private List<ITable> watchedmovies;
+    private List<ITable> watchedepisodes;
 
     private SQLConnection sqlConnection;
 
@@ -99,6 +103,50 @@ public class DataModel {
                 }
 
                 break;
+            case ACCOUNT:
+                ResultSet rsAccount = sqlConnection.executeSQLSelectStatement("SELECT * FROM Account");
+
+                List<List<String>> rowsAccount = formatResultSet(rsAccount);
+
+                for (List<String> row : rowsAccount) {
+                    accounts.add(new Account(Integer.valueOf(row.get(0)), row.get(1), row.get(2), row.get(3), row.get(4), row.get(5), Integer.valueOf(row.get(6)), row.get(7)));
+                }
+
+                break;
+            case PROFILE:
+                ResultSet rsProfile = sqlConnection.executeSQLSelectStatement("SELECT * FROM Profile");
+
+                List<List<String>> rowsProfile = formatResultSet(rsProfile);
+
+                for (List<String> row : rowsProfile) {
+                    try {
+                        profiles.add(new Profile(Integer.valueOf(row.get(0)), Integer.valueOf(row.get(1)), (new SimpleDateFormat("dd/MM/yyyy")).parse(row.get(2))));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                break;
+            case WATCHEDMOVIE:
+                ResultSet rsWatchedMovie = sqlConnection.executeSQLSelectStatement("SELECT * FROM WatchedMovies");
+
+                List<List<String>> rowsWatchedMovie = formatResultSet(rsWatchedMovie);
+
+                for (List<String> row : rowsWatchedMovie) {
+                    watchedmovies.add(new WatchedMovie(Integer.valueOf(row.get(0)), Integer.valueOf(row.get(1)), Integer.valueOf(row.get(2))));
+                }
+
+                break;
+            case WATCHEDEPISODE:
+                ResultSet rsWatchedEpisode = sqlConnection.executeSQLSelectStatement("SELECT * FROM WatchedMovies");
+
+                List<List<String>> rowsWatchedEpisode = formatResultSet(rsWatchedEpisode);
+
+                for (List<String> row : rowsWatchedEpisode) {
+                    watchedepisodes.add(new WatchedEpisode(Integer.valueOf(row.get(0)), Integer.valueOf(row.get(1)), Integer.valueOf(row.get(2))));
+                }
+
+                break;
         }
     }
 
@@ -151,6 +199,50 @@ public class DataModel {
 
                 for (List<String> row : rowsEpisode) {
                     return new Episode(Integer.valueOf(row.get(0)), Integer.valueOf(row.get(1)), Integer.valueOf(row.get(2)), row.get(3), Integer.valueOf(row.get(4)));
+                }
+
+                break;
+            case ACCOUNT:
+                ResultSet rsAccount = sqlConnection.executeSQLSelectStatement("SELECT * FROM Account WHERE SubscriptionID = " + String.valueOf(id));
+
+                List<List<String>> rowsAccount = formatResultSet(rsAccount);
+
+                for (List<String> row : rowsAccount) {
+                    return new Account(Integer.valueOf(row.get(0)), row.get(1), row.get(2), row.get(3), row.get(4), row.get(5), Integer.valueOf(row.get(6)), row.get(7));
+                }
+
+                break;
+            case PROFILE:
+                ResultSet rsProfile = sqlConnection.executeSQLSelectStatement("SELECT * FROM Profile WHERE ProfileID = " + String.valueOf(id));
+
+                List<List<String>> rowsProfile = formatResultSet(rsProfile);
+
+                for (List<String> row : rowsProfile) {
+                    try {
+                        return new Profile(Integer.valueOf(row.get(0)), Integer.valueOf(row.get(1)), (new SimpleDateFormat("dd/MM/yyyy")).parse(row.get(2)));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                break;
+            case WATCHEDMOVIE:
+                ResultSet rsWatchedMovie = sqlConnection.executeSQLSelectStatement("SELECT * FROM WatchedMovies");
+
+                List<List<String>> rowsWatchedMovie = formatResultSet(rsWatchedMovie);
+
+                for (List<String> row : rowsWatchedMovie) {
+                    return new WatchedMovie(Integer.valueOf(row.get(0)), Integer.valueOf(row.get(1)), Integer.valueOf(row.get(2)));
+                }
+
+                break;
+            case WATCHEDEPISODE:
+                ResultSet rsWatchedEpisode = sqlConnection.executeSQLSelectStatement("SELECT * FROM WatchedMovies");
+
+                List<List<String>> rowsWatchedEpisode = formatResultSet(rsWatchedEpisode);
+
+                for (List<String> row : rowsWatchedEpisode) {
+                    return new WatchedEpisode(Integer.valueOf(row.get(0)), Integer.valueOf(row.get(1)), Integer.valueOf(row.get(2)));
                 }
 
                 break;
@@ -231,6 +323,62 @@ public class DataModel {
                 }
 
                 break;
+            case ACCOUNT:
+                Account account = (Account) object;
+
+                ResultSet rsAccount = sqlConnection.executeSQLInsertStatement("INSERT INTO Account (Name, Email, Password, Street, Postcode, HouseNumber, City) VALUES ('" + account.getName() + "', '" + account.getEmail() + "', '" + account.getPassword() + "', '" + account.getStreet() + "', '" + account.getPostcode() + "', " + account.getHouseNumber() + ", '" + account.getCity() + "')");
+
+                if (rsAccount != null) {
+                    int subscriptionID = resultSetKey(rsAccount);
+
+                    account.setSubscriptionID(subscriptionID);
+
+                    accounts.add(account);
+                }
+
+                break;
+            case PROFILE:
+                Profile profile = (Profile) object;
+
+                ResultSet rsProfile = sqlConnection.executeSQLInsertStatement("INSERT INTO Profile (SubscriptionID, BirthDate) VALUES (" + profile.getSubscriptionID() + ", " + profile.getBirthDate() + ")");
+
+                if (rsProfile != null) {
+                    int profileID = resultSetKey(rsProfile);
+
+                    profile.setProfileID(profileID);
+
+                    profiles.add(profile);
+                }
+
+                break;
+            case WATCHEDMOVIE:
+                WatchedMovie watchedMovie = (WatchedMovie) object;
+
+                ResultSet rsWatchedMovie = sqlConnection.executeSQLInsertStatement("INSERT INTO WatchedMovies (WatchedMovieID, ProfileID, FilmID) VALUES (" + watchedMovie.getWatchedMovieID() + ", " + watchedMovie.getProfileID() + ", " + watchedMovie.getFilmID() + ")");
+
+                if (rsWatchedMovie != null) {
+                    int watchedMovieID = resultSetKey(rsWatchedMovie);
+
+                    watchedMovie.setWatchedMovieID(watchedMovieID);
+
+                    watchedmovies.add(watchedMovie);
+                }
+
+                break;
+            case WATCHEDEPISODE:
+                WatchedEpisode watchedEpisode = (WatchedEpisode) object;
+
+                ResultSet rsWatchedEpisode = sqlConnection.executeSQLInsertStatement("INSERT INTO WatchedEpisodes (WatchedEpisodeID, ProfileID, EpisodeID) VALUES (" + watchedEpisode.getWatchedEpisodeID() + ", " + watchedEpisode.getProfileID() + ", " + watchedEpisode.getEpisodeID() + ")");
+
+                if (rsWatchedEpisode != null) {
+                    int watchedEpisodeID = resultSetKey(rsWatchedEpisode);
+
+                    watchedEpisode.setWatchedEpisodeID(watchedEpisodeID);
+
+                    watchedepisodes.add(watchedEpisode);
+                }
+
+                break;
         }
     }
 
@@ -290,6 +438,22 @@ public class DataModel {
                 if (sqlConnection.executeSQLDeleteStatement("DELETE FROM Profile WHERE ProfileID = " + profile.getProfileID())) {
                     profiles.remove(profile);
                 }
+            case WATCHEDMOVIE:
+                WatchedMovie watchedMovie = (WatchedMovie) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("DELETE FROM WatchedMovies WHERE WatchedMovieID = " + watchedMovie.getWatchedMovieID())) {
+                    watchedmovies.remove(watchedMovie);
+                }
+
+                break;
+            case WATCHEDEPISODE:
+                WatchedEpisode watchedEpisode = (WatchedEpisode) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("DELETE FROM WatchedMovies WHERE WatchedMovieID = " + watchedEpisode.getWatchedEpisodeID())) {
+                    watchedepisodes.remove(watchedEpisode);
+                }
+
+                break;
         }
     }
 
@@ -297,14 +461,77 @@ public class DataModel {
         switch (table) {
             case PROGRAM:
                 Program program = (Program) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("UPDATE Program SET Titel = '" + program.getTitle() + "', Genre = '" + program.getGenre() + "', Language = '" + program.getLanguage() + "', ShortDescription = '" + program.getShortDescription() + "', MinAge = '" + program.getMinAge() + "' WHERE ProgramID = " + program.getProgramID())) {
+                    // update list value
+                }
+
+                break;
             case FILM:
                 Film film = (Film) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("UPDATE Film SET ProgramID = " + film.getProgramID() + ", Duration = " + film.getDuration() + " WHERE FilmID = " + film.getFilmID())) {
+                    // Update list value
+                }
+
+                break;
             case SERIE:
                 Serie serie = (Serie) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("UPDATE Serie SET ProgramID = " + serie.getProgramID() + " WHERE SerieID = " + serie.getSerieID())) {
+                    // Update list value
+                }
+
+                break;
             case SEASON:
                 Season season = (Season) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("UPDATE Season SET SerieID = " + season.getSerieID() + ", SeasonNumber = " + season.getSeasonNumber() + " WHERE SeasonID = " + season.getSeasonID())) {
+                    // Update list value
+                }
+
+                break;
             case EPISODE:
                 Episode episode = (Episode) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("UPDATE Episode SET SerieID = " + episode.getSerieID() + ", SeasonID = " + episode.getSeasonID() + ", ShortDescription = '" + episode.getShortDescription() + "', EpisodeNumber = " + episode.getEpisodeNumber())) {
+                    // Update list value
+                }
+
+                break;
+            case ACCOUNT:
+                Account account = (Account) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("UPDATE Account SET Name = '" + account.getName() + "', Email = '" + account.getEmail() + "', Password = '" + account.getPassword() + "', Street = '" + account.getStreet() + "', Postcode = '" + account.getPostcode() + "', HouseNumber = " + account.getHouseNumber() + ", City = '" + account.getCity() + "' WHERE SubscriptionID = " + account.getSubscriptionID())) {
+                    // Update list value
+                }
+
+                break;
+            case PROFILE:
+                Profile profile = (Profile) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("UPDATE Profile SET SubscriptionID = " + profile.getSubscriptionID() + ", BirthDate = " + profile.getBirthDate())) {
+                    // Update list value
+                }
+
+                break;
+            case WATCHEDMOVIE:
+                WatchedMovie watchedMovie = (WatchedMovie) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("UPDATE WatchedMovies SET WatchedMovieID = " + watchedMovie.getWatchedMovieID() + ", ProfileID = " + watchedMovie.getProfileID() + ", FilmID = " + watchedMovie.getFilmID())) {
+                    // Update list value
+                }
+
+
+                break;
+            case WATCHEDEPISODE:
+                WatchedEpisode watchedEpisode = (WatchedEpisode) object;
+
+                if (sqlConnection.executeSQLDeleteStatement("UPDATE WatchedEpisode SET WatchedEpisodeID = " + watchedEpisode.getWatchedEpisodeID() + ", ProfileID = " + watchedEpisode.getProfileID() + ", FilmID = " + watchedEpisode.getEpisodeID())) {
+                    // Update list value
+                }
+
+                break;
         }
     }
 
@@ -316,6 +543,8 @@ public class DataModel {
         episodes = new ArrayList<ITable>();
         accounts = new ArrayList<ITable>();
         profiles = new ArrayList<ITable>();
+        watchedmovies = new ArrayList<ITable>();
+        watchedepisodes = new ArrayList<ITable>();
 
         sqlConnection = new SQLConnection();
 
@@ -358,6 +587,18 @@ public class DataModel {
         addToTable(Table.EPISODE, episode);
     }
 
+    public void newAccount(String name, String email, String password, String street, String postcode, int houseNumber, String city) throws SQLException {
+        Account account = new Account(0, name, email, password, street, postcode, houseNumber, city);
+
+        addToTable(Table.ACCOUNT, account);
+    }
+
+    public void newProgram(int subscriptionID, String birthDate) throws SQLException, ParseException {
+        Profile profile = new Profile(0 ,subscriptionID, (new SimpleDateFormat("dd/MM/yyyy")).parse(birthDate));
+
+        addToTable(Table.PROFILE, profile);
+    }
+
     public void removeProgram(ITable program) throws SQLException {
         removeFromTable(Table.PROGRAM, program);
     }
@@ -376,5 +617,93 @@ public class DataModel {
 
     public void removeEpisode(ITable episode) throws SQLException {
         removeFromTable(Table.EPISODE, episode);
+    }
+
+    public void removeAccount(ITable account) throws SQLException {
+        removeFromTable(Table.ACCOUNT, account);
+    }
+
+    public void removeProfile(ITable profile) throws SQLException {
+        removeFromTable(Table.PROFILE, profile);
+    }
+
+    public void removeWatchedMovie(ITable watchedMovie) throws SQLException {
+        removeFromTable(Table.WATCHEDMOVIE, watchedMovie);
+    }
+
+    public void removeWatchedEpisode(ITable watchedEpisode) throws SQLException {
+        removeFromTable(Table.WATCHEDEPISODE, watchedEpisode);
+    }
+
+    public void updateProgram(ITable program) {
+        updateTable(Table.PROGRAM, program);
+    }
+
+    public void updateFilm(ITable film) {
+        updateTable(Table.FILM, film);
+    }
+
+    public void updateSerie(ITable serie) {
+        updateTable(Table.SERIE, serie);
+    }
+
+    public void updateSeason(ITable season) {
+        updateTable(Table.SEASON, season);
+    }
+
+    public void updateEpisode(ITable episode) {
+        updateTable(Table.EPISODE, episode);
+    }
+
+    public void updateAccount(ITable account) {
+        updateTable(Table.ACCOUNT, account);
+    }
+
+    public void updateProfile(ITable profile) {
+        updateTable(Table.PROFILE, profile);
+    }
+
+    public void updateWatchedMovie(ITable watchedMovie) {
+        updateTable(Table.WATCHEDMOVIE, watchedMovie);
+    }
+
+    public void updateWatchedEpisode(ITable watchedEpisode) {
+        updateTable(Table.WATCHEDEPISODE, watchedEpisode);
+    }
+
+    public List<ITable> getPrograms() {
+        return this.programs;
+    }
+
+    public List<ITable> getFilms() {
+        return this.films;
+    }
+
+    public List<ITable> getSeries() {
+        return this.series;
+    }
+
+    public List<ITable> getSeasons() {
+        return this.seasons;
+    }
+
+    public List<ITable> getEpisodes() {
+        return this.episodes;
+    }
+
+    public List<ITable> getAccounts() {
+        return this.accounts;
+    }
+
+    public List<ITable> getProfiles() {
+        return this.profiles;
+    }
+
+    public List<ITable> getWatchedMovies() {
+        return this.watchedmovies;
+    }
+
+    public List<ITable> getWatchedEpisodes() {
+        return this.watchedepisodes;
     }
 }
