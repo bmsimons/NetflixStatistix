@@ -1,6 +1,6 @@
 package main.java.data;
 
-public class Serie implements ITable {
+public class Serie {
     private int ProgramID;
     private int SerieID;
 

@@ -1,6 +1,6 @@
 package main.java.data;
 
-public class Season implements ITable {
+public class Season {
     private int SerieID;
     private int SeasonID;
     private int SeasonNumber;

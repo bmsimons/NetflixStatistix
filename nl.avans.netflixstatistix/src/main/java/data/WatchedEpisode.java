@@ -1,6 +1,6 @@
 package main.java.data;
 
-public class WatchedEpisode implements ITable {
+public class WatchedEpisode {
     private int WatchedEpisodeID;
     private int ProfileID;
     private int EpisodeID;

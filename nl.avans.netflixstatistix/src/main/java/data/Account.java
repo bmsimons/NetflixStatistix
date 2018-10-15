@@ -1,6 +1,6 @@
 package main.java.data;
 
-public class Account implements ITable {
+public class Account {
     private int SubscriptionID;
     private String Name;
     private String Email;

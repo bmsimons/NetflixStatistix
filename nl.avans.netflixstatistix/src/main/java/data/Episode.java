@@ -1,6 +1,6 @@
 package main.java.data;
 
-public class Episode implements ITable {
+public class Episode {
     private int EpisodeID;
     private int SerieID;
     private int SeasonID;

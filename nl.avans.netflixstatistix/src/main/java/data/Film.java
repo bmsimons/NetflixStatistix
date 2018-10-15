@@ -1,6 +1,6 @@
 package main.java.data;
 
-public class Film implements ITable{
+public class Film{
     private int ProgramID;
     private int FilmID;
     private int Duration;
