@@ -8,16 +8,14 @@ public class ProgramActionListener implements ActionListener {
     private UserInterface ui;
     private JPanel centerPanel, topPanel;
 
-    public ProgramActionListener(UserInterface ui, JPanel centerPanel, JPanel topPanel){
+    public ProgramActionListener(UserInterface ui){
         this.ui = ui;
-        this.centerPanel = centerPanel;
-        this.topPanel = topPanel;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ui.disableSelectedButton(topPanel, "Programma");
-        ui.replaceCenterPanel(centerPanel,"Programma");
+        ui.disableButton("Programma");
+        ui.replaceContentPanel("Programma");
         ui.refresh();
     }
 }
