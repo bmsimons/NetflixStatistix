@@ -1,7 +1,5 @@
 package main.java.data.DAO;
 
-import main.java.data.ITable;
-
 import java.sql.SQLException;
 import java.util.List;
 

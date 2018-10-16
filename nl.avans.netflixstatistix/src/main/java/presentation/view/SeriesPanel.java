@@ -9,14 +9,6 @@ public class SeriesPanel extends JPanel {
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
 
-        // Set the constraints, change when adding another one to the center panel
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.insets = new Insets(5,5,5,0);
-
         // Test data
         String[] seriesData = {"House of Cards","The Story of Mr. Dab","Sesame Street","Minecraft"};
         // String[] data = logic.getData(String data)
@@ -34,9 +26,15 @@ public class SeriesPanel extends JPanel {
         // Set the size of the textarea
         // TODO: Make the textarea scrollable, dynamic width
         seriesAverageTextArea.setPreferredSize(new Dimension(350,250));
-        seriesAverageTextArea.setEnabled(false);
+        seriesAverageTextArea.setEditable(false);
 
-        // Add the components to the panel
+        // Set the constraints, add the components to the panel
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.insets = new Insets(5,5,5,0);
         add(seriesLabel,constraints);
 
         constraints.gridx = 1;
@@ -47,7 +45,6 @@ public class SeriesPanel extends JPanel {
         add(seriesAverageLabel, constraints);
 
         constraints.gridy = 3;
-        constraints.gridx = 0;
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
         add(seriesAverageTextArea, constraints);

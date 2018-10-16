@@ -4,14 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class UserInterface implements Runnable, UI {
-
+    // Create the frame
     private JFrame frame;
+
+    // Start setting up the frame
     @Override
     public void run() {
         frame = new JFrame("Netflix Statistix");
         frame.setLayout(new BorderLayout());
 
-        frame.setPreferredSize(new Dimension(800, 500));
+        frame.setPreferredSize(new Dimension(875, 500));
 
         // TODO: Set a proper minimum size
         frame.setMinimumSize(frame.getPreferredSize());
@@ -23,13 +25,13 @@ public class UserInterface implements Runnable, UI {
         frame.setVisible(true);
     }
 
+    // Create the components for the frame
     @Override
     public void createComponents(Container container) {
         container.setSize(frame.getWidth(), frame.getHeight());
-        // Add items to the container
-        //container.add(navigationPanel, BorderLayout.NORTH);
-        container.add(new NavigationPanel(new Dimension(container.getWidth(), container.getHeight()-24)), BorderLayout.CENTER);
-        //container.add(contentPanel, BorderLayout.CENTER);
-        container.add(new FooterPanel(new Dimension(container.getWidth(), 24)), BorderLayout.SOUTH);
+        int footerHeight = 24;
+        // Set the NavigationPanel width & height (Height = container height - footer height)
+        container.add(new NavigationPanel(new Dimension(container.getWidth(), container.getHeight()-footerHeight)), BorderLayout.CENTER);
+        container.add(new FooterPanel(new Dimension(container.getWidth(), footerHeight)), BorderLayout.SOUTH);
     }
 }

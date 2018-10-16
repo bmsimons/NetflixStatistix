@@ -7,6 +7,7 @@ import java.awt.*;
 public class FooterPanel extends JPanel {
 
     public FooterPanel(Dimension size){
+        // Bottom Panel | Footer
         setBorder(new BevelBorder(BevelBorder.LOWERED));
         setPreferredSize(size);
         setLayout(new BorderLayout());

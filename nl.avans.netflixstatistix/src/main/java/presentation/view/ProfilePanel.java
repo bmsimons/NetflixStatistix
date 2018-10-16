@@ -9,25 +9,19 @@ public class ProfilePanel extends JPanel {
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
 
-        // Set the constraints, change when adding another one to the center panel
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.insets = new Insets(5,5,5,0);
-
         String[] profileData = {"Thimo","Floris","Bart","Mike Wazowski","Buzz Lightyear"};
 
-        JLabel subscriptionLabel = new JLabel("Zoek een abonnement:");
         JTextField subscriptionTextField = new JTextField();
-        subscriptionTextField.setPreferredSize(new Dimension(150, 20));
+        subscriptionTextField.setPreferredSize(new Dimension(220, 24));
         JButton subscriptionSearchButton = new JButton("Zoek Abonnee");
+
+        // TODO: Add an ActionListener that fetches the list of profiles from an subscriber
 
         JLabel profileLabel = new JLabel("Selecteer een profiel");
         JComboBox<String> seriesComboBox = new JComboBox<String>(profileData);
         seriesComboBox.setSelectedIndex(3);
 
+        // TODO: Add an ActionListener that fetches the data of the selected user
 
         JLabel profileResultLabel = new JLabel("Gegevens voor Mike Wazowski");
         JTextArea profileResultTextArea = new JTextArea("Naam: Mike Wazowski\n" +
@@ -38,31 +32,38 @@ public class ProfilePanel extends JPanel {
                 "Leeftijd: 31");
 
         // TODO: Make the textarea scrollable, dynamic width
-        profileResultTextArea.setPreferredSize(new Dimension(350,250));
-        profileResultTextArea.setEnabled(false);
+        profileResultTextArea.setPreferredSize(new Dimension(400,250));
+        profileResultTextArea.setEditable(false);
         profileResultTextArea.setDisabledTextColor(Color.BLACK);
 
-        add(subscriptionLabel, constraints);
-
-        constraints.gridx = 1;
+        // Set the constraints, add the components to the panel
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 1;
+        constraints.insets = new Insets(5,5,5,0);
+        constraints.gridx = 0;
         add(subscriptionTextField, constraints);
 
-        constraints.gridx = 0;
-        constraints.gridy = 1;
+        constraints.gridx = 2;
+        constraints.gridwidth = 1;
         add(subscriptionSearchButton, constraints);
 
         constraints.gridx = 0;
-        constraints.gridy = 2;
+        constraints.gridy = 1;
         add(profileLabel, constraints);
 
-        constraints.gridx = 1;
+        constraints.gridx = 2;
+        constraints.gridwidth = 1;
         add(seriesComboBox, constraints);
 
-        constraints.gridy = 3;
+        constraints.gridwidth = 1;
+        constraints.gridy = 2;
         constraints.gridx = 0;
         add(profileResultLabel, constraints);
 
-        constraints.gridy = 4;
+        constraints.gridy = 3;
         constraints.gridx = 0;
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
