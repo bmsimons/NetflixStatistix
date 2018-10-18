@@ -13,7 +13,7 @@ public class ProfilePanel extends JPanel {
 
         JTextField subscriptionTextField = new JTextField();
         subscriptionTextField.setPreferredSize(new Dimension(220, 24));
-        JButton subscriptionSearchButton = new JButton("Zoek Abonnee");
+        JButton searchButton = new JButton("Zoek Abonnee");
 
         // TODO: Add an ActionListener that fetches the list of profiles from an subscriber
 
@@ -23,8 +23,8 @@ public class ProfilePanel extends JPanel {
 
         // TODO: Add an ActionListener that fetches the data of the selected user
 
-        JLabel profileResultLabel = new JLabel("Gegevens voor Mike Wazowski");
-        JTextArea profileResultTextArea = new JTextArea("Naam: Mike Wazowski\n" +
+        JLabel resultLabel = new JLabel("Gegevens voor Mike Wazowski");
+        JTextArea resultTextArea = new JTextArea("Naam: Mike Wazowski\n" +
                 "Straatnaam: Monster Ave\n" +
                 "Huisnummer: 20\n" +
                 "Toevoeging: -\n" +
@@ -32,9 +32,9 @@ public class ProfilePanel extends JPanel {
                 "Leeftijd: 31");
 
         // TODO: Make the textarea scrollable, dynamic width
-        profileResultTextArea.setPreferredSize(new Dimension(400,250));
-        profileResultTextArea.setEditable(false);
-        profileResultTextArea.setDisabledTextColor(Color.BLACK);
+        resultTextArea.setPreferredSize(new Dimension(400,250));
+        resultTextArea.setEditable(false);
+        resultTextArea.setDisabledTextColor(Color.BLACK);
 
         // Set the constraints, add the components to the panel
         constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -48,7 +48,7 @@ public class ProfilePanel extends JPanel {
 
         constraints.gridx = 2;
         constraints.gridwidth = 1;
-        add(subscriptionSearchButton, constraints);
+        add(searchButton, constraints);
 
         constraints.gridx = 0;
         constraints.gridy = 1;
@@ -61,12 +61,12 @@ public class ProfilePanel extends JPanel {
         constraints.gridwidth = 1;
         constraints.gridy = 2;
         constraints.gridx = 0;
-        add(profileResultLabel, constraints);
+        add(resultLabel, constraints);
 
         constraints.gridy = 3;
         constraints.gridx = 0;
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
-        add(profileResultTextArea, constraints);
+        add(resultTextArea, constraints);
     }
 }

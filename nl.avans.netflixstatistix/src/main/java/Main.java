@@ -11,7 +11,7 @@ public class Main {
         UserInterface ui = new UserInterface();
 
         SwingUtilities.invokeLater(ui);
-//        TODO: FIX THIS
+//        TODO: fix this, don't commit code that doesn't compile!
 //        try {
 //            DataModel dataModel = new DataModel();
 //            // dataModel.newProgram("AAAA", "Drama", "NL", "iets", 12);

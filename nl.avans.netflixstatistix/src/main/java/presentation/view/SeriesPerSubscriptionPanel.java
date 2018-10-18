@@ -14,22 +14,22 @@ public class SeriesPerSubscriptionPanel extends JPanel {
         subscriptionTextField.setPreferredSize(new Dimension(220, 24));
 
 
-        JButton subscriptionSearchButton = new JButton("Zoek Abonnee");
-        subscriptionSearchButton.setMinimumSize(new Dimension(50,24));
+        JButton searchButton = new JButton("Zoek Abonnee");
+        searchButton.setMinimumSize(new Dimension(50,24));
 
         // TODO: Add ActionListener that fetches data which contains a list of watched series.
 
-        JLabel subscriptionSeriesLabel = new JLabel("Selecteer een serie");
+        JLabel seriesLabel = new JLabel("Selecteer een serie");
 
-        String[] subscriptionSeriesTestData = {"a","b","c","d","e"};
-        JComboBox<String> subscriptionSeriesComboBox = new JComboBox<String>(subscriptionSeriesTestData);
+        String[] seriesTestData = {"a","b","c","d","e"};
+        JComboBox<String> seriesComboBox = new JComboBox<String>(seriesTestData);
 
         // TODO: Add ActionListener that fetches data which contains a list with episodes + average watched percentage
 
-        JTextArea subscriptionWatchedEpisodesTextArea = new JTextArea("ye");
-        subscriptionWatchedEpisodesTextArea.setEditable(false);
-        subscriptionWatchedEpisodesTextArea.setMinimumSize(new Dimension(400, 250));
-        subscriptionWatchedEpisodesTextArea.setPreferredSize(new Dimension(400, 250));
+        JTextArea watchedEpisodesTextArea = new JTextArea("ye");
+        watchedEpisodesTextArea.setEditable(false);
+        watchedEpisodesTextArea.setMinimumSize(new Dimension(400, 250));
+        watchedEpisodesTextArea.setPreferredSize(new Dimension(400, 250));
 
         // Set the constraints, add the components to the panel
         constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -42,22 +42,22 @@ public class SeriesPerSubscriptionPanel extends JPanel {
 
         constraints.gridx = 2;
         constraints.gridwidth = 1;
-        add(subscriptionSearchButton, constraints);
+        add(searchButton, constraints);
 
         constraints.gridx = 0;
         constraints.gridy = 1;
-        add(subscriptionSeriesLabel, constraints);
+        add(seriesLabel, constraints);
 
         constraints.gridx = 2;
         constraints.gridy = 1;
         constraints.gridwidth = 1;
-        add(subscriptionSeriesComboBox, constraints);
+        add(seriesComboBox, constraints);
 
         constraints.gridx = 0;
         constraints.gridy = 2;
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
 
-        add(subscriptionWatchedEpisodesTextArea, constraints);
+        add(watchedEpisodesTextArea, constraints);
     }
 }

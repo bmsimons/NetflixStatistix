@@ -14,13 +14,13 @@ public class MovieWatchedPanel extends JPanel {
         subscriptionTextField.setMinimumSize(new Dimension(150, 24));
         subscriptionTextField.setPreferredSize(new Dimension(220, 24));
 
-        JButton subscriptionSearchButton = new JButton("Zoek Abonnee");
-        subscriptionSearchButton.setMinimumSize(new Dimension(50,24));
+        JButton searchButton = new JButton("Zoek Abonnee");
+        searchButton.setMinimumSize(new Dimension(50,24));
 
-        JTextArea subscriptionMovieTextArea = new JTextArea("yo");
-        subscriptionMovieTextArea.setEditable(false);
-        subscriptionMovieTextArea.setMinimumSize(new Dimension(400, 250));
-        subscriptionMovieTextArea.setPreferredSize(new Dimension(400, 250));
+        JTextArea movieTextArea = new JTextArea("yo");
+        movieTextArea.setEditable(false);
+        movieTextArea.setMinimumSize(new Dimension(400, 250));
+        movieTextArea.setPreferredSize(new Dimension(400, 250));
 
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = 0;
@@ -32,12 +32,12 @@ public class MovieWatchedPanel extends JPanel {
 
         constraints.gridx = 2;
         constraints.gridwidth = 1;
-        add(subscriptionSearchButton, constraints);
+        add(searchButton, constraints);
 
         constraints.gridy = 1;
         constraints.gridx = 0;
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
-        add(subscriptionMovieTextArea, constraints);
+        add(movieTextArea, constraints);
     }
 }
