@@ -24,17 +24,19 @@ public class ProfilePanel extends JPanel {
         // TODO: Add an ActionListener that fetches the data of the selected user
 
         JLabel resultLabel = new JLabel("Gegevens voor Mike Wazowski");
-        JTextArea resultTextArea = new JTextArea("Naam: Mike Wazowski\n" +
+        JTextArea resultTextArea = new JTextArea(13, 35);
+
+        resultTextArea.setText("Naam: Mike Wazowski\n" +
                 "Straatnaam: Monster Ave\n" +
                 "Huisnummer: 20\n" +
                 "Toevoeging: -\n" +
                 "Woonplaats: Monstropolis\n" +
                 "Leeftijd: 31");
-
-        // TODO: Make the textarea scrollable, dynamic width
-        resultTextArea.setPreferredSize(new Dimension(400,250));
         resultTextArea.setEditable(false);
         resultTextArea.setDisabledTextColor(Color.BLACK);
+
+        JScrollPane scrollPane = new JScrollPane(resultTextArea);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         // Set the constraints, add the components to the panel
         constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -67,6 +69,6 @@ public class ProfilePanel extends JPanel {
         constraints.gridx = 0;
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
-        add(resultTextArea, constraints);
+        add(scrollPane, constraints);
     }
 }

@@ -18,15 +18,13 @@ public class SeriesPanel extends JPanel {
         JComboBox<String> seriesComboBox = new JComboBox<String>(seriesData);
 
         JLabel seriesAverageLabel = new JLabel("Gemiddeld % bekeken per aflevering");
-        JTextArea seriesAverageTextArea = new JTextArea("Aflevering 1: 55%\n" +
-                "Aflevering 2: 100%\n" +
-                "Aflevering 3: 75%\n" +
-                "Aflevering 4: 20%\n");
+        JTextArea seriesAverageTextArea = new JTextArea(13, 35);
+        seriesAverageTextArea.setText("Selecteer een serie.");
         seriesAverageTextArea.setDisabledTextColor(Color.BLACK);
-        // Set the size of the textarea
-        // TODO: Make the textarea scrollable, dynamic width
-        seriesAverageTextArea.setPreferredSize(new Dimension(350,250));
         seriesAverageTextArea.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(seriesAverageTextArea);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         // Set the constraints, add the components to the panel
         constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -47,6 +45,6 @@ public class SeriesPanel extends JPanel {
         constraints.gridy = 3;
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
-        add(seriesAverageTextArea, constraints);
+        add(scrollPane, constraints);
     }
 }

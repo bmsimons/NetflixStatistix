@@ -13,9 +13,12 @@ public class SubscriptionPanel extends JPanel {
 
         // TODO: Fetch the subscriptions that have at least 1 profile assigned to them.
 
-        JTextArea subscriptionTextArea = new JTextArea("yeeeeeeee");
-        subscriptionTextArea.setPreferredSize(new Dimension(400,250));
+        JTextArea subscriptionTextArea = new JTextArea(13, 35);
+        subscriptionTextArea.setText("--- TEXT ---");
         subscriptionTextArea.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(subscriptionTextArea);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         constraints.gridx = 0;
         constraints.gridy = 0;
@@ -28,6 +31,6 @@ public class SubscriptionPanel extends JPanel {
         constraints.gridy = 1;
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
-        add(subscriptionTextArea, constraints);
+        add(scrollPane, constraints);
     }
 }

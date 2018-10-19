@@ -26,10 +26,12 @@ public class SeriesPerSubscriptionPanel extends JPanel {
 
         // TODO: Add ActionListener that fetches data which contains a list with episodes + average watched percentage
 
-        JTextArea watchedEpisodesTextArea = new JTextArea("ye");
+        JTextArea watchedEpisodesTextArea = new JTextArea(13, 35);
+        watchedEpisodesTextArea.setText("Selecteer een abonnee & serie.");
         watchedEpisodesTextArea.setEditable(false);
-        watchedEpisodesTextArea.setMinimumSize(new Dimension(400, 250));
-        watchedEpisodesTextArea.setPreferredSize(new Dimension(400, 250));
+
+        JScrollPane scrollPane = new JScrollPane(watchedEpisodesTextArea);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         // Set the constraints, add the components to the panel
         constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -58,6 +60,6 @@ public class SeriesPerSubscriptionPanel extends JPanel {
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
 
-        add(watchedEpisodesTextArea, constraints);
+        add(scrollPane, constraints);
     }
 }

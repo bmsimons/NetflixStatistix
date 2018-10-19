@@ -17,10 +17,12 @@ public class MovieWatchedPanel extends JPanel {
         JButton searchButton = new JButton("Zoek Abonnee");
         searchButton.setMinimumSize(new Dimension(50,24));
 
-        JTextArea movieTextArea = new JTextArea("yo");
+        JTextArea movieTextArea = new JTextArea(13, 35);
+        movieTextArea.setText("Selecteer een abonnee.");
         movieTextArea.setEditable(false);
-        movieTextArea.setMinimumSize(new Dimension(400, 250));
-        movieTextArea.setPreferredSize(new Dimension(400, 250));
+
+        JScrollPane scrollPane = new JScrollPane(movieTextArea);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = 0;
@@ -38,6 +40,6 @@ public class MovieWatchedPanel extends JPanel {
         constraints.gridx = 0;
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
-        add(movieTextArea, constraints);
+        add(scrollPane, constraints);
     }
 }

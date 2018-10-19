@@ -15,10 +15,12 @@ public class MovieFullyWatchedPanel extends JPanel {
         JComboBox<String> movieComboBox = new JComboBox<>();
 
         // TODO: Fetch the statistics of the selected movie
-        JTextArea movieStatisticsTextArea = new JTextArea("o0o0o312");
-        movieStatisticsTextArea.setMinimumSize(new Dimension(400,250));
-        movieStatisticsTextArea.setPreferredSize(new Dimension(400,250));
+        JTextArea movieStatisticsTextArea = new JTextArea(13, 35);
+        movieStatisticsTextArea.setText("Selecteer een film.");
         movieStatisticsTextArea.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(movieStatisticsTextArea);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = 0;
@@ -35,6 +37,6 @@ public class MovieFullyWatchedPanel extends JPanel {
         constraints.gridy = 1;
         constraints.gridwidth = 3;
         constraints.fill =  GridBagConstraints.VERTICAL;
-        add(movieStatisticsTextArea, constraints);
+        add(scrollPane, constraints);
     }
 }
