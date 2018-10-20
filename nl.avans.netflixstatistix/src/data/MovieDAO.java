@@ -1,7 +1,9 @@
 package data;
 
 import data.connection.DBConnection;
+import domain.Language;
 import domain.Movie;
+import domain.Profile;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,11 +31,13 @@ public class MovieDAO implements DAO<Movie>{
                 //create a subscription with the result
                 Movie movie = new Movie(
                         result.getInt("ID"),
-                        result.getString("title"),
-                        result.getString("genre"),
-                        result.getInt("age"),
-                        result.getInt("duration")
+                        result.getString("Title"),
+                        result.getString("Genre"),
+                        result.getInt("ageIndication"),
+                        result.getInt("Duration")
                 );
+
+                movie.setLanguage(Language.valueOf(result.getString("languageCode")));
 
                 //always close the connection when you're done with your query
                 conn.closeConnection();
@@ -51,8 +55,8 @@ public class MovieDAO implements DAO<Movie>{
     }
 
     @Override
-    public List<Movie> getAll() {
-        List<Movie> movieList = new ArrayList<>();
+    public ArrayList<Movie> getAll() {
+        ArrayList<Movie> movieList = new ArrayList<>();
 
         if (conn.openConnection()){
             String query = "SELECT * FROM Movies";
@@ -63,11 +67,13 @@ public class MovieDAO implements DAO<Movie>{
                 while(result.next()) {
                     Movie movie = new Movie(
                             result.getInt("ID"),
-                            result.getString("title"),
-                            result.getString("genre"),
-                            result.getInt("age"),
-                            result.getInt("duration")
+                            result.getString("Title"),
+                            result.getString("Genre"),
+                            result.getInt("ageIndication"),
+                            result.getInt("Duration")
                     );
+
+                    movie.setLanguage(Language.valueOf(result.getString("languageCode")));
 
                     movieList.add(movie);
                 }
@@ -97,5 +103,40 @@ public class MovieDAO implements DAO<Movie>{
     @Override
     public boolean delete(Movie movie) {
         return false;
+    }
+
+    public ArrayList<Movie> getMoviesWatchedBy(Profile profile){
+        ArrayList<Movie> movieList = new ArrayList<>();
+
+        if (conn.openConnection()){
+            String query = "SELECT * FROM Movies WHERE ID IN (SELECT MovieID FROM WatchedMovies WHERE ProfileID = "+ profile.getId()+")";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+            try{
+
+                while(result.next()) {
+                    Movie movie = new Movie(
+                            result.getInt("ID"),
+                            result.getString("Title"),
+                            result.getString("Genre"),
+                            result.getInt("ageIndication"),
+                            result.getInt("Duration")
+                    );
+
+                    movie.setLanguage(Language.valueOf(result.getString("languageCode")));
+
+                    movieList.add(movie);
+                }
+
+                conn.closeConnection();
+
+                return movieList;
+            }catch (SQLException e){
+                System.out.println(e);
+            }
+
+        }
+
+        return null;
     }
 }

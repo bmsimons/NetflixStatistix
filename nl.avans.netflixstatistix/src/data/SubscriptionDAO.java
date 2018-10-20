@@ -25,18 +25,18 @@ public class SubscriptionDAO implements DAO<Subscription> {
         //always open the connection when you want to contact the DB
         if (conn.openConnection()){
             //the query to get a single subscription
-            String query = "SELECT * FROM Subscriptions WHERE id = "+id;
+            String query = "SELECT * FROM Subscriptions WHERE ID = "+id;
 
             //the result from the query after querying
             ResultSet result = conn.executeSQLSelectStatement(query);
             try{
                 //create a subscription with the result
                 Subscription subscription = new Subscription(
-                        result.getString("name"),
-                        result.getString("streetName"),
-                        result.getString("city"),
-                        result.getInt("houseNo"),
-                        result.getString("addition"),
+                        result.getString("Name"),
+                        result.getString("StreetName"),
+                        result.getString("City"),
+                        result.getInt("HouseNumber"),
+                        result.getString("Addition"),
                         result.getInt("ID")
                 );
 
@@ -56,9 +56,9 @@ public class SubscriptionDAO implements DAO<Subscription> {
     }
 
     @Override
-    public List<Subscription> getAll() {
+    public ArrayList<Subscription> getAll() {
 
-        List<Subscription> subscriptions = new ArrayList<>();
+        ArrayList<Subscription> subscriptions = new ArrayList<>();
 
         if (conn.openConnection()){
             String query = "SELECT * FROM Subscriptions";
@@ -68,11 +68,11 @@ public class SubscriptionDAO implements DAO<Subscription> {
 
                 while(result.next()) {
                     Subscription subscription = new Subscription(
-                            result.getString("name"),
-                            result.getString("streetName"),
-                            result.getString("city"),
-                            result.getInt("houseNo"),
-                            result.getString("addition"),
+                            result.getString("Name"),
+                            result.getString("StreetName"),
+                            result.getString("City"),
+                            result.getInt("HouseNumber"),
+                            result.getString("Addition"),
                             result.getInt("ID")
                     );
 

@@ -1,9 +1,12 @@
-import data.DataModel;
-import data.Table;
+import domain.Episode;
+import domain.Profile;
+import domain.Series;
+import domain.Subscription;
+import logic.ProgramManager;
+import logic.SubscriptionManager;
 import presentation.UserInterface;
 
 import javax.swing.*;
-import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,15 +14,12 @@ public class Main {
 
         SwingUtilities.invokeLater(ui);
 
-        try {
-            DataModel dataModel = new DataModel();
-            // dataModel.newProgram("AAAA", "Drama", "NL", "iets", 12);
-            // dataModel.newFilm(12, 60);
-            // dataModel.removeFilm(2);
+        SubscriptionManager PM = new SubscriptionManager();
 
-            dataModel.removeFilm(dataModel.getFromTable(Table.FILM, 2));
-        } catch (SQLException e) {
-            e.printStackTrace();
+        for(Subscription s : PM.getSubscriptions()){
+            for (Profile p : s.getProfiles()){
+                System.out.println(p.getProfileName());
+            }
         }
     }
 }

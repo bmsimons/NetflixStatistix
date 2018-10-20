@@ -2,11 +2,11 @@ package data;
 
 import data.connection.DBConnection;
 import domain.Episode;
+import domain.Series;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class EpisodeDAO implements DAO<Episode> {
 
@@ -29,9 +29,9 @@ public class EpisodeDAO implements DAO<Episode> {
             try{
                 //create a subscription with the result
                 Episode episode = new Episode(
-                        result.getInt("episodeNumber"),
-                        result.getString("title"),
-                        result.getInt("duration"),
+                        result.getInt("EpisodeNumber"),
+                        result.getString("Title"),
+                        result.getInt("Duration"),
                         result.getInt("ID")
                 );
 
@@ -51,8 +51,8 @@ public class EpisodeDAO implements DAO<Episode> {
     }
 
     @Override
-    public List<Episode> getAll() {
-        List<Episode> episodes = new ArrayList<>();
+    public ArrayList<Episode> getAll() {
+        ArrayList<Episode> episodes = new ArrayList<>();
 
         if (conn.openConnection()){
             String query = "SELECT * FROM Episodes";
@@ -60,6 +60,39 @@ public class EpisodeDAO implements DAO<Episode> {
             ResultSet result = conn.executeSQLSelectStatement(query);
             try{
 
+                while(result.next()) {
+                    Episode episode = new Episode(
+                            result.getInt("episodeNumber"),
+                            result.getString("title"),
+                            result.getInt("duration"),
+                            result.getInt("ID")
+                    );
+
+                    episodes.add(episode);
+                }
+
+                conn.closeConnection();
+
+                return episodes;
+            }catch (SQLException e){
+                System.out.println(e);
+            }
+
+        }
+
+        return null;
+    }
+
+    public ArrayList<Episode> getAllBySeries(Series series) {
+        ArrayList<Episode> episodes = new ArrayList<>();
+
+        int seriesID = series.getId();
+
+        if (conn.openConnection()){
+            String query = "SELECT * FROM Episodes WHERE SeriesID = "+seriesID;
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+            try{
                 while(result.next()) {
                     Episode episode = new Episode(
                             result.getInt("episodeNumber"),

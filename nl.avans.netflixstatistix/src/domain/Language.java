@@ -6,8 +6,7 @@ public enum Language {
     NL("Nederlands"),
     DE("Deutsch"),
     FR("Français"),
-    ES("Español"),
-    RU("Pусский");
+    ES("Español");
 
     private String language;
 

@@ -24,12 +24,9 @@ public class DBConnection {
             {
                 // Try to create a connection with the library database
                 connection = DriverManager.getConnection(
-                        "jdbc:sqlserver://localhost:1433;"
-                                + "database=NetflixStatistix;"
-                                + "user=Bob;"
-                                + "password=P@ssw0rd;"
-                                + "encrypt=false;"
-                                + "loginTimeout=5;"
+                        "jdbc:sqlserver://localhost\\SQLEXPRESS;"
+                                + "databaseName=NetflixStatistix;"
+                                + "integratedSecurity=true"
                 );
 
                 if(connection != null)

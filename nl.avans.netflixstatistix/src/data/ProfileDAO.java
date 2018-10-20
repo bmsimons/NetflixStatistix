@@ -2,6 +2,7 @@ package data;
 
 import data.connection.DBConnection;
 import domain.Profile;
+import domain.Subscription;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,15 +22,15 @@ public class ProfileDAO implements DAO<Profile> {
         //always open the connection when you want to contact the DB
         if (conn.openConnection()){
             //the query to get a single subscription
-            String query = "SELECT * FROM Profiles WHERE id = "+id;
+            String query = "SELECT * FROM Profiles WHERE ID = "+id;
 
             //the result from the query after querying
             ResultSet result = conn.executeSQLSelectStatement(query);
             try{
                 //create a subscription with the result
                 Profile profile = new Profile(
-                        result.getString("name"),
-                        result.getInt("age"),
+                        result.getString("Name"),
+                        result.getInt("Age"),
                         result.getInt("ID")
                 );
 
@@ -60,8 +61,39 @@ public class ProfileDAO implements DAO<Profile> {
 
                 while(result.next()) {
                     Profile profile = new Profile(
-                            result.getString("name"),
-                            result.getInt("age"),
+                            result.getString("Name"),
+                            result.getInt("Age"),
+                            result.getInt("ID")
+                    );
+
+                    profiles.add(profile);
+                }
+
+                conn.closeConnection();
+
+                return profiles;
+            }catch (SQLException e){
+                System.out.println(e);
+            }
+
+        }
+
+        return null;
+    }
+
+    public ArrayList<Profile> getAllBySub(Subscription subscription) {
+        ArrayList<Profile> profiles = new ArrayList<>();
+
+        if (conn.openConnection()){
+            String query = "SELECT * FROM Profiles WHERE SubscriptionID = " + subscription.getId();
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+            try{
+
+                while(result.next()) {
+                    Profile profile = new Profile(
+                            result.getString("Name"),
+                            result.getInt("Age"),
                             result.getInt("ID")
                     );
 
