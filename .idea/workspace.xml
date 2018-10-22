@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c83514a-c4fc-4bc8-9e0b-cc08eae0448f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/logic/ProgramManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/logic/SubscriptionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/MovieDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/MovieDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/connection/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/connection/DBConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/logic/ProgramManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/logic/ProgramManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/EpisodeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/EpisodeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/LanguageDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/MovieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/MovieDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/ProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/ProfileDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/SeriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/SeriesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/SubscriptionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/SubscriptionDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Episode.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Episode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/ProfileActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/ProfileActionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/ProgramActionListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/NavigationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/NavigationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/SeriesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/SeriesPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/UserInterface.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,32 +30,33 @@
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.22" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
           <entry key="form" value="1" />
-          <entry key="java" value="18" />
+          <entry key="java" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="GUI_DESIGNER_FORM" value="1" />
-          <entry key="JAVA" value="18" />
+          <entry key="JAVA" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="16" />
-          <entry key="java" value="18617" />
+          <entry key="java" value="19949" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="18617" />
+          <entry key="JAVA" value="19949" />
           <entry key="PLAIN_TEXT" value="16" />
         </counts>
       </usages-collector>
@@ -139,14 +134,90 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+            <state relative-caret-position="323">
+              <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="23" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/logic/SubscriptionManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/logic/ProgramManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="565">
+              <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/SeriesPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/UI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/UserInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="511">
+              <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1507#1508#0" expanded="true" />
+                <element signature="e#1537#1538#0" expanded="true" />
+                <element signature="e#1590#1591#0" expanded="true" />
+                <element signature="e#1616#1617#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/NavigationPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="43" column="76" selection-start-line="43" selection-start-column="76" selection-end-line="43" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -210,7 +281,6 @@
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Series.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Movie.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/AccountPanel.java" />
-        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Episode.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/LanguageDAO.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Language.java" />
@@ -222,7 +292,11 @@
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/ProfileDAO.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/MovieDAO.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/logic/ProgramManager.java" />
+        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java" />
+        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/SeriesPanel.java" />
         <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/Main.java" />
+        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/UserInterface.java" />
+        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/NavigationPanel.java" />
       </list>
     </option>
   </component>
@@ -233,10 +307,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="44" />
-    <option name="y" value="-20" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="43" />
+    <option name="y" value="-21" />
+    <option name="width" value="975" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -246,8 +320,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -266,11 +338,41 @@
               <item name="nl.avans.netflixstatistix" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="NetflixStatistix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetflixStatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="nl.avans.netflixstatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetflixStatistix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetflixStatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="nl.avans.netflixstatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetflixStatistix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetflixStatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="nl.avans.netflixstatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetflixStatistix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetflixStatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="nl.avans.netflixstatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="presentation" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -349,17 +451,18 @@
       <workItem from="1539602957296" duration="3269000" />
       <workItem from="1539870395168" duration="6621000" />
       <workItem from="1540059782116" duration="7269000" />
+      <workItem from="1540234304328" duration="6238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105316000" />
+    <option name="totallyTimeSpent" value="111554000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1477" height="888" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1684435" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17054264" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -368,7 +471,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32968238" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26138827" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.260582" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -402,9 +505,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/Episode.java" />
-    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/ITable.java" />
-    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/Program.java" />
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/Profile.java" />
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/Account.java" />
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/Film.java" />
@@ -482,23 +582,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/AccountPanel.java" />
-    <entry file="file://$PROJECT_DIR$/../../../Software Architectuur en Design 1/Les 2/Library_DummyData/src/main/java/library/DataStorage/DatabaseConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="38" column="60" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/UserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Software Architectuur en Design 1/Les 2/Library_DummyData/src/main/java/library/DataStorage/DatabaseConnection.java" />
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -583,13 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/EpisodeDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -610,26 +687,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/logic/ProgramManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../Software Architectuur en Design 1/Les 2/Library_DummyData/src/main/java/library/businesslogic/MemberAdminManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="90" column="63" lean-forward="true" selection-start-line="90" selection-start-column="63" selection-end-line="90" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#3513#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Software Architectuur en Design 1/Les 2/Library_DummyData/src/main/java/library/businesslogic/MemberAdminManager.java" />
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/SubscriptionDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
@@ -675,21 +733,72 @@
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/logic/SubscriptionManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
-            <element signature="e#199#200#0" expanded="true" />
-            <element signature="e#247#248#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/SeriesPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/logic/ProgramManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        <state relative-caret-position="323">
+          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="23" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/UserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1507#1508#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1590#1591#0" expanded="true" />
+            <element signature="e#1616#1617#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/NavigationPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="43" column="76" selection-start-line="43" selection-start-column="76" selection-end-line="43" selection-end-column="76" />
         </state>
       </provider>
     </entry>

@@ -10,16 +10,17 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+//        SubscriptionManager SM = new SubscriptionManager();
+//        ProgramManager PM = new ProgramManager();
+
         UserInterface ui = new UserInterface();
 
         SwingUtilities.invokeLater(ui);
 
-        SubscriptionManager PM = new SubscriptionManager();
-
-        for(Subscription s : PM.getSubscriptions()){
-            for (Profile p : s.getProfiles()){
-                System.out.println(p.getProfileName());
-            }
-        }
+//        for(Subscription s : SM.getSubscriptions()){
+//            for (Profile p : s.getProfiles()){
+//                System.out.println(p.getProfileName());
+//            }
+//        }
     }
 }

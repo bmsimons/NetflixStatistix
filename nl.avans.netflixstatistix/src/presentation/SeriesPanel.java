@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SeriesPanel extends JPanel {
+    JComboBox<String> seriesComboBox;
+
     public SeriesPanel(Dimension size){
         setPreferredSize(new Dimension(size));
         GridBagConstraints constraints = new GridBagConstraints();
@@ -15,7 +17,7 @@ public class SeriesPanel extends JPanel {
 
         // Center Panel Components
         JLabel seriesLabel = new JLabel("Selecteer serie");
-        JComboBox<String> seriesComboBox = new JComboBox<String>(seriesData);
+        seriesComboBox = new JComboBox<String>(seriesData);
 
         JLabel seriesAverageLabel = new JLabel("Gemiddeld % bekeken per aflevering");
         JTextArea seriesAverageTextArea = new JTextArea(13, 35);
