@@ -3,9 +3,7 @@ package logic;
 import data.EpisodeDAO;
 import data.MovieDAO;
 import data.SeriesDAO;
-import domain.Movie;
-import domain.Series;
-import domain.Subscription;
+import domain.*;
 
 import java.util.ArrayList;
 
@@ -45,6 +43,12 @@ public class ProgramManager {
         movies = mdao.getAll();
 
         return movies;
+    }
+
+    public ArrayList<WatchedEpisode> getWatchedDataForEpisode(Episode episode) {
+        EpisodeDAO edao = new EpisodeDAO();
+
+        return edao.getWatchedDataForEpisode(episode);
     }
 
     public int getUserAmountFullyWatched(Movie movie){

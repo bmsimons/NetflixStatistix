@@ -3,6 +3,7 @@ package data;
 import data.connection.DBConnection;
 import domain.Episode;
 import domain.Series;
+import domain.WatchedEpisode;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -81,6 +82,37 @@ public class EpisodeDAO implements DAO<Episode> {
         }
 
         return null;
+    }
+
+    public ArrayList<WatchedEpisode> getWatchedDataForEpisode(Episode episode) {
+        ArrayList<WatchedEpisode> watchedData = new ArrayList<>();
+
+        int episodeId = episode.getId();
+
+        if (conn.openConnection()) {
+            String query = "SELECT * FROM WatchedEpisodes WHERE EpisodeID = "+episodeId;
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+            try {
+                while (result.next()) {
+                    WatchedEpisode watchedEpisode = new WatchedEpisode(
+                            result.getInt("ProfileID"),
+                            result.getInt("EpisodeID"),
+                            result.getInt("Duration")
+                    );
+
+                    if (watchedEpisode.getEpisodeID() == episodeId) {
+                        watchedData.add(watchedEpisode);
+                    }
+                }
+
+                conn.closeConnection();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        return watchedData;
     }
 
     public ArrayList<Episode> getAllBySeries(Series series) {

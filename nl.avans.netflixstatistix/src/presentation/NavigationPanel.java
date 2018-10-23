@@ -1,5 +1,6 @@
 package presentation;
 
+import domain.Program;
 import domain.Subscription;
 import logic.ProgramManager;
 
@@ -20,7 +21,7 @@ public class NavigationPanel extends JTabbedPane {
 
         this.ui = ui;
 
-        seriesPanel = new SeriesPanel(size);
+        seriesPanel = new SeriesPanel(size, ui);
 
         addTab("Series", null, seriesPanel, "Zoek de statistieken van series");
         addTab("Series Per Abonnee", null, new SeriesPerSubscriptionPanel(size), "Zoek de statistieken van series per abonnee");
@@ -40,8 +41,8 @@ public class NavigationPanel extends JTabbedPane {
                     case 0:
                         seriesPanel.seriesComboBox.removeAllItems();
 
-                        for (Subscription s : ui.getSubscriptionManager().getSubscriptions()) {
-                            seriesPanel.seriesComboBox.addItem(s.getName());
+                        for (Program p : ui.getProgramManager().getSeries()) {
+                            seriesPanel.seriesComboBox.addItem(p.getTitle());
                         }
 
                         break;
