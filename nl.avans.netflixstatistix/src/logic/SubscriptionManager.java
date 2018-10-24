@@ -5,6 +5,8 @@ import data.SubscriptionDAO;
 import domain.Subscription;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SubscriptionManager {
 
@@ -27,5 +29,14 @@ public class SubscriptionManager {
         }
 
         return subscriptions;
+    }
+
+    public Set<Integer> getAllSeriesForSubscriber(int subscriberID) {
+
+        SubscriptionDAO subdao = new SubscriptionDAO();
+
+        Set<Integer> seriesIDs = subdao.getAllSeriesForSubscriber(subscriberID);
+
+        return seriesIDs;
     }
 }

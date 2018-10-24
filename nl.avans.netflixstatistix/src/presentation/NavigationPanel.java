@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class NavigationPanel extends JTabbedPane {
     UserInterface ui;
     SeriesPanel seriesPanel;
+    SeriesPerSubscriptionPanel seriesPerSubscriptionPanel;
 
     public NavigationPanel(Dimension size, UserInterface ui){
         // Top Panel | Navigation Bar | Tabbed Pane
@@ -22,9 +23,10 @@ public class NavigationPanel extends JTabbedPane {
         this.ui = ui;
 
         seriesPanel = new SeriesPanel(size, ui);
+        seriesPerSubscriptionPanel = new SeriesPerSubscriptionPanel(size, ui);
 
         addTab("Series", null, seriesPanel, "Zoek de statistieken van series");
-        addTab("Series Per Abonnee", null, new SeriesPerSubscriptionPanel(size), "Zoek de statistieken van series per abonnee");
+        addTab("Series Per Abonnee", null, seriesPerSubscriptionPanel, "Zoek de statistieken van series per abonnee");
         addTab("Gekeken Films", null, new MovieWatchedPanel(size), "Zoek welke films er zijn bekeken per abonnee");
         addTab("16- Film", null, new MovieBelowSixteenPanel(size), "Geef de film met de langste tijdsduur voor kijkers onder 16 jaar");
         addTab("Gehele Film", null, new MovieFullyWatchedPanel(size), "Geef aan hoe vaak een film volledig bekeken is");

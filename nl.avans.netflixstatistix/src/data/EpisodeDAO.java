@@ -8,6 +8,7 @@ import domain.WatchedEpisode;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EpisodeDAO implements DAO<Episode> {
 
@@ -79,6 +80,53 @@ public class EpisodeDAO implements DAO<Episode> {
                 System.out.println(e);
             }
 
+        }
+
+        return null;
+    }
+
+    public HashMap<Episode, Integer> getEpisodesWithAverageWatchedPerSubscription(int subscriptionID) {
+        HashMap<Episode, Integer> collection = new HashMap<Episode, Integer>();
+        HashMap<Episode, Integer> collectionCounter = new HashMap<Episode, Integer>();
+
+        if (conn.openConnection()) {
+            String query = "SELECT Episodes.*, WatchedEpisodes.Duration as watchedDuration FROM Profiles\n" +
+                    "INNER JOIN WatchedEpisodes ON WatchedEpisodes.ProfileID = Profiles.ID\n" +
+                    "INNER JOIN Episodes ON Episodes.ID = WatchedEpisodes.EpisodeID\n" +
+                    "WHERE SubscriptionID = " + subscriptionID + "\n" +
+                    "ORDER BY ID;";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+            try {
+                while (result.next()) {
+                    Episode episode = new Episode(
+                            result.getInt("episodeNumber"),
+                            result.getString("title"),
+                            result.getInt("duration"),
+                            result.getInt("ID")
+                    );
+
+                    if (!collection.containsKey(episode)) {
+                        collection.put(episode, result.getInt("watchedDuration"));
+                        collectionCounter.put(episode, 1);
+                    } else {
+                        collection.put(episode, collection.get(episode) + result.getInt("watchedDuration"));
+                        collectionCounter.put(episode, collectionCounter.get(episode) + 1);
+                    }
+
+                    System.out.println(collection.get(episode));
+                }
+
+                for (Episode e: collectionCounter.keySet()) {
+                    int amount = collectionCounter.get(e);
+
+                    collection.put(e, collection.get(e) / amount);
+                }
+
+                return collection;
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
         }
 
         return null;

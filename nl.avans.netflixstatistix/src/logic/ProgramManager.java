@@ -6,6 +6,7 @@ import data.SeriesDAO;
 import domain.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ProgramManager {
 
@@ -49,6 +50,12 @@ public class ProgramManager {
         EpisodeDAO edao = new EpisodeDAO();
 
         return edao.getWatchedDataForEpisode(episode);
+    }
+
+    public HashMap<Episode, Integer> getEpisodesWithAverageWatchedPerSubscription(int subscriptionID) {
+        EpisodeDAO edao = new EpisodeDAO();
+
+        return edao.getEpisodesWithAverageWatchedPerSubscription(subscriptionID);
     }
 
     public int getUserAmountFullyWatched(Movie movie){

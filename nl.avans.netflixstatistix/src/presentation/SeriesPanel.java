@@ -70,8 +70,6 @@ public class SeriesPanel extends JPanel {
                             break;
                         }
                     }
-
-                    System.out.println(item);
                 }
             }
         });

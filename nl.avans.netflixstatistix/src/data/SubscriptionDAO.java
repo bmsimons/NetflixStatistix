@@ -9,7 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SubscriptionDAO implements DAO<Subscription> {
 
@@ -86,6 +88,32 @@ public class SubscriptionDAO implements DAO<Subscription> {
                 System.out.println(e);
             }
 
+        }
+
+        return null;
+    }
+
+    public Set<Integer> getAllSeriesForSubscriber(int subscriberID) {
+        Set<Integer> seriesIDs = new HashSet<Integer>();
+
+        if (conn.openConnection()) {
+            String query = "SELECT DISTINCT EpisodeID FROM WatchedEpisodes\n" +
+                    "INNER JOIN Profiles ON Profiles.ID = WatchedEpisodes.ProfileID\n" +
+                    "INNER JOIN Episodes ON Episodes.ID = EpisodeID\n" +
+                    "WHERE SubscriptionID = " + subscriberID + ";";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+            try {
+                while(result.next()) {
+                    seriesIDs.add(result.getInt("EpisodeID"));
+                }
+
+                conn.closeConnection();
+
+                return seriesIDs;
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
         }
 
         return null;
