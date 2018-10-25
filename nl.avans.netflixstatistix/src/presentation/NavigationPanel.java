@@ -18,6 +18,8 @@ public class NavigationPanel extends JTabbedPane {
     SeriesPerSubscriptionPanel seriesPerSubscriptionPanel;
     MovieWatchedPanel movieWatchedPanel;
     MovieBelowSixteenPanel movieBelowSixteenPanel;
+    MovieFullyWatchedPanel movieFullyWatchedPanel;
+    ProfilePanel profilePanel;
 
     public NavigationPanel(Dimension size, UserInterface ui){
         // Top Panel | Navigation Bar | Tabbed Pane
@@ -29,13 +31,15 @@ public class NavigationPanel extends JTabbedPane {
         seriesPerSubscriptionPanel = new SeriesPerSubscriptionPanel(size, ui);
         movieWatchedPanel = new MovieWatchedPanel(size, ui);
         movieBelowSixteenPanel = new MovieBelowSixteenPanel(size, ui);
+        movieFullyWatchedPanel = new MovieFullyWatchedPanel(size, ui);
+        profilePanel = new ProfilePanel(size, ui);
 
         addTab("Series", null, seriesPanel, "Zoek de statistieken van series");
         addTab("Series Per Abonnee", null, seriesPerSubscriptionPanel, "Zoek de statistieken van series per abonnee");
         addTab("Gekeken Films", null, movieWatchedPanel, "Zoek welke films er zijn bekeken per abonnee");
         addTab("16- Film", null, movieBelowSixteenPanel, "Geef de film met de langste tijdsduur voor kijkers onder 16 jaar");
-        addTab("Gehele Film", null, new MovieFullyWatchedPanel(size), "Geef aan hoe vaak een film volledig bekeken is");
-        addTab("Profiel", null, new ProfilePanel(size), "Geef een overzicht voor het gegeven profiel");
+        addTab("Gehele Film", null, movieFullyWatchedPanel, "Geef aan hoe vaak een film volledig bekeken is");
+        addTab("Profiel", null, profilePanel, "Geef een overzicht voor het gegeven profiel");
         addTab("Abonnee", null, new SubscriptionPanel(size), "Geef de abonnees met slechts 1 profiel");
         addTab("Abonnee toevoegen", null, new SubscriptionCreatePanel(size), "Voeg een abonnee toe");
         addTab("Profiel toevoegen", null, new ProfileCreatePanel(size), "Voeg een profiel aan een abonnee toe");
@@ -64,6 +68,22 @@ public class NavigationPanel extends JTabbedPane {
 
                         break;
                     case 4:
+
+                        ArrayList<Movie> movies = ui.getProgramManager().getMovies();
+
+                        movieFullyWatchedPanel.getMovieComboBox().removeAllItems();
+
+                        String movieStatistics = "";
+
+                        for (Movie m : movies) {
+                            movieFullyWatchedPanel.getMovieComboBox().addItem(m.getTitle());
+                            if (movieStatistics.equals("")) {
+                                movieStatistics += "Titel: " + m.getTitle() + "\nGenre: " + m.getGenre() + "\nSpeeltijd: " + m.getDuration() + " minuten\nLeeftijdsindicatie: " + m.getAgeIndication() + "\nTaal: " + m.getLanguage();
+                            }
+                        }
+
+                        movieFullyWatchedPanel.getMovieStatisticsTextArea().setText(movieStatistics);
+
                         break;
                     case 5:
                         break;

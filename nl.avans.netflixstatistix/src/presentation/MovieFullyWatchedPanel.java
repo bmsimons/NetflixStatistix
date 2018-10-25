@@ -1,10 +1,18 @@
 package presentation;
 
+import presentation.events.ChooseMovieItemListener;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class MovieFullyWatchedPanel extends JPanel {
-    public MovieFullyWatchedPanel(Dimension size){
+    private UserInterface ui;
+    private JTextArea movieStatisticsTextArea;
+    private JComboBox<String> movieComboBox;
+
+    public MovieFullyWatchedPanel(Dimension size, UserInterface ui){
+        this.ui = ui;
+
         setPreferredSize(size);
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
@@ -12,10 +20,11 @@ public class MovieFullyWatchedPanel extends JPanel {
         JLabel movieSelectLabel = new JLabel("Kies een film");
 
         // TODO: Fetch a list containing all the movie titles
-        JComboBox<String> movieComboBox = new JComboBox<>();
+        movieComboBox = new JComboBox<>();
+        movieComboBox.addItemListener(new ChooseMovieItemListener(this));
 
         // TODO: Fetch the statistics of the selected movie
-        JTextArea movieStatisticsTextArea = new JTextArea(13, 35);
+        movieStatisticsTextArea = new JTextArea(13, 35);
         movieStatisticsTextArea.setText("Selecteer een film.");
         movieStatisticsTextArea.setEditable(false);
 
@@ -38,5 +47,17 @@ public class MovieFullyWatchedPanel extends JPanel {
         constraints.gridwidth = 3;
         constraints.fill =  GridBagConstraints.VERTICAL;
         add(scrollPane, constraints);
+    }
+
+    public JComboBox<String> getMovieComboBox() {
+        return this.movieComboBox;
+    }
+
+    public JTextArea getMovieStatisticsTextArea() {
+        return this.movieStatisticsTextArea;
+    }
+
+    public UserInterface getUi() {
+        return this.ui;
     }
 }

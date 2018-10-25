@@ -1,9 +1,11 @@
 package presentation.events;
 
 import domain.Movie;
+import domain.Profile;
 import domain.Series;
 import domain.Subscription;
 import presentation.MovieWatchedPanel;
+import presentation.ProfilePanel;
 import presentation.SeriesPerSubscriptionPanel;
 
 import javax.swing.*;
@@ -83,6 +85,41 @@ public class SearchSubscriberActionListener implements ActionListener {
                         }
 
                         movieWatchedPanel.getMovieTextArea().setText(moviePanelText);
+
+                        return;
+                    }
+                }
+
+                JOptionPane.showMessageDialog(null, "Found no subscriber in the database :(");
+
+                break;
+            case "presentation.ProfilePanel":
+                ProfilePanel profilePanel = (ProfilePanel) sourcePanel;
+
+                subscriptions = profilePanel.getUi().getSubscriptionManager().getSubscriptions();
+
+                for (Subscription s : subscriptions) {
+                    if (profilePanel.getSubscriptionTextField().getText().equals(s.getName())) {
+                        JOptionPane.showMessageDialog(null, "Found a subscriber with the name " + profilePanel.getSubscriptionTextField().getText() + "!");
+
+                        Set<Profile> profiles = profilePanel.getUi().getSubscriptionManager().getProfilesForSubscription(s);
+
+                        profilePanel.getSeriesComboBox().removeAllItems();
+
+                        String firstProfileName = "";
+
+                        for (Profile p : profiles) {
+                            profilePanel.getSeriesComboBox().addItem(p.getProfileName());
+
+                            if (firstProfileName.equals("")) {
+                                firstProfileName = p.getProfileName();
+                                profilePanel.getResultLabel().setText("Gegevens voor "+firstProfileName);
+
+                                profilePanel.getResultTextArea().setText("Naam: " + p.getProfileName() + "\nLeeftijd: " + p.getAge());
+                            }
+                        }
+
+                        profilePanel.setSubscriberID(s.getId());
 
                         return;
                     }

@@ -1,6 +1,7 @@
 package data;
 
 import data.connection.DBConnection;
+import domain.Profile;
 import domain.Subscription;
 
 import javax.xml.transform.Result;
@@ -117,6 +118,31 @@ public class SubscriptionDAO implements DAO<Subscription> {
         }
 
         return null;
+    }
+
+    public Set<Profile> getProfilesForSubscription(Subscription s) {
+        Set<Profile> profiles = new HashSet<Profile>();
+
+        if (conn.openConnection()) {
+            String query = "SELECT * FROM Profiles WHERE SubscriptionID = " + s.getId() + ";";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+
+            try {
+                while (result.next()) {
+                    profiles.add(new Profile(
+                                result.getString("Name"),
+                                result.getInt("Age"),
+                                result.getInt("ID")
+                            )
+                    );
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        return profiles;
     }
 
     @Override
