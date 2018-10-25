@@ -32,6 +32,12 @@ public class SubscriptionManager {
         return subscriptions;
     }
 
+    public Set<Subscription> getSubscriptionsWithAtleastOneProfile() {
+        SubscriptionDAO subdao = new SubscriptionDAO();
+
+        return subdao.getSubscriptionsWithAtleastOneProfile();
+    }
+
     public Set<Integer> getAllSeriesForSubscriber(int subscriberID) {
 
         SubscriptionDAO subdao = new SubscriptionDAO();

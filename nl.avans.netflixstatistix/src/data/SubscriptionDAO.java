@@ -145,6 +145,34 @@ public class SubscriptionDAO implements DAO<Subscription> {
         return profiles;
     }
 
+    public Set<Subscription> getSubscriptionsWithAtleastOneProfile() {
+        Set<Subscription> subscriptions = new HashSet<Subscription>();
+
+        if (conn.openConnection()) {
+            String query = "SELECT * FROM Subscriptions WHERE (SELECT COUNT(*) FROM Profiles WHERE SubscriptionID = Subscriptions.ID) > 1;";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+
+            try {
+                while (result.next()) {
+                    subscriptions.add(new Subscription(
+                            result.getString("Name"),
+                            result.getString("StreetName"),
+                            result.getString("City"),
+                            result.getInt("HouseNumber"),
+                            result.getString("Addition"),
+                            result.getInt("ID")
+                        )
+                    );
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        return subscriptions;
+    }
+
     @Override
     public boolean insert(Subscription subscription) {
         return false;

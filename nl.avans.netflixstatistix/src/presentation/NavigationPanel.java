@@ -11,6 +11,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class NavigationPanel extends JTabbedPane {
     UserInterface ui;
@@ -20,6 +21,7 @@ public class NavigationPanel extends JTabbedPane {
     MovieBelowSixteenPanel movieBelowSixteenPanel;
     MovieFullyWatchedPanel movieFullyWatchedPanel;
     ProfilePanel profilePanel;
+    SubscriptionPanel subscriptionPanel;
 
     public NavigationPanel(Dimension size, UserInterface ui){
         // Top Panel | Navigation Bar | Tabbed Pane
@@ -33,6 +35,8 @@ public class NavigationPanel extends JTabbedPane {
         movieBelowSixteenPanel = new MovieBelowSixteenPanel(size, ui);
         movieFullyWatchedPanel = new MovieFullyWatchedPanel(size, ui);
         profilePanel = new ProfilePanel(size, ui);
+        subscriptionPanel = new SubscriptionPanel(size, ui);
+
 
         addTab("Series", null, seriesPanel, "Zoek de statistieken van series");
         addTab("Series Per Abonnee", null, seriesPerSubscriptionPanel, "Zoek de statistieken van series per abonnee");
@@ -40,7 +44,7 @@ public class NavigationPanel extends JTabbedPane {
         addTab("16- Film", null, movieBelowSixteenPanel, "Geef de film met de langste tijdsduur voor kijkers onder 16 jaar");
         addTab("Gehele Film", null, movieFullyWatchedPanel, "Geef aan hoe vaak een film volledig bekeken is");
         addTab("Profiel", null, profilePanel, "Geef een overzicht voor het gegeven profiel");
-        addTab("Abonnee", null, new SubscriptionPanel(size), "Geef de abonnees met slechts 1 profiel");
+        addTab("Abonnee", null, subscriptionPanel, "Geef de abonnees met slechts 1 profiel");
         addTab("Abonnee toevoegen", null, new SubscriptionCreatePanel(size), "Voeg een abonnee toe");
         addTab("Profiel toevoegen", null, new ProfileCreatePanel(size), "Voeg een profiel aan een abonnee toe");
 
@@ -68,7 +72,6 @@ public class NavigationPanel extends JTabbedPane {
 
                         break;
                     case 4:
-
                         ArrayList<Movie> movies = ui.getProgramManager().getMovies();
 
                         movieFullyWatchedPanel.getMovieComboBox().removeAllItems();
@@ -86,6 +89,16 @@ public class NavigationPanel extends JTabbedPane {
 
                         break;
                     case 5:
+                        Set<Subscription> subscriptions = ui.getSubscriptionManager().getSubscriptionsWithAtleastOneProfile();
+
+                        String subscriptionPanelText = "";
+
+                        for (Subscription s : subscriptions) {
+                            subscriptionPanelText += s.getName() + "\n";
+                        }
+
+                        subscriptionPanel.getSubscriptionTextArea().setText(subscriptionPanelText);
+
                         break;
                     case 6:
                         break;
