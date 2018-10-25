@@ -4,11 +4,14 @@ import data.connection.DBConnection;
 import domain.Language;
 import domain.Movie;
 import domain.Profile;
+import domain.Subscription;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class MovieDAO implements DAO<Movie>{
 
@@ -138,5 +141,38 @@ public class MovieDAO implements DAO<Movie>{
         }
 
         return null;
+    }
+
+    public Set<Movie> getWatchedMoviesForSubscriber(Subscription s) {
+        Set<Movie> movieList = new HashSet<>();
+
+        if (conn.openConnection()) {
+            String query = "SELECT Movies.* FROM WatchedMovies\n" +
+                    "INNER JOIN Profiles ON Profiles.ID = WatchedMovies.ProfileID\n" +
+                    "INNER JOIN Movies ON Movies.ID = WatchedMovies.MovieID\n" +
+                    "WHERE SubscriptionID = " + s.getId();
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+
+            try {
+                while (result.next()) {
+                    Movie movie = new Movie(
+                            result.getInt("ID"),
+                            result.getString("Title"),
+                            result.getString("Genre"),
+                            result.getInt("ageIndication"),
+                            result.getInt("Duration")
+                    );
+
+                    movie.setLanguage(Language.valueOf(result.getString("languageCode")));
+
+                    movieList.add(movie);
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        return movieList;
     }
 }

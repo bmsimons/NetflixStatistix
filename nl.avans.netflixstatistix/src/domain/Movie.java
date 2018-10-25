@@ -17,4 +17,24 @@ public class Movie extends Program{
     public void setDuration(int duration) {
         this.duration = duration;
     }
+
+    @Override
+    public int hashCode() {
+        return this.getId().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Movie m = (Movie) obj;
+
+        return m.getId() == this.getId();
+    }
 }

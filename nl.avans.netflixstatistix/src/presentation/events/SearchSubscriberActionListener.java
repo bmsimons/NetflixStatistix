@@ -1,7 +1,9 @@
 package presentation.events;
 
+import domain.Movie;
 import domain.Series;
 import domain.Subscription;
+import presentation.MovieWatchedPanel;
 import presentation.SeriesPerSubscriptionPanel;
 
 import javax.swing.*;
@@ -12,46 +14,83 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SearchSubscriberActionListener implements ActionListener {
-    private SeriesPerSubscriptionPanel seriesPerSubscriptionPanel;
+    private JPanel sourcePanel;
 
-    public SearchSubscriberActionListener(SeriesPerSubscriptionPanel seriesPerSubscriptionPanel) {
-        this.seriesPerSubscriptionPanel = seriesPerSubscriptionPanel;
+    public SearchSubscriberActionListener(JPanel sourcePanel) {
+        this.sourcePanel = sourcePanel;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ArrayList<Subscription> subscriptions = seriesPerSubscriptionPanel.getUi().getSubscriptionManager().getSubscriptions();
+        System.out.println(sourcePanel.getClass().getName());
 
-        for (Subscription s : subscriptions) {
-            if (seriesPerSubscriptionPanel.getSubscriptionTextField().getText().equals(s.getName())) {
-                JOptionPane.showMessageDialog(null, "Found a subscriber with the name " + seriesPerSubscriptionPanel.getSubscriptionTextField().getText() + "!");
+        ArrayList<Subscription> subscriptions;
 
-                int subscriptionID = s.getId();
+        switch (sourcePanel.getClass().getName()) {
+            case "presentation.SeriesPerSubscriptionPanel":
+                SeriesPerSubscriptionPanel seriesPerSubscriptionPanel = (SeriesPerSubscriptionPanel) sourcePanel;
 
-                seriesPerSubscriptionPanel.setSelectedSubscriptionID(subscriptionID);
+                subscriptions = seriesPerSubscriptionPanel.getUi().getSubscriptionManager().getSubscriptions();
 
-                Set<Integer> seriesIDs = seriesPerSubscriptionPanel.getUi().getSubscriptionManager().getAllSeriesForSubscriber(subscriptionID);
+                for (Subscription s : subscriptions) {
+                    if (seriesPerSubscriptionPanel.getSubscriptionTextField().getText().equals(s.getName())) {
+                        JOptionPane.showMessageDialog(null, "Found a subscriber with the name " + seriesPerSubscriptionPanel.getSubscriptionTextField().getText() + "!");
 
-                ArrayList<Series> allSeries = seriesPerSubscriptionPanel.getUi().getProgramManager().getSeries();
+                        int subscriptionID = s.getId();
 
-                seriesPerSubscriptionPanel.getSeriesComboBox().removeAllItems();
-                // eriesPerSubscriptionPanel.getWatchedEpisodesTextArea().setText("");
+                        seriesPerSubscriptionPanel.setSelectedSubscriptionID(subscriptionID);
 
-                for (Series series : allSeries) {
-                    for (int seriesID : seriesIDs) {
-                        if (series.getId() == seriesID) {
-                            seriesPerSubscriptionPanel.getSeriesComboBox().addItem(series.getTitle());
-                            // seriesPerSubscriptionPanel.getWatchedEpisodesTextArea().setText(seriesPerSubscriptionPanel.getWatchedEpisodesTextArea().getText() + "\n" + series.getTitle());
+                        Set<Integer> seriesIDs = seriesPerSubscriptionPanel.getUi().getSubscriptionManager().getAllSeriesForSubscriber(subscriptionID);
 
-                            break;
+                        ArrayList<Series> allSeries = seriesPerSubscriptionPanel.getUi().getProgramManager().getSeries();
+
+                        seriesPerSubscriptionPanel.getSeriesComboBox().removeAllItems();
+                        // eriesPerSubscriptionPanel.getWatchedEpisodesTextArea().setText("");
+
+                        for (Series series : allSeries) {
+                            for (int seriesID : seriesIDs) {
+                                if (series.getId() == seriesID) {
+                                    seriesPerSubscriptionPanel.getSeriesComboBox().addItem(series.getTitle());
+                                    // seriesPerSubscriptionPanel.getWatchedEpisodesTextArea().setText(seriesPerSubscriptionPanel.getWatchedEpisodesTextArea().getText() + "\n" + series.getTitle());
+
+                                    break;
+                                }
+                            }
                         }
+
+                        return;
                     }
                 }
 
-                return;
-            }
-        }
+                JOptionPane.showMessageDialog(null, "Found no subscriber in the database :(");
 
-        JOptionPane.showMessageDialog(null, "Found no subscriber in the database :(");
+                break;
+            case "presentation.MovieWatchedPanel":
+                MovieWatchedPanel movieWatchedPanel = (MovieWatchedPanel) sourcePanel;
+
+                subscriptions = movieWatchedPanel.getUi().getSubscriptionManager().getSubscriptions();
+
+                for (Subscription s : subscriptions) {
+                    if (movieWatchedPanel.getSubscriptionTextField().getText().equals(s.getName())) {
+                        JOptionPane.showMessageDialog(null, "Found a subscriber with the name " + movieWatchedPanel.getSubscriptionTextField().getText() + "!");
+
+                        Set<Movie> watchedMoviesForSubscriber = movieWatchedPanel.getUi().getProgramManager().getWatchedMoviesForSubscriber(s);
+
+                        String moviePanelText = "";
+
+                        for (Movie m : watchedMoviesForSubscriber) {
+                            moviePanelText += m.getTitle() + "\n";
+                        }
+
+                        movieWatchedPanel.getMovieTextArea().setText(moviePanelText);
+
+                        return;
+                    }
+                }
+
+                JOptionPane.showMessageDialog(null, "Found no subscriber in the database :(");
+
+                break;
+        }
     }
 }
