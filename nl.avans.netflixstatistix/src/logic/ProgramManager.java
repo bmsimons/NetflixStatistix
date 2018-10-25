@@ -65,6 +65,12 @@ public class ProgramManager {
         return mdao.getWatchedMoviesForSubscriber(s);
     }
 
+    public Movie getLongestMovieUnder16() {
+        MovieDAO mdao = new MovieDAO();
+
+        return mdao.getLongestMovieUnder16();
+    }
+
     public int getUserAmountFullyWatched(Movie movie){
 
         SubscriptionManager sm = new SubscriptionManager();

@@ -1,5 +1,6 @@
 package presentation;
 
+import domain.Movie;
 import domain.Program;
 import domain.Subscription;
 import logic.ProgramManager;
@@ -16,6 +17,7 @@ public class NavigationPanel extends JTabbedPane {
     SeriesPanel seriesPanel;
     SeriesPerSubscriptionPanel seriesPerSubscriptionPanel;
     MovieWatchedPanel movieWatchedPanel;
+    MovieBelowSixteenPanel movieBelowSixteenPanel;
 
     public NavigationPanel(Dimension size, UserInterface ui){
         // Top Panel | Navigation Bar | Tabbed Pane
@@ -26,11 +28,12 @@ public class NavigationPanel extends JTabbedPane {
         seriesPanel = new SeriesPanel(size, ui);
         seriesPerSubscriptionPanel = new SeriesPerSubscriptionPanel(size, ui);
         movieWatchedPanel = new MovieWatchedPanel(size, ui);
+        movieBelowSixteenPanel = new MovieBelowSixteenPanel(size, ui);
 
         addTab("Series", null, seriesPanel, "Zoek de statistieken van series");
         addTab("Series Per Abonnee", null, seriesPerSubscriptionPanel, "Zoek de statistieken van series per abonnee");
         addTab("Gekeken Films", null, movieWatchedPanel, "Zoek welke films er zijn bekeken per abonnee");
-        addTab("16- Film", null, new MovieBelowSixteenPanel(size), "Geef de film met de langste tijdsduur voor kijkers onder 16 jaar");
+        addTab("16- Film", null, movieBelowSixteenPanel, "Geef de film met de langste tijdsduur voor kijkers onder 16 jaar");
         addTab("Gehele Film", null, new MovieFullyWatchedPanel(size), "Geef aan hoe vaak een film volledig bekeken is");
         addTab("Profiel", null, new ProfilePanel(size), "Geef een overzicht voor het gegeven profiel");
         addTab("Abonnee", null, new SubscriptionPanel(size), "Geef de abonnees met slechts 1 profiel");
@@ -55,6 +58,10 @@ public class NavigationPanel extends JTabbedPane {
                     case 2:
                         break;
                     case 3:
+
+                        Movie longestMovieUnder16 = ui.getProgramManager().getLongestMovieUnder16();
+                        movieBelowSixteenPanel.getLongestMovieLabel().setText("De langste film voor kinderen onder de 16 is " + longestMovieUnder16.getTitle());
+
                         break;
                     case 4:
                         break;

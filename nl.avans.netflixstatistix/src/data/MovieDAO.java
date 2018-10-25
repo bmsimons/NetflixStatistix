@@ -175,4 +175,32 @@ public class MovieDAO implements DAO<Movie>{
 
         return movieList;
     }
+
+    public Movie getLongestMovieUnder16() {
+        if (conn.openConnection()) {
+            String query = "SELECT * FROM Movies WHERE ageIndication < 16 AND Duration = (SELECT MAX(Duration) FROM Movies);";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+
+            try {
+                while (result.next()) {
+                    Movie movie = new Movie(
+                            result.getInt("ID"),
+                            result.getString("Title"),
+                            result.getString("Genre"),
+                            result.getInt("ageIndication"),
+                            result.getInt("Duration")
+                    );
+
+                    movie.setLanguage(Language.valueOf(result.getString("languageCode")));
+
+                    return movie;
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        return null;
+    }
 }
