@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7b280be4-3807-4cc6-bf85-6dcf2c8094f3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/DAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/EpisodeDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/MovieDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/ProfileDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/SeriesDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/SubscriptionDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/data/connection/DBConnection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/domain/Episode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/domain/Language.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/domain/Movie.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/domain/Profile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/domain/Program.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/domain/Series.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/domain/Subscription.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/logic/ProgramManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/logic/SubscriptionManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/FooterPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/NavigationPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/ProfileActionListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/SeriesActionListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/UI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/DAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/EpisodeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/MovieDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/ProfileDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/SeriesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/SubscriptionDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Episode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Language.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Program.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Series.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/domain/Subscription.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/logic/ProgramManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/logic/SubscriptionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/DAO/AccountDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/DAO/DAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/DAO/EpisodeDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/DAO/FilmDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/DAO/ProfileDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/DAO/ProgramDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/DAO/SeasonDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/DAO/SerieDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/DAO/WatchedEpisodeDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/DAO/WatchedMovieDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/Episode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/Film.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/Profile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/Program.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/Season.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/Serie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/Table.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/WatchedEpisode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/WatchedMovie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/data/connection/SQLConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/FooterPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/MovieBelowSixteenPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/MovieBelowSixteenPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/MovieFullyWatchedPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/MovieFullyWatchedPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/MovieWatchedPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/MovieWatchedPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/NavigationPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/ProfileActionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/ProfileCreatePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/ProfileCreatePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/ProfilePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/ProfilePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/SeriesActionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/SeriesPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/SeriesPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/SeriesPerSubscriptionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/SeriesPerSubscriptionPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/SubscriptionCreatePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/SubscriptionCreatePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/SubscriptionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/SubscriptionPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/UI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/main/java/presentation/view/UserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/UserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/out/production/NetflixStatistix/presentation/MainGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DAO/AccountDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DAO/DAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DAO/EpisodeDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DAO/FilmDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DAO/ProfileDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DAO/ProgramDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DAO/SeasonDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DAO/SerieDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DAO/WatchedEpisodeDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/DAO/WatchedMovieDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Episode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Film.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Profile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Season.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Serie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/Table.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/WatchedEpisode.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/WatchedEpisode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/WatchedMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/WatchedMovie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/data/connection/SQLConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/FooterPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/FooterPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/MovieBelowSixteenPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/MovieBelowSixteenPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/MovieFullyWatchedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/MovieFullyWatchedPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/MovieWatchedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/MovieWatchedPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/NavigationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/NavigationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/ProfileActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/ProfileActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/ProfileCreatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/ProfileCreatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/ProfilePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/ProfilePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/SeriesActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/SeriesActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/SeriesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/SeriesPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/SeriesPerSubscriptionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/SeriesPerSubscriptionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/SubscriptionCreatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/SubscriptionCreatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/SubscriptionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/SubscriptionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/presentation/view/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl.avans.netflixstatistix/src/presentation/MainGUI.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-738918181">
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="LICENSE" value="1" />
+          <entry key="bat" value="1" />
+          <entry key="gitignore" value="1" />
+          <entry key="gradle" value="1" />
+          <entry key="gradlew" value="1" />
+          <entry key="java" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Groovy" value="1" />
+          <entry key="JAVA" value="8" />
+          <entry key="PLAIN_TEXT" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="LICENSE" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2210">
+              <caret line="130" column="33" lean-forward="true" selection-start-line="130" selection-start-column="33" selection-end-line="130" selection-end-column="33" />
+              <folding>
+                <element signature="e#4045#4046#0" expanded="true" />
+                <element signature="e#4083#4084#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/DAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/settings.gradle">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/gradlew.bat">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/gradlew">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>presenta</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/LICENSE" />
+        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java" />
+        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/DAO/FilmDAO.java" />
+        <option value="$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/DAO/DAO.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="44" />
+    <option name="y" value="-20" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="NetflixStatistix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetflixStatistix" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetflixStatistix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetflixStatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="nl.avans.netflixstatistix" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetflixStatistix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetflixStatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="nl.avans.netflixstatistix" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetflixStatistix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetflixStatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="nl.avans.netflixstatistix" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540472992446" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="NetflixStatistix" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c83514a-c4fc-4bc8-9e0b-cc08eae0448f" name="Default Changelist" comment="" />
+      <created>1537855877697</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1537855877697</updated>
+      <workItem from="1537855879269" duration="510000" />
+      <workItem from="1537860705226" duration="1654000" />
+      <workItem from="1537862384871" duration="9000" />
+      <workItem from="1537881273979" duration="4147000" />
+      <workItem from="1537988453661" duration="120000" />
+      <workItem from="1538398612490" duration="1614000" />
+      <workItem from="1538477381516" duration="22540000" />
+      <workItem from="1538653684003" duration="10285000" />
+      <workItem from="1538718231730" duration="5052000" />
+      <workItem from="1538829580180" duration="283000" />
+      <workItem from="1538829897323" duration="221000" />
+      <workItem from="1538830534324" duration="23198000" />
+      <workItem from="1538862899436" duration="523000" />
+      <workItem from="1538905062413" duration="602000" />
+      <workItem from="1538986599195" duration="279000" />
+      <workItem from="1539274403700" duration="17120000" />
+      <workItem from="1539602957296" duration="3269000" />
+      <workItem from="1539870395168" duration="6621000" />
+      <workItem from="1540059782116" duration="7269000" />
+      <workItem from="1540472456621" duration="549000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="475000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17004265" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32968238" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26138827" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.4021164" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="TMC Test Results" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3275488" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="TMC Project List" order="4" weight="0.32980973" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/gradlew.bat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/gradlew">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/connection/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="130" column="33" lean-forward="true" selection-start-line="130" selection-start-column="33" selection-end-line="130" selection-end-column="33" />
+          <folding>
+            <element signature="e#4045#4046#0" expanded="true" />
+            <element signature="e#4083#4084#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/DAO/ProfileDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/DAO/MovieDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
+            <element signature="e#2720#2721#0" expanded="true" />
+            <element signature="e#2748#2749#0" expanded="true" />
+            <element signature="e#2804#2805#0" expanded="true" />
+            <element signature="e#2832#2833#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
+            <element signature="e#2916#2917#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/DAO/AccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/DAO/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nl.avans.netflixstatistix/src/data/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
