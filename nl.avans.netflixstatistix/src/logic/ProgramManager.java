@@ -3,11 +3,11 @@ package logic;
 import data.EpisodeDAO;
 import data.MovieDAO;
 import data.SeriesDAO;
-import domain.Movie;
-import domain.Series;
-import domain.Subscription;
+import domain.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 public class ProgramManager {
 
@@ -47,6 +47,30 @@ public class ProgramManager {
         return movies;
     }
 
+    public ArrayList<WatchedEpisode> getWatchedDataForEpisode(Episode episode) {
+        EpisodeDAO edao = new EpisodeDAO();
+
+        return edao.getWatchedDataForEpisode(episode);
+    }
+
+    public HashMap<Episode, Integer> getEpisodesWithAverageWatchedPerSubscription(int subscriptionID) {
+        EpisodeDAO edao = new EpisodeDAO();
+
+        return edao.getEpisodesWithAverageWatchedPerSubscription(subscriptionID);
+    }
+
+    public Set<Movie> getWatchedMoviesForSubscriber(Subscription s) {
+        MovieDAO mdao = new MovieDAO();
+
+        return mdao.getWatchedMoviesForSubscriber(s);
+    }
+
+    public Movie getLongestMovieUnder16() {
+        MovieDAO mdao = new MovieDAO();
+
+        return mdao.getLongestMovieUnder16();
+    }
+
     public int getUserAmountFullyWatched(Movie movie){
 
         SubscriptionManager sm = new SubscriptionManager();
@@ -56,5 +80,11 @@ public class ProgramManager {
         //TODO: need to be finished
 
         return 0;
+    }
+
+    public int getMovieFullyWatchedCount(Movie movie) {
+        MovieDAO mdao = new MovieDAO();
+
+        return mdao.getMovieFullyWatchedCount(movie);
     }
 }

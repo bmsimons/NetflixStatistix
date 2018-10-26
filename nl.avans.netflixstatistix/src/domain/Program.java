@@ -1,7 +1,7 @@
 package domain;
 
 public abstract class Program {
-    private int id;
+    private Integer id;
     private String title;
     private String genre;
     private int ageIndication;
@@ -15,7 +15,7 @@ public abstract class Program {
         this.ageIndication = ageIndication;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

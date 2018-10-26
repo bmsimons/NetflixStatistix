@@ -5,7 +5,7 @@ public class Episode {
     private int episodeNumber;
     private String title;
     private int duration;
-    private int id;
+    private Integer id;
 
     public Episode(int episodeNumber, String title, int duration, int id) {
         this.episodeNumber = episodeNumber;
@@ -36,5 +36,27 @@ public class Episode {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public int getId() { return this.id; }
+
+    @Override
+    public int hashCode() {
+        return this.id.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Episode e = (Episode) obj;
+
+        return e.getId() == this.getId();
     }
 }

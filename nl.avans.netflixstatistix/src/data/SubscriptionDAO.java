@@ -1,6 +1,7 @@
 package data;
 
 import data.connection.DBConnection;
+import domain.Profile;
 import domain.Subscription;
 
 import javax.xml.transform.Result;
@@ -9,7 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SubscriptionDAO implements DAO<Subscription> {
 
@@ -89,6 +92,85 @@ public class SubscriptionDAO implements DAO<Subscription> {
         }
 
         return null;
+    }
+
+    public Set<Integer> getAllSeriesForSubscriber(int subscriberID) {
+        Set<Integer> seriesIDs = new HashSet<Integer>();
+
+        if (conn.openConnection()) {
+            String query = "SELECT DISTINCT EpisodeID FROM WatchedEpisodes\n" +
+                    "INNER JOIN Profiles ON Profiles.ID = WatchedEpisodes.ProfileID\n" +
+                    "INNER JOIN Episodes ON Episodes.ID = EpisodeID\n" +
+                    "WHERE SubscriptionID = " + subscriberID + ";";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+            try {
+                while(result.next()) {
+                    seriesIDs.add(result.getInt("EpisodeID"));
+                }
+
+                conn.closeConnection();
+
+                return seriesIDs;
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        return null;
+    }
+
+    public Set<Profile> getProfilesForSubscription(Subscription s) {
+        Set<Profile> profiles = new HashSet<Profile>();
+
+        if (conn.openConnection()) {
+            String query = "SELECT * FROM Profiles WHERE SubscriptionID = " + s.getId() + ";";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+
+            try {
+                while (result.next()) {
+                    profiles.add(new Profile(
+                                result.getString("Name"),
+                                result.getInt("Age"),
+                                result.getInt("ID")
+                            )
+                    );
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        return profiles;
+    }
+
+    public Set<Subscription> getSubscriptionsWithAtleastOneProfile() {
+        Set<Subscription> subscriptions = new HashSet<Subscription>();
+
+        if (conn.openConnection()) {
+            String query = "SELECT * FROM Subscriptions WHERE (SELECT COUNT(*) FROM Profiles WHERE SubscriptionID = Subscriptions.ID) > 1;";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+
+            try {
+                while (result.next()) {
+                    subscriptions.add(new Subscription(
+                            result.getString("Name"),
+                            result.getString("StreetName"),
+                            result.getString("City"),
+                            result.getInt("HouseNumber"),
+                            result.getString("Addition"),
+                            result.getInt("ID")
+                        )
+                    );
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        return subscriptions;
     }
 
     @Override

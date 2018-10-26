@@ -1,10 +1,15 @@
-package main.java.presentation.view;
+package presentation;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class SubscriptionPanel extends JPanel {
-    public SubscriptionPanel(Dimension size){
+    private UserInterface ui;
+    private JTextArea subscriptionTextArea;
+
+    public SubscriptionPanel(Dimension size, UserInterface ui){
+        this.ui = ui;
+
         setPreferredSize(size);
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
@@ -13,7 +18,7 @@ public class SubscriptionPanel extends JPanel {
 
         // TODO: Fetch the subscriptions that have at least 1 profile assigned to them.
 
-        JTextArea subscriptionTextArea = new JTextArea(13, 35);
+        subscriptionTextArea = new JTextArea(13, 35);
         subscriptionTextArea.setText("--- TEXT ---");
         subscriptionTextArea.setEditable(false);
 
@@ -32,5 +37,9 @@ public class SubscriptionPanel extends JPanel {
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
         add(scrollPane, constraints);
+    }
+
+    public JTextArea getSubscriptionTextArea() {
+        return this.subscriptionTextArea;
     }
 }

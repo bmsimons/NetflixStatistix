@@ -1,30 +1,42 @@
-package main.java.presentation.view;
+package presentation;
+
+import presentation.events.ChooseProfileItemListener;
+import presentation.events.SearchSubscriberActionListener;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class ProfilePanel extends JPanel {
-    public ProfilePanel(Dimension size){
+    private UserInterface ui;
+    private JTextField subscriptionTextField;
+    private JLabel resultLabel;
+    private JTextArea resultTextArea;
+    private JComboBox<String> seriesComboBox;
+    private Integer subscriberID;
+
+    public ProfilePanel(Dimension size, UserInterface ui){
+        this.ui = ui;
+
         setPreferredSize(new Dimension(size));
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
 
         String[] profileData = {"Thimo","Floris","Bart","Mike Wazowski","Buzz Lightyear"};
 
-        JTextField subscriptionTextField = new JTextField();
+        subscriptionTextField = new JTextField();
         subscriptionTextField.setPreferredSize(new Dimension(220, 24));
         JButton searchButton = new JButton("Zoek Abonnee");
-
-        // TODO: Add an ActionListener that fetches the list of profiles from an subscriber
+        searchButton.addActionListener(new SearchSubscriberActionListener(this));
 
         JLabel profileLabel = new JLabel("Selecteer een profiel");
-        JComboBox<String> seriesComboBox = new JComboBox<String>(profileData);
+        seriesComboBox = new JComboBox<String>(profileData);
         seriesComboBox.setSelectedIndex(3);
+        seriesComboBox.addItemListener(new ChooseProfileItemListener(this));
 
         // TODO: Add an ActionListener that fetches the data of the selected user
 
-        JLabel resultLabel = new JLabel("Gegevens voor Mike Wazowski");
-        JTextArea resultTextArea = new JTextArea(13, 35);
+        resultLabel = new JLabel("Gegevens voor Mike Wazowski");
+        resultTextArea = new JTextArea(13, 35);
 
         resultTextArea.setText("Naam: Mike Wazowski\n" +
                 "Straatnaam: Monster Ave\n" +
@@ -70,5 +82,33 @@ public class ProfilePanel extends JPanel {
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
         add(scrollPane, constraints);
+    }
+
+    public UserInterface getUi() {
+        return this.ui;
+    }
+
+    public JTextField getSubscriptionTextField() {
+        return this.subscriptionTextField;
+    }
+
+    public JLabel getResultLabel() {
+        return this.resultLabel;
+    }
+
+    public JTextArea getResultTextArea() {
+        return this.resultTextArea;
+    }
+
+    public JComboBox<String> getSeriesComboBox() {
+        return this.seriesComboBox;
+    }
+
+    public Integer getSubscriberID() {
+        return this.subscriberID;
+    }
+
+    public void setSubscriberID(Integer subscriberID) {
+        this.subscriberID = subscriberID;
     }
 }

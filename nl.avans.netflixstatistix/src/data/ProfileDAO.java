@@ -112,6 +112,30 @@ public class ProfileDAO implements DAO<Profile> {
         return null;
     }
 
+    public Profile getProfileByNameAndSubscriberId(String profileName, Integer subscriberID) {
+        if (conn.openConnection() && subscriberID != null) {
+            String query = "SELECT * FROM Profiles WHERE SubscriptionID = " + subscriberID + " AND Name = '" + profileName + "';";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+
+            try {
+                while (result.next()) {
+                    Profile profile = new Profile(
+                            result.getString("Name"),
+                            result.getInt("Age"),
+                            result.getInt("ID")
+                    );
+
+                    return profile;
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        return null;
+    }
+
     @Override
     public boolean insert(Profile profile) {
         return false;

@@ -29,4 +29,24 @@ public class Series extends Program {
     public void setEpisodes(ArrayList<Episode> episodes) {
         this.episodes = episodes;
     }
+
+    @Override
+    public int hashCode() {
+        return this.getId().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Series s = (Series) obj;
+
+        return s.getId() == this.getId();
+    }
 }

@@ -1,32 +1,42 @@
-package main.java.presentation.view;
+package presentation;
+import presentation.events.ChooseSeriesItemListener;
+import presentation.events.SearchSubscriberActionListener;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class SeriesPerSubscriptionPanel extends JPanel {
-    public SeriesPerSubscriptionPanel(Dimension size){
+    private UserInterface ui;
+    private JTextField subscriptionTextField;
+    private JTextArea watchedEpisodesTextArea;
+    private JComboBox<String> seriesComboBox;
+    private int selectedSubscriptionID;
+
+    public SeriesPerSubscriptionPanel(Dimension size, UserInterface ui){
+        this.ui = ui;
+
         setPreferredSize(size);
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
 
-        JTextField subscriptionTextField = new JTextField();
+        subscriptionTextField = new JTextField();
         subscriptionTextField.setMinimumSize(new Dimension(150, 24));
         subscriptionTextField.setPreferredSize(new Dimension(220, 24));
-
 
         JButton searchButton = new JButton("Zoek Abonnee");
         searchButton.setMinimumSize(new Dimension(50,24));
 
-        // TODO: Add ActionListener that fetches data which contains a list of watched series.
+        searchButton.addActionListener(new SearchSubscriberActionListener(this));
 
         JLabel seriesLabel = new JLabel("Selecteer een serie");
 
         String[] seriesTestData = {"a","b","c","d","e"};
-        JComboBox<String> seriesComboBox = new JComboBox<String>(seriesTestData);
+        seriesComboBox = new JComboBox<String>(seriesTestData);
+        seriesComboBox.addItemListener(new ChooseSeriesItemListener(this));
 
         // TODO: Add ActionListener that fetches data which contains a list with episodes + average watched percentage
 
-        JTextArea watchedEpisodesTextArea = new JTextArea(13, 35);
+        watchedEpisodesTextArea = new JTextArea(13, 35);
         watchedEpisodesTextArea.setText("Selecteer een abonnee & serie.");
         watchedEpisodesTextArea.setEditable(false);
 
@@ -61,5 +71,29 @@ public class SeriesPerSubscriptionPanel extends JPanel {
         constraints.fill = GridBagConstraints.VERTICAL;
 
         add(scrollPane, constraints);
+    }
+
+    public UserInterface getUi() {
+        return this.ui;
+    }
+
+    public JTextField getSubscriptionTextField() {
+        return this.subscriptionTextField;
+    }
+
+    public JTextArea getWatchedEpisodesTextArea() {
+        return this.watchedEpisodesTextArea;
+    }
+
+    public JComboBox<String> getSeriesComboBox() {
+        return this.seriesComboBox;
+    }
+
+    public int getSelectedSubscriptionID() {
+        return this.selectedSubscriptionID;
+    }
+
+    public void setSelectedSubscriptionID(int subscriptionID) {
+        this.selectedSubscriptionID = subscriptionID;
     }
 }

@@ -2,9 +2,12 @@ package logic;
 
 import data.ProfileDAO;
 import data.SubscriptionDAO;
+import domain.Profile;
 import domain.Subscription;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SubscriptionManager {
 
@@ -27,5 +30,32 @@ public class SubscriptionManager {
         }
 
         return subscriptions;
+    }
+
+    public Set<Subscription> getSubscriptionsWithAtleastOneProfile() {
+        SubscriptionDAO subdao = new SubscriptionDAO();
+
+        return subdao.getSubscriptionsWithAtleastOneProfile();
+    }
+
+    public Set<Integer> getAllSeriesForSubscriber(int subscriberID) {
+
+        SubscriptionDAO subdao = new SubscriptionDAO();
+
+        Set<Integer> seriesIDs = subdao.getAllSeriesForSubscriber(subscriberID);
+
+        return seriesIDs;
+    }
+
+    public Set<Profile> getProfilesForSubscription(Subscription s) {
+        SubscriptionDAO subdao = new SubscriptionDAO();
+
+        return subdao.getProfilesForSubscription(s);
+    }
+
+    public Profile getProfileByNameAndSubscriberId(String profileName, Integer subscriberID) {
+        ProfileDAO pdao = new ProfileDAO();
+
+        return pdao.getProfileByNameAndSubscriberId(profileName, subscriberID);
     }
 }

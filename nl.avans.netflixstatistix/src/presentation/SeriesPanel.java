@@ -1,10 +1,23 @@
-package main.java.presentation.view;
+package presentation;
+
+import domain.Episode;
+import domain.Series;
+import domain.WatchedEpisode;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.ArrayList;
 
 public class SeriesPanel extends JPanel {
-    public SeriesPanel(Dimension size){
+    JComboBox<String> seriesComboBox;
+    JTextArea seriesAverageTextArea;
+    UserInterface ui;
+
+    public SeriesPanel(Dimension size, UserInterface ui){
+        this.ui = ui;
+
         setPreferredSize(new Dimension(size));
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
@@ -15,10 +28,54 @@ public class SeriesPanel extends JPanel {
 
         // Center Panel Components
         JLabel seriesLabel = new JLabel("Selecteer serie");
-        JComboBox<String> seriesComboBox = new JComboBox<String>(seriesData);
+        seriesComboBox = new JComboBox<String>(seriesData);
+
+        seriesComboBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    String item = (String) e.getItem();
+
+                    ArrayList<Series> series = ui.getProgramManager().getSeries();
+
+                    for (Series s : series) {
+                        if (s.getTitle().equals(item)) {
+                            ArrayList<Episode> episodes = s.getEpisodes();
+
+                            seriesAverageTextArea.setText("");
+
+                            int watchedEpisodeTotalLength = 0;
+
+                            for (Episode episode : episodes) {
+                                int episodeDuration = episode.getDuration();
+
+                                ArrayList<WatchedEpisode> watchedEpisodes = ui.getProgramManager().getWatchedDataForEpisode(episode);
+
+                                if (watchedEpisodes.size() > 0) {
+
+                                    for (WatchedEpisode we : watchedEpisodes) {
+                                        watchedEpisodeTotalLength = watchedEpisodeTotalLength + we.getDuration();
+                                    }
+
+                                    int averageEpisodeWatchedDuration = watchedEpisodeTotalLength / watchedEpisodes.size();
+
+                                    int percentageTotalDuration = ((averageEpisodeWatchedDuration * 100) / episodeDuration);
+
+                                    seriesAverageTextArea.setText(seriesAverageTextArea.getText() + "\n" + episode.getTitle() + " (" + percentageTotalDuration + "% gemiddeld gekeken)");
+                                } else {
+                                    seriesAverageTextArea.setText(seriesAverageTextArea.getText() + "\n" + episode.getTitle());
+                                }
+                            }
+
+                            break;
+                        }
+                    }
+                }
+            }
+        });
 
         JLabel seriesAverageLabel = new JLabel("Gemiddeld % bekeken per aflevering");
-        JTextArea seriesAverageTextArea = new JTextArea(13, 35);
+        seriesAverageTextArea = new JTextArea(13, 35);
         seriesAverageTextArea.setText("Selecteer een serie.");
         seriesAverageTextArea.setDisabledTextColor(Color.BLACK);
         seriesAverageTextArea.setEditable(false);

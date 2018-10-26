@@ -1,23 +1,31 @@
-package main.java.presentation.view;
+package presentation;
+
+import presentation.events.SearchSubscriberActionListener;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MovieWatchedPanel extends JPanel {
+    private UserInterface ui;
+    private JTextArea movieTextArea;
+    private JTextField subscriptionTextField;
 
-    public MovieWatchedPanel(Dimension size){
+    public MovieWatchedPanel(Dimension size, UserInterface ui){
+        this.ui = ui;
+
         setPreferredSize(size);
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
 
-        JTextField subscriptionTextField = new JTextField();
+        subscriptionTextField = new JTextField();
         subscriptionTextField.setMinimumSize(new Dimension(150, 24));
         subscriptionTextField.setPreferredSize(new Dimension(220, 24));
 
         JButton searchButton = new JButton("Zoek Abonnee");
         searchButton.setMinimumSize(new Dimension(50,24));
+        searchButton.addActionListener(new SearchSubscriberActionListener(this));
 
-        JTextArea movieTextArea = new JTextArea(13, 35);
+        movieTextArea = new JTextArea(13, 35);
         movieTextArea.setText("Selecteer een abonnee.");
         movieTextArea.setEditable(false);
 
@@ -41,5 +49,17 @@ public class MovieWatchedPanel extends JPanel {
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
         add(scrollPane, constraints);
+    }
+
+    public UserInterface getUi() {
+        return this.ui;
+    }
+
+    public JTextArea getMovieTextArea() {
+        return this.movieTextArea;
+    }
+
+    public JTextField getSubscriptionTextField() {
+        return this.subscriptionTextField;
     }
 }
