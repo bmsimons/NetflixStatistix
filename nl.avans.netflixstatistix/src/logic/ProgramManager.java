@@ -81,4 +81,10 @@ public class ProgramManager {
 
         return 0;
     }
+
+    public int getMovieFullyWatchedCount(Movie movie) {
+        MovieDAO mdao = new MovieDAO();
+
+        return mdao.getMovieFullyWatchedCount(movie);
+    }
 }

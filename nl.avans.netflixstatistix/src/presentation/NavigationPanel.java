@@ -81,7 +81,7 @@ public class NavigationPanel extends JTabbedPane {
                         for (Movie m : movies) {
                             movieFullyWatchedPanel.getMovieComboBox().addItem(m.getTitle());
                             if (movieStatistics.equals("")) {
-                                movieStatistics += "Titel: " + m.getTitle() + "\nGenre: " + m.getGenre() + "\nSpeeltijd: " + m.getDuration() + " minuten\nLeeftijdsindicatie: " + m.getAgeIndication() + "\nTaal: " + m.getLanguage();
+                                movieStatistics += "Titel: " + m.getTitle() + "\nGenre: " + m.getGenre() + "\nSpeeltijd: " + m.getDuration() + " minuten\nLeeftijdsindicatie: " + m.getAgeIndication() + "\nTaal: " + m.getLanguage() + "\n\nAantal kijkers dat deze film volledig gezien heeft:  " + movieFullyWatchedPanel.getUi().getProgramManager().getMovieFullyWatchedCount(m);
                             }
                         }
 

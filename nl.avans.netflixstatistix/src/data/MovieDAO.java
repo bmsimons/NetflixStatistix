@@ -203,4 +203,24 @@ public class MovieDAO implements DAO<Movie>{
 
         return null;
     }
+
+    public Integer getMovieFullyWatchedCount(Movie movie) {
+        Integer movieWatchCounter = 0;
+
+        if (conn.openConnection()) {
+            String query = "SELECT * FROM Movies INNER JOIN WatchedMovies ON WatchedMovies.MovieID = Movies.ID AND WatchedMovies.Duration = Movies.Duration WHERE Movies.ID = " + movie.getId() + ";";
+
+            ResultSet result = conn.executeSQLSelectStatement(query);
+
+            try {
+                while (result.next()) {
+                    movieWatchCounter++;
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        return movieWatchCounter;
+    }
 }
