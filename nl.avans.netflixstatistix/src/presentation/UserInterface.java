@@ -20,10 +20,8 @@ public class UserInterface implements Runnable, UI {
 
         frame = new JFrame("Netflix Statistix");
         frame.setLayout(new BorderLayout());
-        frame.setPreferredSize(new Dimension(875, 500));
-
-        // TODO: Set a proper minimum size
-        frame.setMinimumSize(frame.getPreferredSize());
+        frame.setPreferredSize(new Dimension(1200, 500));
+        frame.setMinimumSize(new Dimension(500, 450));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         createComponents(frame.getContentPane());

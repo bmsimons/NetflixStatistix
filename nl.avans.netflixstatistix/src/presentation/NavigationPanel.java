@@ -22,6 +22,8 @@ public class NavigationPanel extends JTabbedPane {
     MovieFullyWatchedPanel movieFullyWatchedPanel;
     ProfilePanel profilePanel;
     SubscriptionPanel subscriptionPanel;
+    ProfileAddMoviesWatchedPanel profileAddMoviesWatchedPanel;
+    ProfileAddSeriesWatchedPanel profileAddSeriesWatchedPanel;
 
     public NavigationPanel(Dimension size, UserInterface ui){
         // Top Panel | Navigation Bar | Tabbed Pane
@@ -36,7 +38,8 @@ public class NavigationPanel extends JTabbedPane {
         movieFullyWatchedPanel = new MovieFullyWatchedPanel(size, ui);
         profilePanel = new ProfilePanel(size, ui);
         subscriptionPanel = new SubscriptionPanel(size, ui);
-
+        profileAddMoviesWatchedPanel = new ProfileAddMoviesWatchedPanel(size, ui);
+        profileAddSeriesWatchedPanel = new ProfileAddSeriesWatchedPanel(size, ui);
 
         addTab("Series", null, seriesPanel, "Zoek de statistieken van series");
         addTab("Series Per Abonnee", null, seriesPerSubscriptionPanel, "Zoek de statistieken van series per abonnee");
@@ -47,6 +50,8 @@ public class NavigationPanel extends JTabbedPane {
         addTab("Abonnee", null, subscriptionPanel, "Geef de abonnees met slechts 1 profiel");
         addTab("Abonnee toevoegen", null, new SubscriptionCreatePanel(size), "Voeg een abonnee toe");
         addTab("Profiel toevoegen", null, new ProfileCreatePanel(size), "Voeg een profiel aan een abonnee toe");
+        addTab("Gekeken films toevoegen", null, profileAddMoviesWatchedPanel, "Voeg gekeken films toe aan een profiel");
+        addTab("Gekeken series toevoegen",null,profileAddSeriesWatchedPanel,"Voeg gekeken afleveringen van een serie toe aan een profiel");
 
         this.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
