@@ -1,14 +1,24 @@
 package presentation;
 
+import domain.Episode;
+import domain.Profile;
+import domain.Series;
+import presentation.events.ProfileAddSeriesEpisodesActionListener;
+import presentation.events.ProfileAddSeriesInsertActionListener;
+import presentation.events.ProfileAddSeriesSearchActionListener;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Set;
 
 public class ProfileAddSeriesWatchedPanel extends JPanel {
     private UserInterface ui;
     private JTextField subscriptionTextField, durationTextField;
     private JLabel resultLabel, profileLabel, seriesLabel, episodeLabel, durationLabel;
-    private JComboBox<String> profileComboBox, seriesComboBox;
-    private JComboBox<Integer> episodeComboBox;
+    private JComboBox<Profile> profileComboBox;
+    private JComboBox<Series> seriesComboBox;
+    private JComboBox<Episode> episodeComboBox;
 
     public ProfileAddSeriesWatchedPanel(Dimension size, UserInterface ui){
         this.ui = ui;
@@ -22,36 +32,27 @@ public class ProfileAddSeriesWatchedPanel extends JPanel {
         subscriptionTextField.setPreferredSize(new Dimension(175, 24));
 
         JButton subscriptionSearchButton = new JButton("Haal profielen op!");
+        subscriptionSearchButton.addActionListener(new ProfileAddSeriesSearchActionListener(this));
 
         profileLabel = new JLabel("Selecteer een profiel");
-
-        // TODO: Add an ActionListener that fetches the profiles related to given subscriber.
-        String[] testProfiles = {"Profiel 1","Profiel 2","Profiel 3","Profiel 4","Profiel 5"};
-        profileComboBox = new JComboBox<String>(testProfiles);
-        // ComboBox disabled, enable when subscriber is found.
+        profileComboBox = new JComboBox<Profile>();
+        // ComboBox disabled, enabled when subscriber is found.
         profileComboBox.setEnabled(false);
 
         seriesLabel = new JLabel("Selecteer een serie");
-        // TODO: Fetch the list of movies
-        String[] testSeries = {"Wiinu da Puuhu","Wiinu no Puuhu","Wiinu da Puuhu: Taiga missing"};
-        seriesComboBox = new JComboBox<String>(testSeries);
+        seriesComboBox = new JComboBox<Series>();
+        seriesComboBox.addActionListener(new ProfileAddSeriesEpisodesActionListener(this));
 
         episodeLabel = new JLabel("Selecteer een aflevering");
-        Integer[] testEpisodes = {1,2,3,4,5,6,7,8,9,10};
-        // TODO: Add an ActionListener that fetches the list of episodes related to given series, enable ComboBox if result is found.
-        episodeComboBox = new JComboBox<Integer>(testEpisodes);
-        episodeComboBox.setEnabled(false);
-
+        episodeComboBox = new JComboBox<Episode>();
         durationLabel = new JLabel("Lengte gekeken: ");
 
         // Make sure that you cannot add a duration longer than the movie / change it to max length.
         durationTextField = new JTextField();
         durationTextField.setPreferredSize(new Dimension(175, 24));
 
-        // TODO Add an ActionListener that sends all the data to the apl. logic
-        JButton addButton = new JButton("Voeg film toe!");
-
-        // TODO set resultLabel's text to be a result of whether the epsiode got added or not
+        JButton addButton = new JButton("Voeg aflevering toe!");
+        addButton.addActionListener(new ProfileAddSeriesInsertActionListener(this));
         resultLabel = new JLabel();
 
         // Set the constraints, add components to panel
@@ -102,6 +103,7 @@ public class ProfileAddSeriesWatchedPanel extends JPanel {
         constraints.gridx = 0;
         add(addButton, constraints);
 
+        constraints.gridx = 1;
         constraints.gridy = 7;
         add(resultLabel, constraints);
     }
@@ -118,4 +120,50 @@ public class ProfileAddSeriesWatchedPanel extends JPanel {
     }
 
     public UserInterface getUi(){ return this.ui; }
+
+    public JComboBox<Series> getSeriesComboBox(){ return seriesComboBox; }
+
+    public void clearProfileComboBox(){
+        profileComboBox.removeAllItems();
+    }
+
+    public void enableProfileComboBox(boolean enabled){
+        profileComboBox.setEnabled(enabled);
+    }
+
+    public String getSubscriptionTextFieldText(){
+        return subscriptionTextField.getText();
+    }
+
+    public void setProfileComboBox(Set<Profile> profiles){
+        for (Profile p : profiles){
+            profileComboBox.addItem(p);
+        }
+    }
+
+    public JComboBox<Episode> getEpisodeComboBox(){ return episodeComboBox; }
+    public void setEpisodeComboBox(ArrayList<Episode> episodes){
+        for (Episode e : episodes){
+            episodeComboBox.addItem(e);
+        }
+    }
+
+    public void clearEpisodeComboBox(){
+        episodeComboBox.removeAllItems();
+    }
+
+    public void setSeriesComboBox(ArrayList<Series> series){
+        for (Series s : series){
+            seriesComboBox.addItem(s);
+        }
+    }
+    public String getDurationTextFieldText(){
+        return durationTextField.getText();
+    }
+
+    public Profile getSelectedProfile(){
+        return (Profile)profileComboBox.getSelectedItem();
+    }
+
+    public Episode getSelectedEpisode() { return (Episode)episodeComboBox.getSelectedItem(); }
 }

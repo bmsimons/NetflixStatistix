@@ -113,9 +113,9 @@ public class DBConnection {
         return resultset;
     }
 
-    public ResultSet executeSQLInsertStatement(String query)
+    public boolean executeSQLInsertStatement(String query)
     {
-        ResultSet resultset = null;
+        boolean result = false;
 
         // First, check whether a some query was passed and the connection with
         // the database.
@@ -124,21 +124,17 @@ public class DBConnection {
             // Then, if succeeded, execute the query.
             try
             {
-                Statement stmt = connection.createStatement();
-
-                int affectedrows = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-                if (affectedrows != 0) {
-                    resultset = stmt.getResultSet();
-                }
+                statement.executeUpdate(query);
+                result = true;
             }
             catch(SQLException e)
             {
-                e.printStackTrace();
-                resultset = null;
+                System.out.println(e);
+                result = false;
             }
         }
 
-        return resultset;
+        return result;
     }
 
     public boolean executeSQLDeleteStatement(String query)

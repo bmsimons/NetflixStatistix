@@ -38,7 +38,7 @@ public class Episode {
         this.duration = duration;
     }
 
-    public int getId() { return this.id; }
+    public Integer getId() { return this.id; }
 
     @Override
     public int hashCode() {
@@ -58,5 +58,10 @@ public class Episode {
         Episode e = (Episode) obj;
 
         return e.getId() == this.getId();
+    }
+
+    @Override
+    public String toString() {
+        return getTitle();
     }
 }

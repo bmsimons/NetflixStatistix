@@ -1,10 +1,7 @@
 package data;
 
 import data.connection.DBConnection;
-import domain.Language;
-import domain.Movie;
-import domain.Profile;
-import domain.Subscription;
+import domain.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -222,5 +219,13 @@ public class MovieDAO implements DAO<Movie>{
         }
 
         return movieWatchCounter;
+    }
+
+    public boolean addWatchedMovie(WatchedMovie watchedMovie){
+        if(conn.openConnection()){
+            String query = "INSERT INTO WatchedMovies(ProfileID, MovieID, Duration) VALUES ("+watchedMovie.getProfileID()+","+watchedMovie.getMovieID()+","+watchedMovie.getDuration()+");";
+            return(conn.executeSQLInsertStatement(query));
+        }
+        return false;
     }
 }

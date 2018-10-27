@@ -4,6 +4,7 @@ import data.connection.DBConnection;
 import domain.Episode;
 import domain.Series;
 import domain.WatchedEpisode;
+import domain.WatchedMovie;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -194,6 +195,14 @@ public class EpisodeDAO implements DAO<Episode> {
         }
 
         return null;
+    }
+
+    public boolean addWatchedEpisode(WatchedEpisode watchedEpisode){
+        if(conn.openConnection()){
+            String query = "INSERT INTO WatchedEpisodes(ProfileID, EpisodeID, Duration) VALUES("+watchedEpisode.getProfileID()+","+watchedEpisode.getEpisodeID()+","+watchedEpisode.getDuration()+");";
+            return(conn.executeSQLInsertStatement(query));
+        }
+        return false;
     }
 
     @Override

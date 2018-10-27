@@ -49,4 +49,9 @@ public class Series extends Program {
 
         return s.getId() == this.getId();
     }
+
+    @Override
+    public String toString() {
+        return getTitle();
+    }
 }

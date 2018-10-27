@@ -58,4 +58,10 @@ public class SubscriptionManager {
 
         return pdao.getProfileByNameAndSubscriberId(profileName, subscriberID);
     }
+
+    public Set<Profile> getProfilesForSubscriptionID(int subscriptionID){
+        SubscriptionDAO s = new SubscriptionDAO();
+        return s.getProfilesForSubscriptionID(subscriptionID);
+    }
+
 }

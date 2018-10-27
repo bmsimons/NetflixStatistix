@@ -49,4 +49,10 @@ public class Profile {
     public List<Program> getWatchedPrograms(){
         return this.programsWatched;
     }
+
+    // Used in ProfileAddMoviesWatchedPanel & ProfileAddSeriesWatchedPanel
+    @Override
+    public String toString(){
+        return profileName;
+    }
 }

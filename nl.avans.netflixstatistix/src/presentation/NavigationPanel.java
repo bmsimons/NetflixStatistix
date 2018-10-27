@@ -1,8 +1,6 @@
 package presentation;
 
-import domain.Movie;
-import domain.Program;
-import domain.Subscription;
+import domain.*;
 import logic.ProgramManager;
 
 import javax.accessibility.AccessibleContext;
@@ -109,6 +107,20 @@ public class NavigationPanel extends JTabbedPane {
                         break;
                     case 7:
                         break;
+                    case 8:
+                        break;
+                    case 9:
+                        JComboBox<Movie> movieComboBox = profileAddMoviesWatchedPanel.getMovieComboBox();
+                        ArrayList<Movie> moviesList = ui.getProgramManager().getMovies();
+                        for (Movie m : moviesList){
+                            movieComboBox.addItem(m);
+                        }
+                    case 10:
+                        JComboBox<Series> seriesComboBox = profileAddSeriesWatchedPanel.getSeriesComboBox();
+                        ArrayList<Series> seriesList = ui.getProgramManager().getSeries();
+                        for (Series s : seriesList){
+                            seriesComboBox.addItem(s);
+                        }
                     default:
                         break;
                 }

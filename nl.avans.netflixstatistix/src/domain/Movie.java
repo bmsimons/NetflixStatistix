@@ -37,4 +37,9 @@ public class Movie extends Program{
 
         return m.getId() == this.getId();
     }
+
+    @Override
+    public String toString() {
+        return getTitle();
+    }
 }

@@ -1,14 +1,21 @@
 package presentation;
 
+import domain.Movie;
+import domain.Profile;
+import presentation.events.ProfileAddMoviesInsertActionListener;
+import presentation.events.ProfileAddMoviesSearchActionListener;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Set;
 
 public class ProfileAddMoviesWatchedPanel extends JPanel {
     private UserInterface ui;
     private JTextField subscriptionTextField, durationTextField;
     private JLabel resultLabel, profileLabel, movieLabel, durationLabel;
-    private JComboBox<String> profileComboBox, movieComboBox;
-
+    private JComboBox<Movie> movieComboBox;
+    private JComboBox<Profile> profileComboBox;
     public ProfileAddMoviesWatchedPanel(Dimension size, UserInterface ui){
         this.ui = ui;
         setPreferredSize(size);
@@ -21,20 +28,17 @@ public class ProfileAddMoviesWatchedPanel extends JPanel {
         subscriptionTextField.setPreferredSize(new Dimension(175, 24));
 
         JButton subscriptionSearchButton = new JButton("Haal profielen op!");
+        subscriptionSearchButton.addActionListener(new ProfileAddMoviesSearchActionListener(this));
 
         profileLabel = new JLabel("Selecteer een profiel");
 
-        // TODO: Add an ActionListener that fetches the profiles related to given subscriber.
-        String[] testProfiles = {"Profiel 1","Profiel 2","Profiel 3","Profiel 4","Profiel 5"};
-        profileComboBox = new JComboBox<String>(testProfiles);
-        // ComboBox disabled, enable when subscriber is found.
+        profileComboBox = new JComboBox<Profile>();
+        // ComboBox disabled, enabled when subscriber is found.
         profileComboBox.setEnabled(false);
 
         movieLabel = new JLabel("Selecteer een film");
-
-        // TODO: Fetch the list of movies
-        String[] testMovies = {"Winnie the Pooh 1","Winnie the Pooh 2","Winnie the Pooh 3"};
-        movieComboBox = new JComboBox<String>(testMovies);
+        // ComboBox gets filled by NavigationPanel, for whatever reason.
+        movieComboBox = new JComboBox<Movie>();
 
         durationLabel = new JLabel("Lengte gekeken: ");
 
@@ -44,6 +48,7 @@ public class ProfileAddMoviesWatchedPanel extends JPanel {
 
         // TODO Add an ActionListener that sends all the data to the apl. logic
         JButton addButton = new JButton("Voeg film toe!");
+        addButton.addActionListener(new ProfileAddMoviesInsertActionListener(this));
 
         // TODO set resultLabel's text to be a result of whether the movie got added or not
         resultLabel = new JLabel();
@@ -90,6 +95,7 @@ public class ProfileAddMoviesWatchedPanel extends JPanel {
         add(addButton, constraints);
 
         constraints.gridy = 6;
+        constraints.gridx = 1;  // Set this on 1, else the GUI starts to rescale due to the size of this label.
         add(resultLabel, constraints);
     }
 
@@ -105,4 +111,42 @@ public class ProfileAddMoviesWatchedPanel extends JPanel {
     }
 
     public UserInterface getUi(){ return this.ui; }
+
+    public JComboBox<Movie> getMovieComboBox(){ return movieComboBox; }
+
+    public String getSubscriptionTextFieldText(){
+        return subscriptionTextField.getText();
+    }
+
+    public void setProfileComboBox(Set<Profile> profiles){
+        for (Profile p : profiles){
+            profileComboBox.addItem(p);
+        }
+    }
+
+    public void clearProfileComboBox(){
+        profileComboBox.removeAllItems();
+    }
+
+    public void enableProfileComboBox(boolean enabled){
+        profileComboBox.setEnabled(enabled);
+    }
+
+    public void setMovieComboBox(ArrayList<Movie> movies){
+        for (Movie m : movies){
+            movieComboBox.addItem(m);
+        }
+    }
+
+    public Movie getSelectedMovie(){
+        return (Movie)movieComboBox.getSelectedItem();
+    }
+
+    public Profile getSelectedProfile(){
+        return (Profile)profileComboBox.getSelectedItem();
+    }
+
+    public String getDurationTextFieldText(){
+        return durationTextField.getText();
+    }
 }

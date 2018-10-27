@@ -119,7 +119,6 @@ public class SubscriptionDAO implements DAO<Subscription> {
 
         return null;
     }
-
     public Set<Profile> getProfilesForSubscription(Subscription s) {
         Set<Profile> profiles = new HashSet<Profile>();
 
@@ -144,7 +143,6 @@ public class SubscriptionDAO implements DAO<Subscription> {
 
         return profiles;
     }
-
     public Set<Subscription> getSubscriptionsWithAtleastOneProfile() {
         Set<Subscription> subscriptions = new HashSet<Subscription>();
 
@@ -173,6 +171,30 @@ public class SubscriptionDAO implements DAO<Subscription> {
         return subscriptions;
     }
 
+    // Fetch the profiles for a subscription based on given ID, Use this instead of fetching based on name, since name isn't unique!
+    public Set<Profile> getProfilesForSubscriptionID(int subscriptionID){
+        Set<Profile> profiles = new HashSet<Profile>();
+        if (conn.openConnection()){
+            String query = "SELECT * FROM Profiles WHERE SubscriptionID = "+subscriptionID+";";
+
+            ResultSet resultSet = conn.executeSQLSelectStatement(query);
+
+            try{
+                while(resultSet.next()){
+                    profiles.add(new Profile(
+                            resultSet.getString("Name"),
+                            resultSet.getInt("Age"),
+                            resultSet.getInt("SubscriptionID")
+                    ));
+                }
+            }catch(SQLException e){
+                System.out.println(e);
+            }
+            conn.closeConnection();
+        }
+
+        return profiles;
+    }
     @Override
     public boolean insert(Subscription subscription) {
         return false;
