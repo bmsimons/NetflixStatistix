@@ -158,11 +158,6 @@ public class ProfileAddSeriesWatchedPanel extends JPanel {
         episodeComboBox.removeAllItems();
     }
 
-    public void setSeriesComboBox(ArrayList<Series> series){
-        for (Series s : series){
-            seriesComboBox.addItem(s);
-        }
-    }
     public String getDurationTextFieldText(){
         return durationTextField.getText();
     }

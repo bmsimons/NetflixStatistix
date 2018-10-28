@@ -168,7 +168,7 @@ public class NavigationPanel extends JTabbedPane {
                         JComboBox<Series> seriesCBox = profileAddSeriesWatchedPanel.getSeriesComboBox();
                         ArrayList<Series> seriesArrayList = ui.getProgramManager().getSeries();
 
-
+                        profileAddSeriesWatchedPanel.clearSeriesComboBox();
                         for (Series s : seriesArrayList){
                             seriesCBox.addItem(s);
                         }

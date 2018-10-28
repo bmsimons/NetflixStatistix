@@ -22,6 +22,9 @@ public class ProfileAddSeriesEpisodesActionListener implements ActionListener {
         panel.clearEpisodeComboBox();
         UserInterface ui = panel.getUi();
         ProgramManager pm = ui.getProgramManager();
+        if (panel.getSeriesComboBox().getSelectedItem() == null){
+            return;
+        }
         ArrayList<Episode> episodes = pm.getEpisodes((Series) panel.getSeriesComboBox().getSelectedItem());
         panel.setEpisodeComboBox(episodes);
     }
