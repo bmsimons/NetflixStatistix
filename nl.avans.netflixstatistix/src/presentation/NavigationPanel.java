@@ -53,18 +53,22 @@ public class NavigationPanel extends JTabbedPane {
 
         this.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                System.out.println("Tab: " + NavigationPanel.super.getSelectedIndex());
-
                 switch (NavigationPanel.super.getSelectedIndex()) {
                     case 0:
-                        seriesPanel.seriesComboBox.removeAllItems();
-
+                        seriesPanel.clearSeriesComboBox();
+                        JComboBox<String> seriesBox = seriesPanel.getSeriesComboBox();
                         for (Program p : ui.getProgramManager().getSeries()) {
-                            seriesPanel.seriesComboBox.addItem(p.getTitle());
+                            seriesBox.addItem(p.getTitle());
                         }
 
                         break;
                     case 1:
+
+                        JComboBox<String> seriesComboBox = seriesPerSubscriptionPanel.getSeriesComboBox();
+                        ArrayList<Series> seriesList = ui.getProgramManager().getSeries();
+                        for (Series s : seriesList){
+                            seriesComboBox.addItem(s.getTitle());
+                        }
                         break;
                     case 2:
                         break;
@@ -92,7 +96,7 @@ public class NavigationPanel extends JTabbedPane {
 
                         break;
                     case 5:
-                        Set<Subscription> subscriptions = ui.getSubscriptionManager().getSubscriptionsWithAtleastOneProfile();
+                        Set<Subscription> subscriptions = ui.getSubscriptionManager().getSubscriptionsWithOnlyOneProfile();
 
                         String subscriptionPanelText = "";
 
@@ -115,16 +119,20 @@ public class NavigationPanel extends JTabbedPane {
                         for (Movie m : moviesList){
                             movieComboBox.addItem(m);
                         }
+                        break;
                     case 10:
-                        JComboBox<Series> seriesComboBox = profileAddSeriesWatchedPanel.getSeriesComboBox();
-                        ArrayList<Series> seriesList = ui.getProgramManager().getSeries();
-                        for (Series s : seriesList){
-                            seriesComboBox.addItem(s);
+                        JComboBox<Series> seriesCBox = profileAddSeriesWatchedPanel.getSeriesComboBox();
+                        ArrayList<Series> seriesArrayList = ui.getProgramManager().getSeries();
+                        for (Series s : seriesArrayList){
+                            seriesCBox.addItem(s);
                         }
+                        break;
                     default:
                         break;
                 }
             }
         });
+        // Call the changeListener, fixes empty comboBox on launch
+        changeListener.stateChanged(null);
     }
 }

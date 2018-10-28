@@ -36,8 +36,6 @@ public class SearchSubscriberActionListener implements ActionListener {
 
                 for (Subscription s : subscriptions) {
                     if (seriesPerSubscriptionPanel.getSubscriptionTextField().getText().equals(s.getName())) {
-                        JOptionPane.showMessageDialog(null, "Found a subscriber with the name " + seriesPerSubscriptionPanel.getSubscriptionTextField().getText() + "!");
-
                         int subscriptionID = s.getId();
 
                         seriesPerSubscriptionPanel.setSelectedSubscriptionID(subscriptionID);
@@ -74,8 +72,6 @@ public class SearchSubscriberActionListener implements ActionListener {
 
                 for (Subscription s : subscriptions) {
                     if (movieWatchedPanel.getSubscriptionTextField().getText().equals(s.getName())) {
-                        JOptionPane.showMessageDialog(null, "Found a subscriber with the name " + movieWatchedPanel.getSubscriptionTextField().getText() + "!");
-
                         Set<Movie> watchedMoviesForSubscriber = movieWatchedPanel.getUi().getProgramManager().getWatchedMoviesForSubscriber(s);
 
                         String moviePanelText = "";
@@ -90,7 +86,7 @@ public class SearchSubscriberActionListener implements ActionListener {
                     }
                 }
 
-                JOptionPane.showMessageDialog(null, "Found no subscriber in the database :(");
+                JOptionPane.showMessageDialog(null, "Found no subscriber in the database");
 
                 break;
             case "presentation.ProfilePanel":
@@ -100,16 +96,14 @@ public class SearchSubscriberActionListener implements ActionListener {
 
                 for (Subscription s : subscriptions) {
                     if (profilePanel.getSubscriptionTextField().getText().equals(s.getName())) {
-                        JOptionPane.showMessageDialog(null, "Found a subscriber with the name " + profilePanel.getSubscriptionTextField().getText() + "!");
-
                         Set<Profile> profiles = profilePanel.getUi().getSubscriptionManager().getProfilesForSubscription(s);
 
-                        profilePanel.getSeriesComboBox().removeAllItems();
+                        profilePanel.getProfileComboBox().removeAllItems();
 
                         String firstProfileName = "";
 
                         for (Profile p : profiles) {
-                            profilePanel.getSeriesComboBox().addItem(p.getProfileName());
+                            profilePanel.getProfileComboBox().addItem(p.getProfileName());
 
                             if (firstProfileName.equals("")) {
                                 firstProfileName = p.getProfileName();

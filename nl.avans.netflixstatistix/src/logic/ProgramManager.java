@@ -91,7 +91,7 @@ public class ProgramManager {
     public boolean addWatchedMovie(Movie movie, Profile profile, int duration){
         WatchedMovie wm = new WatchedMovie(profile.getId(), movie.getId(), duration);
         MovieDAO mdao =  new MovieDAO();
-        return mdao.addWatchedMovie(wm);
+        return mdao.addWatchedMovie(wm, profile.getProfileName());
     }
 
     public ArrayList<Episode> getEpisodes(Series series){
@@ -102,6 +102,6 @@ public class ProgramManager {
     public boolean addWatchedEpisode(Episode episode, Profile profile, int duration){
         WatchedEpisode we = new WatchedEpisode(profile.getId(), episode.getId(), duration);
         EpisodeDAO edao = new EpisodeDAO();
-        return edao.addWatchedEpisode(we);
+        return edao.addWatchedEpisode(we, profile.getProfileName());
     }
 }

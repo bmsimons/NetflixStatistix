@@ -14,12 +14,9 @@ public class SubscriptionPanel extends JPanel {
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
 
-        JLabel subscriptionLabel = new JLabel("Accounts met minstens 1 profiel");
-
-        // TODO: Fetch the subscriptions that have at least 1 profile assigned to them.
+        JLabel subscriptionLabel = new JLabel("Accounts met slechts 1 profiel");
 
         subscriptionTextArea = new JTextArea(13, 35);
-        subscriptionTextArea.setText("--- TEXT ---");
         subscriptionTextArea.setEditable(false);
 
         JScrollPane scrollPane = new JScrollPane(subscriptionTextArea);

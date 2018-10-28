@@ -221,9 +221,10 @@ public class MovieDAO implements DAO<Movie>{
         return movieWatchCounter;
     }
 
-    public boolean addWatchedMovie(WatchedMovie watchedMovie){
+    public boolean addWatchedMovie(WatchedMovie watchedMovie, String profileName){
         if(conn.openConnection()){
-            String query = "INSERT INTO WatchedMovies(ProfileID, MovieID, Duration) VALUES ("+watchedMovie.getProfileID()+","+watchedMovie.getMovieID()+","+watchedMovie.getDuration()+");";
+            // Ugly fix, too late to do a proper one.
+            String query = "INSERT INTO WatchedMovies(ProfileID, MovieID, Duration) VALUES((SELECT ID FROM Profiles WHERE Name = '"+profileName+"' AND SubscriptionID = "+watchedMovie.getProfileID()+"),"+watchedMovie.getMovieID()+","+watchedMovie.getDuration()+");";
             return(conn.executeSQLInsertStatement(query));
         }
         return false;

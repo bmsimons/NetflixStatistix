@@ -143,11 +143,11 @@ public class SubscriptionDAO implements DAO<Subscription> {
 
         return profiles;
     }
-    public Set<Subscription> getSubscriptionsWithAtleastOneProfile() {
+    public Set<Subscription> getSubscriptionsWithOnlyOneProfile() {
         Set<Subscription> subscriptions = new HashSet<Subscription>();
 
         if (conn.openConnection()) {
-            String query = "SELECT * FROM Subscriptions WHERE (SELECT COUNT(*) FROM Profiles WHERE SubscriptionID = Subscriptions.ID) > 1;";
+            String query = "SELECT * FROM Subscriptions WHERE (SELECT COUNT(*) FROM Profiles WHERE SubscriptionID = Subscriptions.ID) = 1;";
 
             ResultSet result = conn.executeSQLSelectStatement(query);
 
