@@ -17,6 +17,7 @@ public class SeriesDAO implements DAO<Series>{
         conn = new DBConnection();
     }
 
+    // Returns a specific series based on given id
     @Override
     public Series get(int id) {
         //always open the connection when you want to contact the DB
@@ -52,7 +53,7 @@ public class SeriesDAO implements DAO<Series>{
 
         return null;
     }
-
+    // Returns all the series it was able to find in the database
     @Override
     public ArrayList<Series> getAll() {
         ArrayList<Series> seriesList = new ArrayList<>();

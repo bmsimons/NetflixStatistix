@@ -1,5 +1,6 @@
 package domain;
 
+// Language enum, used to display in that language a movie/series is available in.
 public enum Language {
 
     EN("English"),

@@ -10,6 +10,7 @@ public class MovieWatchedPanel extends JPanel {
     private JTextArea movieTextArea;
     private JTextField subscriptionTextField;
 
+    // Displays the movies that the given subscribers has watched
     public MovieWatchedPanel(Dimension size, UserInterface ui){
         this.ui = ui;
 

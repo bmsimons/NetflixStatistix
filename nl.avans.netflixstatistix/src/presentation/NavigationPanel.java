@@ -1,9 +1,7 @@
 package presentation;
 
-import domain.Movie;
-import domain.Program;
-import domain.Subscription;
 
+import domain.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -20,6 +18,10 @@ public class NavigationPanel extends JTabbedPane {
     MovieFullyWatchedPanel movieFullyWatchedPanel;
     ProfilePanel profilePanel;
     SubscriptionPanel subscriptionPanel;
+    ProfileCreatePanel profileCreatePanel;
+    ProfileAddMoviesWatchedPanel profileAddMoviesWatchedPanel;
+    ProfileAddSeriesWatchedPanel profileAddSeriesWatchedPanel;
+    SubscriptionCreatePanel subscriptionCreatePanel;
 
     public NavigationPanel(Dimension size, UserInterface ui){
         // Top Panel | Navigation Bar | Tabbed Pane
@@ -34,7 +36,11 @@ public class NavigationPanel extends JTabbedPane {
         movieFullyWatchedPanel = new MovieFullyWatchedPanel(size, ui);
         profilePanel = new ProfilePanel(size, ui);
         subscriptionPanel = new SubscriptionPanel(size, ui);
+        subscriptionCreatePanel = new SubscriptionCreatePanel(size, ui);
 
+        profileCreatePanel = new ProfileCreatePanel(size, ui);
+        profileAddMoviesWatchedPanel = new ProfileAddMoviesWatchedPanel(size, ui);
+        profileAddSeriesWatchedPanel = new ProfileAddSeriesWatchedPanel(size, ui);
 
         addTab("Series", null, seriesPanel, "Zoek de statistieken van series");
         addTab("Series Per Abonnee", null, seriesPerSubscriptionPanel, "Zoek de statistieken van series per abonnee");
@@ -43,33 +49,55 @@ public class NavigationPanel extends JTabbedPane {
         addTab("Gehele Film", null, movieFullyWatchedPanel, "Geef aan hoe vaak een film volledig bekeken is");
         addTab("Profiel", null, profilePanel, "Geef een overzicht voor het gegeven profiel");
         addTab("Abonnee", null, subscriptionPanel, "Geef de abonnees met slechts 1 profiel");
-        addTab("Abonnee toevoegen", null, new SubscriptionCreatePanel(size), "Voeg een abonnee toe");
-        addTab("Profiel toevoegen", null, new ProfileCreatePanel(size), "Voeg een profiel aan een abonnee toe");
+        addTab("Abonnee toevoegen", null, subscriptionCreatePanel, "Voeg een abonnee toe");
+        addTab("Profiel toevoegen", null, profileCreatePanel, "Voeg een profiel aan een abonnee toe");
+        addTab("Gekeken films toevoegen", null, profileAddMoviesWatchedPanel, "Voeg gekeken films toe aan een profiel");
+        addTab("Gekeken series toevoegen",null,profileAddSeriesWatchedPanel,"Voeg gekeken afleveringen van een serie toe aan een profiel");
 
+        // changelistener, used for pre-fetching data for Comboboxes, labels and textareas.
+        // Used by most of the panels, each panel has a unique number.
         this.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                System.out.println("Tab: " + NavigationPanel.super.getSelectedIndex());
-
                 switch (NavigationPanel.super.getSelectedIndex()) {
                     case 0:
-                        seriesPanel.seriesComboBox.removeAllItems();
 
+                        //this case is for Series panel
+
+                        seriesPanel.clearSeriesComboBox();
+                        JComboBox<String> seriesBox = seriesPanel.getSeriesComboBox();
                         for (Program p : ui.getProgramManager().getSeries()) {
-                            seriesPanel.seriesComboBox.addItem(p.getTitle());
+                            seriesBox.addItem(p.getTitle());
                         }
 
                         break;
                     case 1:
+
+                        //this case is for Series per subscription panel
+
+                        JComboBox<String> seriesComboBox = seriesPerSubscriptionPanel.getSeriesComboBox();
+                        ArrayList<Series> seriesList = ui.getProgramManager().getSeries();
+                        for (Series s : seriesList){
+                            seriesComboBox.addItem(s.getTitle());
+                        }
                         break;
                     case 2:
+
+                        //this case is for Watched movies panel
+
                         break;
                     case 3:
+
+                        //this case is for Movies below 16 panel
+
 
                         Movie longestMovieUnder16 = ui.getProgramManager().getLongestMovieUnder16();
                         movieBelowSixteenPanel.getLongestMovieLabel().setText("De langste film voor kinderen onder de 16 is " + longestMovieUnder16.getTitle());
 
                         break;
                     case 4:
+
+                        //this case is for Fully watched movies panel
+
                         ArrayList<Movie> movies = ui.getProgramManager().getMovies();
 
                         movieFullyWatchedPanel.getMovieComboBox().removeAllItems();
@@ -87,7 +115,15 @@ public class NavigationPanel extends JTabbedPane {
 
                         break;
                     case 5:
-                        Set<Subscription> subscriptions = ui.getSubscriptionManager().getSubscriptionsWithAtleastOneProfile();
+
+                        //this case is for the profile panel
+
+                        break;
+                    case 6:
+
+                        //this case is for Single profile per subscription panel
+
+                        Set<Subscription> subscriptions = ui.getSubscriptionManager().getSubscriptionsWithOnlyOneProfile();
 
                         String subscriptionPanelText = "";
 
@@ -96,16 +132,55 @@ public class NavigationPanel extends JTabbedPane {
                         }
 
                         subscriptionPanel.getSubscriptionTextArea().setText(subscriptionPanelText);
-
-                        break;
-                    case 6:
                         break;
                     case 7:
+
+                        //this case is for Add Subscription panel
+
+                        break;
+                    case 8:
+
+                        //this case is for Add Profile panel
+
+                        JComboBox<Subscription> subscriptionComboBox = profileCreatePanel.getSubscriptionComboBox();
+                        ArrayList<Subscription> subscriptionArrayList = ui.getSubscriptionManager().getSubscriptions();
+                        profileCreatePanel.clearSubscriptionComboBox();
+
+                        for (Subscription s : subscriptionArrayList){
+                            subscriptionComboBox.addItem(s);
+                        }
+                        break;
+                    case 9:
+
+                        //this case is for Add watched movies panel
+
+                        JComboBox<Movie> movieComboBox = profileAddMoviesWatchedPanel.getMovieComboBox();
+                        ArrayList<Movie> moviesList = ui.getProgramManager().getMovies();
+
+                        profileAddMoviesWatchedPanel.clearMovieComboBox();
+
+                        for (Movie m : moviesList){
+                            movieComboBox.addItem(m);
+                        }
+                        break;
+                    case 10:
+
+                        //this case is for Add watched series panel
+
+                        JComboBox<Series> seriesCBox = profileAddSeriesWatchedPanel.getSeriesComboBox();
+                        ArrayList<Series> seriesArrayList = ui.getProgramManager().getSeries();
+
+                        profileAddSeriesWatchedPanel.clearSeriesComboBox();
+                        for (Series s : seriesArrayList){
+                            seriesCBox.addItem(s);
+                        }
                         break;
                     default:
                         break;
                 }
             }
         });
+        // Call the changeListener, fixes empty comboBox on launch
+        changeListener.stateChanged(null);
     }
 }

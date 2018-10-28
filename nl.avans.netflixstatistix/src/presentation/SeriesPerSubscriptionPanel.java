@@ -5,6 +5,8 @@ import presentation.events.SearchSubscriberActionListener;
 import javax.swing.*;
 import java.awt.*;
 
+// Panel that will display information about which episodes were watched by profiles associated with given subscription
+
 public class SeriesPerSubscriptionPanel extends JPanel {
     private UserInterface ui;
     private JTextField subscriptionTextField;
@@ -29,12 +31,8 @@ public class SeriesPerSubscriptionPanel extends JPanel {
         searchButton.addActionListener(new SearchSubscriberActionListener(this));
 
         JLabel seriesLabel = new JLabel("Selecteer een serie");
-
-        String[] seriesTestData = {"a","b","c","d","e"};
-        seriesComboBox = new JComboBox<String>(seriesTestData);
+        seriesComboBox = new JComboBox<String>();
         seriesComboBox.addItemListener(new ChooseSeriesItemListener(this));
-
-        // TODO: Add ActionListener that fetches data which contains a list with episodes + average watched percentage
 
         watchedEpisodesTextArea = new JTextArea(13, 35);
         watchedEpisodesTextArea.setText("Selecteer een abonnee & serie.");
@@ -85,9 +83,7 @@ public class SeriesPerSubscriptionPanel extends JPanel {
         return this.watchedEpisodesTextArea;
     }
 
-    public JComboBox<String> getSeriesComboBox() {
-        return this.seriesComboBox;
-    }
+    public JComboBox<String> getSeriesComboBox() { return this.seriesComboBox; }
 
     public int getSelectedSubscriptionID() {
         return this.selectedSubscriptionID;

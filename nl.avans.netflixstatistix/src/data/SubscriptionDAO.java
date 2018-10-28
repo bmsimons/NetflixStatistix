@@ -22,6 +22,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
         conn = new DBConnection();
     }
 
+    // Returns a specific subscription based on the given id
     @Override
     public Subscription get(int id) {
 
@@ -58,6 +59,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
         return null;
     }
 
+    // Returns all the subscriptions it could find in the database
     @Override
     public ArrayList<Subscription> getAll() {
 
@@ -94,6 +96,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
         return null;
     }
 
+    // Returns a Set of seriesIDs that the profiles associated with the given subscriberID have watched
     public Set<Integer> getAllSeriesForSubscriber(int subscriberID) {
         Set<Integer> seriesIDs = new HashSet<Integer>();
 
@@ -119,7 +122,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
 
         return null;
     }
-
+    // Returns a set of profiles associated with the given subscription
     public Set<Profile> getProfilesForSubscription(Subscription s) {
         Set<Profile> profiles = new HashSet<Profile>();
 
@@ -144,12 +147,12 @@ public class SubscriptionDAO implements DAO<Subscription> {
 
         return profiles;
     }
-
-    public Set<Subscription> getSubscriptionsWithAtleastOneProfile() {
+    // Returns a set of subscriptions that have only 1 profile assigned to them
+    public Set<Subscription> getSubscriptionsWithOnlyOneProfile() {
         Set<Subscription> subscriptions = new HashSet<Subscription>();
 
         if (conn.openConnection()) {
-            String query = "SELECT * FROM Subscriptions WHERE (SELECT COUNT(*) FROM Profiles WHERE SubscriptionID = Subscriptions.ID) > 1;";
+            String query = "SELECT * FROM Subscriptions WHERE (SELECT COUNT(*) FROM Profiles WHERE SubscriptionID = Subscriptions.ID) = 1;";
 
             ResultSet result = conn.executeSQLSelectStatement(query);
 
@@ -173,8 +176,50 @@ public class SubscriptionDAO implements DAO<Subscription> {
         return subscriptions;
     }
 
+    // Fetch the profiles for a subscription based on given ID, Use this instead of fetching based on name, since name isn't unique!
+    public Set<Profile> getProfilesForSubscriptionID(int subscriptionID){
+        Set<Profile> profiles = new HashSet<Profile>();
+        if (conn.openConnection()){
+            String query = "SELECT * FROM Profiles WHERE SubscriptionID = "+subscriptionID+";";
+
+            ResultSet resultSet = conn.executeSQLSelectStatement(query);
+
+            try{
+                while(resultSet.next()){
+                    profiles.add(new Profile(
+                            resultSet.getString("Name"),
+                            resultSet.getInt("Age"),
+                            resultSet.getInt("ID")
+                    ));
+                }
+            }catch(SQLException e){
+                System.out.println(e);
+            }
+            conn.closeConnection();
+        }
+
+        return profiles;
+    }
+    // Inserts the subscription into the database
     @Override
     public boolean insert(Subscription subscription) {
+
+        if (conn.openConnection()){
+            String insertquery = "INSERT INTO Subscriptions (Name, StreetName, HouseNumber, Addition, City) VALUES ("
+                    + "'" + subscription.getName() + "',"
+                    + "'" + subscription.getStreetName() + "',"
+                    + subscription.getHouseNo() + ","
+                    + "'" + subscription.getAddition() + "',"
+                    + "'" + subscription.getCity()
+                    + "')";
+
+            boolean result = conn.executeSQLInsertStatement(insertquery);
+
+            conn.closeConnection();
+
+            return result;
+        }
+
         return false;
     }
 

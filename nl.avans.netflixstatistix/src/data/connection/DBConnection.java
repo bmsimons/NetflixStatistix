@@ -14,6 +14,7 @@ public class DBConnection {
         statement = null;
     }
 
+    // Used for starting the connection with the database
     public boolean openConnection()
     {
         boolean result = false;
@@ -27,7 +28,7 @@ public class DBConnection {
                         "jdbc:sqlserver://localhost:1433;"
                                 + "database=NetflixStatistix;"
                                 + "user=Bob;"
-                                + "password=P@ssword;"
+                                + "password=P@ssw0rd;"
                                 + "encrypt=false;"
                                 + "loginTimeout=5;"
                 );
@@ -54,6 +55,7 @@ public class DBConnection {
         return result;
     }
 
+    // Used to check if the connection is open
     public boolean connectionIsOpen()
     {
         boolean open = false;
@@ -76,6 +78,7 @@ public class DBConnection {
         return open;
     }
 
+    // Used to close the connection with the database
     public void closeConnection()
     {
         try
@@ -113,9 +116,10 @@ public class DBConnection {
         return resultset;
     }
 
-    public ResultSet executeSQLInsertStatement(String query)
+    // Used to execute insert queries
+    public boolean executeSQLInsertStatement(String query)
     {
-        ResultSet resultset = null;
+        boolean result = false;
 
         // First, check whether a some query was passed and the connection with
         // the database.
@@ -124,23 +128,20 @@ public class DBConnection {
             // Then, if succeeded, execute the query.
             try
             {
-                Statement stmt = connection.createStatement();
-
-                int affectedrows = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-                if (affectedrows != 0) {
-                    resultset = stmt.getResultSet();
-                }
+                statement.executeUpdate(query);
+                result = true;
             }
             catch(SQLException e)
             {
-                e.printStackTrace();
-                resultset = null;
+                System.out.println(e);
+                result = false;
             }
         }
 
-        return resultset;
+        return result;
     }
 
+    // Used to execute delete queries
     public boolean executeSQLDeleteStatement(String query)
     {
         boolean result = false;
@@ -165,6 +166,7 @@ public class DBConnection {
         return result;
     }
 
+    // returns current connection
     public Connection getConnection(){
         return this.connection;
     }

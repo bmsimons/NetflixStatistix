@@ -77,4 +77,9 @@ public class Subscription {
     public void setProfiles(ArrayList<Profile> profiles) {
         this.profiles = profiles;
     }
+
+    @Override
+    public String toString(){
+        return name;
+    }
 }

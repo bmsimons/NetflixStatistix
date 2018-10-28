@@ -10,10 +10,12 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
+// Panel that displays information about given series
+
 public class SeriesPanel extends JPanel {
-    JComboBox<String> seriesComboBox;
-    JTextArea seriesAverageTextArea;
-    UserInterface ui;
+    private JComboBox<String> seriesComboBox;
+    private JTextArea seriesAverageTextArea;
+    private UserInterface ui;
 
     public SeriesPanel(Dimension size, UserInterface ui){
         this.ui = ui;
@@ -22,13 +24,9 @@ public class SeriesPanel extends JPanel {
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
 
-        // Test data
-        String[] seriesData = {"House of Cards","The Story of Mr. Dab","Sesame Street","Minecraft"};
-        // String[] data = logic.getData(String data)
-
         // Center Panel Components
         JLabel seriesLabel = new JLabel("Selecteer serie");
-        seriesComboBox = new JComboBox<String>(seriesData);
+        seriesComboBox = new JComboBox<String>();
 
         seriesComboBox.addItemListener(new ItemListener() {
             @Override
@@ -103,5 +101,12 @@ public class SeriesPanel extends JPanel {
         constraints.gridwidth = 3;
         constraints.fill = GridBagConstraints.VERTICAL;
         add(scrollPane, constraints);
+    }
+    public JComboBox<String> getSeriesComboBox(){
+        return seriesComboBox;
+    }
+
+    public void clearSeriesComboBox(){
+        seriesComboBox.removeAllItems();
     }
 }

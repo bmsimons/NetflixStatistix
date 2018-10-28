@@ -18,6 +18,7 @@ public class Series extends Program {
         return this.serieSuggestion;
     }
 
+    // Supposed to return the suggestion, not used.
     public void setSerieSuggestion(Series serieSuggestion) {
         this.serieSuggestion = serieSuggestion;
     }
@@ -48,5 +49,10 @@ public class Series extends Program {
         Series s = (Series) obj;
 
         return s.getId() == this.getId();
+    }
+
+    @Override
+    public String toString() {
+        return getTitle();
     }
 }

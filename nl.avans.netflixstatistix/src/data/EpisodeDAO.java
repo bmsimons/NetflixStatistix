@@ -4,6 +4,7 @@ import data.connection.DBConnection;
 import domain.Episode;
 import domain.Series;
 import domain.WatchedEpisode;
+import domain.WatchedMovie;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +19,7 @@ public class EpisodeDAO implements DAO<Episode> {
         conn = new DBConnection();
     }
 
+    // Fetches a specific episode based on the given episodeID
     @Override
     public Episode get(int id) {
 
@@ -52,6 +54,7 @@ public class EpisodeDAO implements DAO<Episode> {
         return null;
     }
 
+    // Returns all episodes found in the database
     @Override
     public ArrayList<Episode> getAll() {
         ArrayList<Episode> episodes = new ArrayList<>();
@@ -85,6 +88,7 @@ public class EpisodeDAO implements DAO<Episode> {
         return null;
     }
 
+    // Returns a hashmap with average watched percentages based on the given subscripionID (average percentage watched of the profiles associated with this subscription)
     public HashMap<Episode, Integer> getEpisodesWithAverageWatchedPerSubscription(int subscriptionID) {
         HashMap<Episode, Integer> collection = new HashMap<Episode, Integer>();
         HashMap<Episode, Integer> collectionCounter = new HashMap<Episode, Integer>();
@@ -113,8 +117,6 @@ public class EpisodeDAO implements DAO<Episode> {
                         collection.put(episode, collection.get(episode) + result.getInt("watchedDuration"));
                         collectionCounter.put(episode, collectionCounter.get(episode) + 1);
                     }
-
-                    System.out.println(collection.get(episode));
                 }
 
                 for (Episode e: collectionCounter.keySet()) {
@@ -122,7 +124,7 @@ public class EpisodeDAO implements DAO<Episode> {
 
                     collection.put(e, collection.get(e) / amount);
                 }
-
+                conn.closeConnection();
                 return collection;
             } catch (SQLException e) {
                 System.out.println(e);
@@ -132,6 +134,7 @@ public class EpisodeDAO implements DAO<Episode> {
         return null;
     }
 
+    // Returns an arrayList that contains watch data of a specific episode
     public ArrayList<WatchedEpisode> getWatchedDataForEpisode(Episode episode) {
         ArrayList<WatchedEpisode> watchedData = new ArrayList<>();
 
@@ -163,6 +166,7 @@ public class EpisodeDAO implements DAO<Episode> {
         return watchedData;
     }
 
+    // Returns all the episodes from a specific series
     public ArrayList<Episode> getAllBySeries(Series series) {
         ArrayList<Episode> episodes = new ArrayList<>();
 
@@ -194,6 +198,17 @@ public class EpisodeDAO implements DAO<Episode> {
         }
 
         return null;
+    }
+
+    // Insert query for a watchedEpisode object, adds it the database
+    public boolean addWatchedEpisode(WatchedEpisode watchedEpisode){
+        if(conn.openConnection()){
+            String query = "INSERT INTO WatchedEpisodes(ProfileID, EpisodeID, Duration) VALUES("+watchedEpisode.getProfileID()+","+watchedEpisode.getEpisodeID()+","+watchedEpisode.getDuration()+");";
+            boolean result = conn.executeSQLInsertStatement(query);
+            conn.closeConnection();
+            return result;
+        }
+        return false;
     }
 
     @Override

@@ -1,10 +1,7 @@
 package data;
 
 import data.connection.DBConnection;
-import domain.Language;
-import domain.Movie;
-import domain.Profile;
-import domain.Subscription;
+import domain.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,6 +18,8 @@ public class MovieDAO implements DAO<Movie>{
         conn = new DBConnection();
     }
 
+
+    // Returns a specific movie based on given ID
     @Override
     public Movie get(int id) {
         //always open the connection when you want to contact the DB
@@ -57,6 +56,7 @@ public class MovieDAO implements DAO<Movie>{
         return null;
     }
 
+    // Returns all movies found in the database
     @Override
     public ArrayList<Movie> getAll() {
         ArrayList<Movie> movieList = new ArrayList<>();
@@ -108,6 +108,7 @@ public class MovieDAO implements DAO<Movie>{
         return false;
     }
 
+    // Returns an list containing the movies that were watched by a specific profile
     public ArrayList<Movie> getMoviesWatchedBy(Profile profile){
         ArrayList<Movie> movieList = new ArrayList<>();
 
@@ -143,6 +144,7 @@ public class MovieDAO implements DAO<Movie>{
         return null;
     }
 
+    // Returns a set of movies that were watched by profiles associated with a specific subscription
     public Set<Movie> getWatchedMoviesForSubscriber(Subscription s) {
         Set<Movie> movieList = new HashSet<>();
 
@@ -168,6 +170,7 @@ public class MovieDAO implements DAO<Movie>{
 
                     movieList.add(movie);
                 }
+                conn.closeConnection();
             } catch (SQLException e) {
                 System.out.println(e);
             }
@@ -176,6 +179,7 @@ public class MovieDAO implements DAO<Movie>{
         return movieList;
     }
 
+    // returns a movie that is the longest in duration and has an age-rating of 16- or below
     public Movie getLongestMovieUnder16() {
         if (conn.openConnection()) {
             String query = "SELECT * FROM Movies WHERE ageIndication < 16 AND Duration = (SELECT MAX(Duration) FROM Movies);";
@@ -193,7 +197,7 @@ public class MovieDAO implements DAO<Movie>{
                     );
 
                     movie.setLanguage(Language.valueOf(result.getString("languageCode")));
-
+                    conn.closeConnection();
                     return movie;
                 }
             } catch (SQLException e) {
@@ -204,6 +208,7 @@ public class MovieDAO implements DAO<Movie>{
         return null;
     }
 
+    // Returns an integer that displays the amount of times the movie has been fully watched
     public Integer getMovieFullyWatchedCount(Movie movie) {
         Integer movieWatchCounter = 0;
 
@@ -220,7 +225,18 @@ public class MovieDAO implements DAO<Movie>{
                 System.out.println(e);
             }
         }
-
+        conn.closeConnection();
         return movieWatchCounter;
+    }
+
+    // Insert for watched movies, adds it the database
+    public boolean addWatchedMovie(WatchedMovie watchedMovie){
+        if(conn.openConnection()){
+            String query = "INSERT INTO WatchedMovies(ProfileID, MovieID, Duration) VALUES("+watchedMovie.getProfileID()+","+watchedMovie.getMovieID()+","+watchedMovie.getDuration()+");";
+            boolean result = conn.executeSQLInsertStatement(query);
+            conn.closeConnection();
+            return result;
+        }
+        return false;
     }
 }

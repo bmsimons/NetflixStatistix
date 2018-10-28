@@ -15,6 +15,7 @@ public class ChooseMovieItemListener implements ItemListener {
         this.movieFullyWatchedPanel = movieFullyWatchedPanel;
     }
 
+    // When this screen gets displayed, it fetches all the movies that are watched and places them into the textarea
     @Override
     public void itemStateChanged(ItemEvent e) {
         String itemText = (String) e.getItem();
