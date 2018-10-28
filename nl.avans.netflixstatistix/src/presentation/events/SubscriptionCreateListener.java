@@ -23,7 +23,6 @@ public class SubscriptionCreateListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //check if name is valid
         if (!this.SubscriptionNameValid()){
             JOptionPane.showMessageDialog(null, "Naam is ongeldig");
         }
@@ -54,12 +53,7 @@ public class SubscriptionCreateListener implements ActionListener {
                     0
             );
 
-            if(sm.addSubscription(newSub, Integer.parseInt(panel.getAgeTextField().getText()))){
-                JOptionPane.showMessageDialog(null, "Subscription toegevoegd!");
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Subscription toevoegen niet gelukt");
-            }
+            panel.setResult(sm.addSubscription(newSub, Integer.parseInt(panel.getAgeTextField().getText())));
         }
 
     }

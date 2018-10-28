@@ -44,7 +44,7 @@ public class ProfileCreateActionListener implements ActionListener {
         }
 
         Profile p = new Profile(name, age, panel.getSelectedSubscription().getId());
-        panel.setResult(sm.addProfile(p, panel.getSelectedSubscription()));
+        panel.setResult(sm.addProfile(p));
 
     }
 }

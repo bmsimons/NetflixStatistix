@@ -24,8 +24,6 @@ public class SearchSubscriberActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println(sourcePanel.getClass().getName());
-
         ArrayList<Subscription> subscriptions;
 
         switch (sourcePanel.getClass().getName()) {

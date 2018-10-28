@@ -114,8 +114,6 @@ public class EpisodeDAO implements DAO<Episode> {
                         collection.put(episode, collection.get(episode) + result.getInt("watchedDuration"));
                         collectionCounter.put(episode, collectionCounter.get(episode) + 1);
                     }
-
-                    System.out.println(collection.get(episode));
                 }
 
                 for (Episode e: collectionCounter.keySet()) {

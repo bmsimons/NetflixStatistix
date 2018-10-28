@@ -103,6 +103,7 @@ public class SubscriptionCreatePanel extends JPanel {
         constraints.gridy = 6;
         add(addButton, constraints);
 
+        constraints.gridx = 1;
         constraints.gridy = 7;
         add(resultLabel, constraints);
     }

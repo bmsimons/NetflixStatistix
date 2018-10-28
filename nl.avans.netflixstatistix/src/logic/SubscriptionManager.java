@@ -6,7 +6,6 @@ import domain.Profile;
 import domain.Subscription;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 public class SubscriptionManager {
@@ -64,7 +63,7 @@ public class SubscriptionManager {
         return s.getProfilesForSubscriptionID(subscriptionID);
     }
 
-    public boolean addProfile(Profile profile, Subscription subscription){
+    public boolean addProfile(Profile profile){
         ProfileDAO p = new ProfileDAO();
         boolean result = p.insert(profile);
         if(result){
@@ -83,11 +82,9 @@ public class SubscriptionManager {
                 if (sub.getName().equals(subscription.getName()) && sub.getStreetName().equals(subscription.getStreetName())){
                     String profilename = (sub.getName()).split(" ")[0];
 
-                    this.addProfile(new Profile(profilename, age, sub.getId()), sub);
+                    this.addProfile(new Profile(profilename, age, sub.getId()));
                 }
             }
-
-
         }
 
         return result;
