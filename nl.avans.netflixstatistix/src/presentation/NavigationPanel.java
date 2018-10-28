@@ -20,9 +20,9 @@ public class NavigationPanel extends JTabbedPane {
     MovieFullyWatchedPanel movieFullyWatchedPanel;
     ProfilePanel profilePanel;
     SubscriptionPanel subscriptionPanel;
+    ProfileCreatePanel profileCreatePanel;
     ProfileAddMoviesWatchedPanel profileAddMoviesWatchedPanel;
     ProfileAddSeriesWatchedPanel profileAddSeriesWatchedPanel;
-
     public NavigationPanel(Dimension size, UserInterface ui){
         // Top Panel | Navigation Bar | Tabbed Pane
         setPreferredSize(size);
@@ -36,6 +36,8 @@ public class NavigationPanel extends JTabbedPane {
         movieFullyWatchedPanel = new MovieFullyWatchedPanel(size, ui);
         profilePanel = new ProfilePanel(size, ui);
         subscriptionPanel = new SubscriptionPanel(size, ui);
+
+        profileCreatePanel = new ProfileCreatePanel(size, ui);
         profileAddMoviesWatchedPanel = new ProfileAddMoviesWatchedPanel(size, ui);
         profileAddSeriesWatchedPanel = new ProfileAddSeriesWatchedPanel(size, ui);
 
@@ -47,7 +49,7 @@ public class NavigationPanel extends JTabbedPane {
         addTab("Profiel", null, profilePanel, "Geef een overzicht voor het gegeven profiel");
         addTab("Abonnee", null, subscriptionPanel, "Geef de abonnees met slechts 1 profiel");
         addTab("Abonnee toevoegen", null, new SubscriptionCreatePanel(size), "Voeg een abonnee toe");
-        addTab("Profiel toevoegen", null, new ProfileCreatePanel(size), "Voeg een profiel aan een abonnee toe");
+        addTab("Profiel toevoegen", null, profileCreatePanel, "Voeg een profiel aan een abonnee toe");
         addTab("Gekeken films toevoegen", null, profileAddMoviesWatchedPanel, "Voeg gekeken films toe aan een profiel");
         addTab("Gekeken series toevoegen",null,profileAddSeriesWatchedPanel,"Voeg gekeken afleveringen van een serie toe aan een profiel");
 
@@ -112,6 +114,11 @@ public class NavigationPanel extends JTabbedPane {
                     case 7:
                         break;
                     case 8:
+                        JComboBox<Subscription> subscriptionComboBox = profileCreatePanel.getSubscriptionComboBox();
+                        ArrayList<Subscription> subscriptionArrayList = ui.getSubscriptionManager().getSubscriptions();
+                        for (Subscription s : subscriptionArrayList){
+                            subscriptionComboBox.addItem(s);
+                        }
                         break;
                     case 9:
                         JComboBox<Movie> movieComboBox = profileAddMoviesWatchedPanel.getMovieComboBox();

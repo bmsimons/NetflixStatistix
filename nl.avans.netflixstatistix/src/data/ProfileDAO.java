@@ -138,6 +138,12 @@ public class ProfileDAO implements DAO<Profile> {
 
     @Override
     public boolean insert(Profile profile) {
+        if(conn.openConnection()){
+            String query = "INSERT INTO Profiles(Name, Age, SubscriptionID) VALUES ('"+profile.getProfileName()+"',"+profile.getAge()+","+profile.getId()+");";
+            boolean result = conn.executeSQLInsertStatement(query);
+            conn.closeConnection();
+            return(result);
+        }
         return false;
     }
 

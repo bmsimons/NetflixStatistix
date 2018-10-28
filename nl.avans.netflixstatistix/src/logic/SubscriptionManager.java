@@ -64,4 +64,9 @@ public class SubscriptionManager {
         return s.getProfilesForSubscriptionID(subscriptionID);
     }
 
+    public boolean addProfile(Profile profile){
+        ProfileDAO p = new ProfileDAO();
+        return p.insert(profile);
+    }
+
 }

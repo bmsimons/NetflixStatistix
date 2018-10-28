@@ -1,32 +1,38 @@
 package presentation;
 
+import domain.Subscription;
+import presentation.events.ProfileCreateActionListener;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class ProfileCreatePanel extends JPanel {
-    private JTextField nameTextField, subscriptionTextField, dateTextField;
+    private JTextField nameTextField, ageTextField;
+    private JComboBox<Subscription> subscriptionComboBox;
     private JLabel resultLabel;
-    public ProfileCreatePanel(Dimension size){
+    private UserInterface ui;
+    public ProfileCreatePanel(Dimension size, UserInterface ui){
+        this.ui = ui;
         setPreferredSize(size);
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
 
         // Create the components
-        JLabel subscriptionLabel = new JLabel("Abonnement nummer:");
-        subscriptionTextField = new JTextField();
-        subscriptionTextField.setPreferredSize(new Dimension(175, 24));
+        JLabel subscriptionLabel = new JLabel("Abonnee:");
+        // Data will be fetched on page load.
+        subscriptionComboBox = new JComboBox<Subscription>();
 
         JLabel nameLabel = new JLabel("Naam:");
         nameTextField = new JTextField();
         nameTextField.setPreferredSize(new Dimension(175, 24));
 
-        JLabel dateLabel = new JLabel("Geboortedatum:");
-        dateTextField = new JTextField();
-        dateTextField.setPreferredSize(new Dimension(175, 24));
+        JLabel dateLabel = new JLabel("Leeftijd:");
+        ageTextField = new JTextField();
+        ageTextField.setPreferredSize(new Dimension(175, 24));
 
-        // TODO Add an ActionListener that sends all the data to the apl. logic
         JButton addButton = new JButton("Voeg profiel toe!");
-
+        addButton.addActionListener(new ProfileCreateActionListener(this));
+        
         // TODO set resultLabel's text to be a result of whether the profile got added or not
         resultLabel = new JLabel();
 
@@ -40,7 +46,7 @@ public class ProfileCreatePanel extends JPanel {
         add(subscriptionLabel, constraints);
 
         constraints.gridx = 1;
-        add(subscriptionTextField, constraints);
+        add(subscriptionComboBox, constraints);
 
         constraints.gridy = 1;
         constraints.gridx = 0;
@@ -54,7 +60,7 @@ public class ProfileCreatePanel extends JPanel {
         add(dateLabel, constraints);
 
         constraints.gridx = 1;
-        add(dateTextField, constraints);
+        add(ageTextField, constraints);
 
         constraints.gridy = 3;
         constraints.gridx = 0;
@@ -71,8 +77,27 @@ public class ProfileCreatePanel extends JPanel {
     }
 
     public void clear(){
-        subscriptionTextField.setText("");
         nameTextField.setText("");
-        dateTextField.setText("");
+        ageTextField.setText("");
+    }
+
+    public JComboBox<Subscription> getSubscriptionComboBox(){
+        return subscriptionComboBox;
+    }
+    
+    public Subscription getSelectedSubscription(){
+        return (Subscription)subscriptionComboBox.getSelectedItem();
+    }
+    
+    public String getAgeTextFieldText(){
+        return ageTextField.getText();
+    }
+
+    public String getNameTextFieldText(){
+        return nameTextField.getText();
+    }
+
+    public UserInterface getUi(){
+        return ui;
     }
 }
