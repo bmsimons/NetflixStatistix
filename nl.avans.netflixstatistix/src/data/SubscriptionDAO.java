@@ -184,7 +184,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
                     profiles.add(new Profile(
                             resultSet.getString("Name"),
                             resultSet.getInt("Age"),
-                            resultSet.getInt("SubscriptionID")
+                            resultSet.getInt("ID")
                     ));
                 }
             }catch(SQLException e){
@@ -197,6 +197,23 @@ public class SubscriptionDAO implements DAO<Subscription> {
     }
     @Override
     public boolean insert(Subscription subscription) {
+
+        if (conn.openConnection()){
+            String insertquery = "INSERT INTO Subscriptions (Name, StreetName, HouseNumber, Addition, City) VALUES ("
+                    + "'" + subscription.getName() + "',"
+                    + "'" + subscription.getStreetName() + "',"
+                    + subscription.getHouseNo() + ","
+                    + "'" + subscription.getAddition() + "',"
+                    + "'" + subscription.getCity()
+                    + "')";
+
+            boolean result = conn.executeSQLInsertStatement(insertquery);
+
+            conn.closeConnection();
+
+            return result;
+        }
+
         return false;
     }
 

@@ -69,4 +69,9 @@ public class SubscriptionManager {
         return p.insert(profile);
     }
 
+    public boolean addSubscription(Subscription subscription){
+        SubscriptionDAO s = new SubscriptionDAO();
+        return s.insert(subscription);
+    }
+
 }

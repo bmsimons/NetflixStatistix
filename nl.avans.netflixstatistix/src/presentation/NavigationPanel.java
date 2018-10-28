@@ -23,6 +23,8 @@ public class NavigationPanel extends JTabbedPane {
     ProfileCreatePanel profileCreatePanel;
     ProfileAddMoviesWatchedPanel profileAddMoviesWatchedPanel;
     ProfileAddSeriesWatchedPanel profileAddSeriesWatchedPanel;
+    SubscriptionCreatePanel subscriptionCreatePanel;
+
     public NavigationPanel(Dimension size, UserInterface ui){
         // Top Panel | Navigation Bar | Tabbed Pane
         setPreferredSize(size);
@@ -36,6 +38,7 @@ public class NavigationPanel extends JTabbedPane {
         movieFullyWatchedPanel = new MovieFullyWatchedPanel(size, ui);
         profilePanel = new ProfilePanel(size, ui);
         subscriptionPanel = new SubscriptionPanel(size, ui);
+        subscriptionCreatePanel = new SubscriptionCreatePanel(size, ui);
 
         profileCreatePanel = new ProfileCreatePanel(size, ui);
         profileAddMoviesWatchedPanel = new ProfileAddMoviesWatchedPanel(size, ui);
@@ -48,7 +51,7 @@ public class NavigationPanel extends JTabbedPane {
         addTab("Gehele Film", null, movieFullyWatchedPanel, "Geef aan hoe vaak een film volledig bekeken is");
         addTab("Profiel", null, profilePanel, "Geef een overzicht voor het gegeven profiel");
         addTab("Abonnee", null, subscriptionPanel, "Geef de abonnees met slechts 1 profiel");
-        addTab("Abonnee toevoegen", null, new SubscriptionCreatePanel(size), "Voeg een abonnee toe");
+        addTab("Abonnee toevoegen", null, subscriptionCreatePanel, "Voeg een abonnee toe");
         addTab("Profiel toevoegen", null, profileCreatePanel, "Voeg een profiel aan een abonnee toe");
         addTab("Gekeken films toevoegen", null, profileAddMoviesWatchedPanel, "Voeg gekeken films toe aan een profiel");
         addTab("Gekeken series toevoegen",null,profileAddSeriesWatchedPanel,"Voeg gekeken afleveringen van een serie toe aan een profiel");

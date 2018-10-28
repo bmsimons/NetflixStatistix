@@ -1,14 +1,19 @@
 package presentation;
 
+import domain.Subscription;
+import presentation.events.SubscriptionCreateListener;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class SubscriptionCreatePanel extends JPanel {
 
-    private JTextField nameTextField, birthDateTextField, streetTextField, houseNumberTextField, houseNumberAdditionTextField, cityTextField;
+    private JTextField nameTextField, ageTextField, streetTextField, houseNumberTextField, houseNumberAdditionTextField, cityTextField;
     private JLabel resultLabel;
+    private UserInterface ui;
 
-    public SubscriptionCreatePanel(Dimension size){
+    public SubscriptionCreatePanel(Dimension size, UserInterface ui){
+        this.ui = ui;
         setPreferredSize(size);
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
@@ -19,8 +24,8 @@ public class SubscriptionCreatePanel extends JPanel {
         nameTextField.setPreferredSize(new Dimension(175, 24));
 
         JLabel birthDateLabel = new JLabel("Geboortedatum:");
-        birthDateTextField = new JTextField();
-        birthDateTextField.setPreferredSize(new Dimension(175, 24));
+        ageTextField = new JTextField();
+        ageTextField.setPreferredSize(new Dimension(175, 24));
 
         JLabel streetLabel = new JLabel("Straatnaam:");
         streetTextField = new JTextField();
@@ -40,6 +45,9 @@ public class SubscriptionCreatePanel extends JPanel {
 
         // TODO Add an ActionListener that sends all the data to the apl. logic
         JButton addButton = new JButton("Voeg abonnee toe!");
+
+        //Actionlistener for creating the subscription
+        addButton.addActionListener(new SubscriptionCreateListener(this));
 
         // TODO set resultLabel's text to be a result of whether the profile got added or not
         resultLabel = new JLabel();
@@ -61,7 +69,7 @@ public class SubscriptionCreatePanel extends JPanel {
         add(birthDateLabel, constraints);
 
         constraints.gridx = 1;
-        add(birthDateTextField, constraints);
+        add(ageTextField, constraints);
 
         constraints.gridx = 0;
         constraints.gridy = 2;
@@ -101,11 +109,35 @@ public class SubscriptionCreatePanel extends JPanel {
 
     public void clear(){
         nameTextField.setText("");
-        birthDateTextField.setText("");
+        ageTextField.setText("");
         streetTextField.setText("");
         houseNumberTextField.setText("");
         houseNumberAdditionTextField.setText("");
         cityTextField.setText("");
+    }
+
+    public JTextField getNameTextField() {
+        return nameTextField;
+    }
+
+    public JTextField getAgeTextField() {
+        return ageTextField;
+    }
+
+    public JTextField getStreetTextField() {
+        return streetTextField;
+    }
+
+    public JTextField getHouseNumberTextField() {
+        return houseNumberTextField;
+    }
+
+    public JTextField getHouseNumberAdditionTextField() {
+        return houseNumberAdditionTextField;
+    }
+
+    public JTextField getCityTextField() {
+        return cityTextField;
     }
 
     public void setResult(boolean success){
@@ -113,4 +145,6 @@ public class SubscriptionCreatePanel extends JPanel {
         resultText += (success? "gelukt." : "mislukt.");
         resultLabel.setText(resultText);
     }
+
+    public UserInterface getUi(){ return this.ui; }
 }
