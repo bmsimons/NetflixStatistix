@@ -64,9 +64,15 @@ public class SubscriptionManager {
         return s.getProfilesForSubscriptionID(subscriptionID);
     }
 
-    public boolean addProfile(Profile profile){
+    public boolean addProfile(Profile profile, Subscription subscription){
         ProfileDAO p = new ProfileDAO();
-        return p.insert(profile);
+        boolean result = p.insert(profile);
+        if(result){
+            ArrayList<Profile> profiles = subscription.getProfiles();
+            profiles.add(profile);
+            subscription.setProfiles(profiles);
+        }
+        return result;
     }
 
     public boolean addSubscription(Subscription subscription){

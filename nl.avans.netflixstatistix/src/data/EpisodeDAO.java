@@ -197,10 +197,9 @@ public class EpisodeDAO implements DAO<Episode> {
         return null;
     }
 
-    public boolean addWatchedEpisode(WatchedEpisode watchedEpisode, String profileName){
+    public boolean addWatchedEpisode(WatchedEpisode watchedEpisode){
         if(conn.openConnection()){
-            // Ugly fix, too late to do a proper one.
-            String query = "INSERT INTO WatchedEpisodes(ProfileID, EpisodeID, Duration) VALUES((SELECT ID FROM Profiles WHERE Name = '"+profileName+"' AND SubscriptionID = "+watchedEpisode.getProfileID()+"),"+watchedEpisode.getEpisodeID()+","+watchedEpisode.getDuration()+");";
+            String query = "INSERT INTO WatchedEpisodes(ProfileID, EpisodeID, Duration) VALUES("+watchedEpisode.getProfileID()+","+watchedEpisode.getEpisodeID()+","+watchedEpisode.getDuration()+");";
             return(conn.executeSQLInsertStatement(query));
         }
         return false;

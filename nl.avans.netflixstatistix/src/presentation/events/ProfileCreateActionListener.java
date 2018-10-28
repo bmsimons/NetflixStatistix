@@ -42,7 +42,9 @@ public class ProfileCreateActionListener implements ActionListener {
             JOptionPane.showMessageDialog(null, "Abonnee heeft al 5 profielen.");
             return;
         }
-        panel.setResult(sm.addProfile(new Profile(name, age, panel.getSelectedSubscription().getId())));
+
+        Profile p = new Profile(name, age, panel.getSelectedSubscription().getId());
+        panel.setResult(sm.addProfile(p, panel.getSelectedSubscription()));
 
     }
 }
