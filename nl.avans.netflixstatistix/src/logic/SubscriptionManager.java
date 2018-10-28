@@ -68,16 +68,29 @@ public class SubscriptionManager {
         ProfileDAO p = new ProfileDAO();
         boolean result = p.insert(profile);
         if(result){
-            ArrayList<Profile> profiles = subscription.getProfiles();
-            profiles.add(profile);
-            subscription.setProfiles(profiles);
+            this.getSubscriptions();
         }
         return result;
     }
 
-    public boolean addSubscription(Subscription subscription){
+    public boolean addSubscription(Subscription subscription, int age){
         SubscriptionDAO s = new SubscriptionDAO();
-        return s.insert(subscription);
+
+        boolean result = s.insert(subscription);
+
+        if(result){
+            for (Subscription sub : this.getSubscriptions()){
+                if (sub.getName().equals(subscription.getName()) && sub.getStreetName().equals(subscription.getStreetName())){
+                    String profilename = (sub.getName()).split(" ")[0];
+
+                    this.addProfile(new Profile(profilename, age, sub.getId()), sub);
+                }
+            }
+
+
+        }
+
+        return result;
     }
 
 }

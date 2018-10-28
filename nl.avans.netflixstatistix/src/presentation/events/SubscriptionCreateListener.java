@@ -54,7 +54,7 @@ public class SubscriptionCreateListener implements ActionListener {
                     0
             );
 
-            if(sm.addSubscription(newSub)){
+            if(sm.addSubscription(newSub, Integer.parseInt(panel.getAgeTextField().getText()))){
                 JOptionPane.showMessageDialog(null, "Subscription toegevoegd!");
             }
             else{
