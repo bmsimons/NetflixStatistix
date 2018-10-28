@@ -60,6 +60,9 @@ public class NavigationPanel extends JTabbedPane {
             public void stateChanged(ChangeEvent e) {
                 switch (NavigationPanel.super.getSelectedIndex()) {
                     case 0:
+
+                        //this case is for Series panel
+
                         seriesPanel.clearSeriesComboBox();
                         JComboBox<String> seriesBox = seriesPanel.getSeriesComboBox();
                         for (Program p : ui.getProgramManager().getSeries()) {
@@ -69,6 +72,8 @@ public class NavigationPanel extends JTabbedPane {
                         break;
                     case 1:
 
+                        //this case is for Series per subscription panel
+
                         JComboBox<String> seriesComboBox = seriesPerSubscriptionPanel.getSeriesComboBox();
                         ArrayList<Series> seriesList = ui.getProgramManager().getSeries();
                         for (Series s : seriesList){
@@ -76,14 +81,23 @@ public class NavigationPanel extends JTabbedPane {
                         }
                         break;
                     case 2:
+
+                        //this case is for Watched movies panel
+
                         break;
                     case 3:
+
+                        //this case is for Movies below 16 panel
+
 
                         Movie longestMovieUnder16 = ui.getProgramManager().getLongestMovieUnder16();
                         movieBelowSixteenPanel.getLongestMovieLabel().setText("De langste film voor kinderen onder de 16 is " + longestMovieUnder16.getTitle());
 
                         break;
                     case 4:
+
+                        //this case is for Fully watched movies panel
+
                         ArrayList<Movie> movies = ui.getProgramManager().getMovies();
 
                         movieFullyWatchedPanel.getMovieComboBox().removeAllItems();
@@ -101,6 +115,14 @@ public class NavigationPanel extends JTabbedPane {
 
                         break;
                     case 5:
+
+                        //this case is for the profile panel
+
+                        break;
+                    case 6:
+
+                        //this case is for Single profile per subscription panel
+
                         Set<Subscription> subscriptions = ui.getSubscriptionManager().getSubscriptionsWithOnlyOneProfile();
 
                         String subscriptionPanelText = "";
@@ -110,13 +132,16 @@ public class NavigationPanel extends JTabbedPane {
                         }
 
                         subscriptionPanel.getSubscriptionTextArea().setText(subscriptionPanelText);
-
-                        break;
-                    case 6:
                         break;
                     case 7:
+
+                        //this case is for Add Subscription panel
+
                         break;
                     case 8:
+
+                        //this case is for Add Profile panel
+
                         JComboBox<Subscription> subscriptionComboBox = profileCreatePanel.getSubscriptionComboBox();
                         ArrayList<Subscription> subscriptionArrayList = ui.getSubscriptionManager().getSubscriptions();
                         for (Subscription s : subscriptionArrayList){
@@ -124,15 +149,26 @@ public class NavigationPanel extends JTabbedPane {
                         }
                         break;
                     case 9:
+
+                        //this case is for Add watched movies panel
+
                         JComboBox<Movie> movieComboBox = profileAddMoviesWatchedPanel.getMovieComboBox();
                         ArrayList<Movie> moviesList = ui.getProgramManager().getMovies();
+
+                        profileAddMoviesWatchedPanel.clearMovieComboBox();
+
                         for (Movie m : moviesList){
                             movieComboBox.addItem(m);
                         }
                         break;
                     case 10:
+
+                        //this case is for Add watched series panel
+
                         JComboBox<Series> seriesCBox = profileAddSeriesWatchedPanel.getSeriesComboBox();
                         ArrayList<Series> seriesArrayList = ui.getProgramManager().getSeries();
+
+
                         for (Series s : seriesArrayList){
                             seriesCBox.addItem(s);
                         }

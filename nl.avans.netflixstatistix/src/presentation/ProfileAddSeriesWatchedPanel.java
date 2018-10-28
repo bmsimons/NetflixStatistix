@@ -129,6 +129,10 @@ public class ProfileAddSeriesWatchedPanel extends JPanel {
         profileComboBox.removeAllItems();
     }
 
+    public void clearSeriesComboBox(){
+        seriesComboBox.removeAllItems();
+    }
+
     public void enableProfileComboBox(boolean enabled){
         profileComboBox.setEnabled(enabled);
     }

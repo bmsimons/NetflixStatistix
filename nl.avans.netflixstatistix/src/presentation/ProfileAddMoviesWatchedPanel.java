@@ -128,6 +128,10 @@ public class ProfileAddMoviesWatchedPanel extends JPanel {
         profileComboBox.removeAllItems();
     }
 
+    public void clearMovieComboBox(){
+        movieComboBox.removeAllItems();
+    }
+
     public void enableProfileComboBox(boolean enabled){
         profileComboBox.setEnabled(enabled);
     }
