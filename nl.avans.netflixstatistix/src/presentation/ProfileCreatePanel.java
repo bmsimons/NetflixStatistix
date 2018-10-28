@@ -6,6 +6,8 @@ import presentation.events.ProfileCreateActionListener;
 import javax.swing.*;
 import java.awt.*;
 
+// Panel that displays a form which is used to create profiles with.
+
 public class ProfileCreatePanel extends JPanel {
     private JTextField nameTextField, ageTextField;
     private JComboBox<Subscription> subscriptionComboBox;
@@ -32,8 +34,7 @@ public class ProfileCreatePanel extends JPanel {
 
         JButton addButton = new JButton("Voeg profiel toe!");
         addButton.addActionListener(new ProfileCreateActionListener(this));
-        
-        // TODO set resultLabel's text to be a result of whether the profile got added or not
+
         resultLabel = new JLabel();
 
         // Set the constraints, add components to panel

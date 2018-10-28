@@ -22,6 +22,7 @@ public class SearchSubscriberActionListener implements ActionListener {
         this.sourcePanel = sourcePanel;
     }
 
+    // Used in multiple panels, when it gets called it will search for the subscription based on input and return the info in an textarea.
     @Override
     public void actionPerformed(ActionEvent e) {
         ArrayList<Subscription> subscriptions;

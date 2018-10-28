@@ -6,6 +6,7 @@ import logic.SubscriptionManager;
 import javax.swing.*;
 import java.awt.*;
 
+// Main body of the application, used when starting up.
 public class UserInterface implements Runnable, UI {
     // Create the frame
     private JFrame frame;

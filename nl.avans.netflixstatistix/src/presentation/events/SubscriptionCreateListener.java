@@ -21,6 +21,7 @@ public class SubscriptionCreateListener implements ActionListener {
         sm = ui.getSubscriptionManager();
     }
 
+    // When the button gets pressed, this actionListener will check if the input is valid and send the data to the manager so it can be added to the database
     @Override
     public void actionPerformed(ActionEvent e) {
         if (!this.SubscriptionNameValid()){

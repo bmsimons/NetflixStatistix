@@ -10,6 +10,8 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
+// Panel that displays information about given series
+
 public class SeriesPanel extends JPanel {
     private JComboBox<String> seriesComboBox;
     private JTextArea seriesAverageTextArea;

@@ -10,6 +10,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Set;
 
+// Panel that will display an form to add watched movies to a specific profile.
+
 public class ProfileAddMoviesWatchedPanel extends JPanel {
     private UserInterface ui;
     private JTextField subscriptionTextField, durationTextField;
@@ -46,11 +48,9 @@ public class ProfileAddMoviesWatchedPanel extends JPanel {
         durationTextField = new JTextField();
         durationTextField.setPreferredSize(new Dimension(175, 24));
 
-        // TODO Add an ActionListener that sends all the data to the apl. logic
         JButton addButton = new JButton("Voeg film toe!");
         addButton.addActionListener(new ProfileAddMoviesInsertActionListener(this));
 
-        // TODO set resultLabel's text to be a result of whether the movie got added or not
         resultLabel = new JLabel();
 
         // Set the constraints, add components to panel

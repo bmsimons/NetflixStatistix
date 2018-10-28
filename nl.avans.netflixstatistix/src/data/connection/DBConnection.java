@@ -14,6 +14,7 @@ public class DBConnection {
         statement = null;
     }
 
+    // Used for starting the connection with the database
     public boolean openConnection()
     {
         boolean result = false;
@@ -54,6 +55,7 @@ public class DBConnection {
         return result;
     }
 
+    // Used to check if the connection is open
     public boolean connectionIsOpen()
     {
         boolean open = false;
@@ -76,6 +78,7 @@ public class DBConnection {
         return open;
     }
 
+    // Used to close the connection with the database
     public void closeConnection()
     {
         try
@@ -113,6 +116,7 @@ public class DBConnection {
         return resultset;
     }
 
+    // Used to execute insert queries
     public boolean executeSQLInsertStatement(String query)
     {
         boolean result = false;
@@ -137,6 +141,7 @@ public class DBConnection {
         return result;
     }
 
+    // Used to execute delete queries
     public boolean executeSQLDeleteStatement(String query)
     {
         boolean result = false;
@@ -161,6 +166,7 @@ public class DBConnection {
         return result;
     }
 
+    // returns current connection
     public Connection getConnection(){
         return this.connection;
     }

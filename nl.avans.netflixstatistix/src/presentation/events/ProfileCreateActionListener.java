@@ -16,6 +16,7 @@ public class ProfileCreateActionListener implements ActionListener {
         this.panel = panel;
     }
 
+    // When the button gets clicked, this actionListener will check if the given values are valid and send it to the manager so it will be added to the database.
     @Override
     public void actionPerformed(ActionEvent e) {
         UserInterface ui = panel.getUi();

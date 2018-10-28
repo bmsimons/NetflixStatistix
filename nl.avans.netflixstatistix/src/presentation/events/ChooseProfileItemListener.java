@@ -15,6 +15,7 @@ public class ChooseProfileItemListener implements ItemListener {
         this.profilePanel = profilePanel;
     }
 
+    // When this gets called, it will display the data for a specific profile into the panel's textarea
     @Override
     public void itemStateChanged(ItemEvent e) {
         String profileName = (String) e.getItem();

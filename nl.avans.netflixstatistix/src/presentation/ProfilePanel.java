@@ -6,6 +6,8 @@ import presentation.events.SearchSubscriberActionListener;
 import javax.swing.*;
 import java.awt.*;
 
+// Panel that displays information about chosen profile
+
 public class ProfilePanel extends JPanel {
     private UserInterface ui;
     private JTextField subscriptionTextField;
@@ -29,8 +31,6 @@ public class ProfilePanel extends JPanel {
         JLabel profileLabel = new JLabel("Selecteer een profiel");
         profileComboBox = new JComboBox<String>();
         profileComboBox.addItemListener(new ChooseProfileItemListener(this));
-
-        // TODO: Add an ActionListener that fetches the data of the selected user
 
         resultLabel = new JLabel("Selecteer een profiel");
         resultTextArea = new JTextArea(13, 35);

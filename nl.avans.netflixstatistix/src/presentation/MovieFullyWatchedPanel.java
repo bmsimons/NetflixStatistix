@@ -10,6 +10,7 @@ public class MovieFullyWatchedPanel extends JPanel {
     private JTextArea movieStatisticsTextArea;
     private JComboBox<String> movieComboBox;
 
+    // Display the statistics of a movie (who watched the movie fully?)
     public MovieFullyWatchedPanel(Dimension size, UserInterface ui){
         this.ui = ui;
 
@@ -17,13 +18,12 @@ public class MovieFullyWatchedPanel extends JPanel {
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
 
+        // Create components
         JLabel movieSelectLabel = new JLabel("Kies een film");
 
-        // TODO: Fetch a list containing all the movie titles
         movieComboBox = new JComboBox<>();
         movieComboBox.addItemListener(new ChooseMovieItemListener(this));
 
-        // TODO: Fetch the statistics of the selected movie
         movieStatisticsTextArea = new JTextArea(13, 35);
         movieStatisticsTextArea.setText("Selecteer een film.");
         movieStatisticsTextArea.setEditable(false);

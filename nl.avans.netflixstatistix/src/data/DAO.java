@@ -1,7 +1,7 @@
 package data;
 
 import java.util.List;
-
+// Interface for all the classes that want to become a Database Object
 public interface DAO<T>  {
     T get(int id);
     List<T> getAll();

@@ -14,6 +14,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Set;
 
+// Panel that displays a form that is used to add watched episodes of a series to a specific profile
+
 public class ProfileAddSeriesWatchedPanel extends JPanel {
     private UserInterface ui;
     private JTextField subscriptionTextField, durationTextField;

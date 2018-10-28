@@ -22,6 +22,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
         conn = new DBConnection();
     }
 
+    // Returns a specific subscription based on the given id
     @Override
     public Subscription get(int id) {
 
@@ -58,6 +59,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
         return null;
     }
 
+    // Returns all the subscriptions it could find in the database
     @Override
     public ArrayList<Subscription> getAll() {
 
@@ -94,6 +96,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
         return null;
     }
 
+    // Returns a Set of seriesIDs that the profiles associated with the given subscriberID have watched
     public Set<Integer> getAllSeriesForSubscriber(int subscriberID) {
         Set<Integer> seriesIDs = new HashSet<Integer>();
 
@@ -119,6 +122,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
 
         return null;
     }
+    // Returns a set of profiles associated with the given subscription
     public Set<Profile> getProfilesForSubscription(Subscription s) {
         Set<Profile> profiles = new HashSet<Profile>();
 
@@ -143,6 +147,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
 
         return profiles;
     }
+    // Returns a set of subscriptions that have only 1 profile assigned to them
     public Set<Subscription> getSubscriptionsWithOnlyOneProfile() {
         Set<Subscription> subscriptions = new HashSet<Subscription>();
 
@@ -195,6 +200,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
 
         return profiles;
     }
+    // Inserts the subscription into the database
     @Override
     public boolean insert(Subscription subscription) {
 

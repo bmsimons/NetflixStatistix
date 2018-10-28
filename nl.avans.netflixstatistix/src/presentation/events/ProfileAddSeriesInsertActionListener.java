@@ -18,6 +18,7 @@ public class ProfileAddSeriesInsertActionListener implements ActionListener {
         this.panel = panel;
     }
 
+    // When the button is clicked, this actionListener will check if the input is valid (minimun requirements) and send it to the manager so it will be added to the database
     @Override
     public void actionPerformed(ActionEvent e) {
         UserInterface ui = this.panel.getUi();
@@ -42,7 +43,7 @@ public class ProfileAddSeriesInsertActionListener implements ActionListener {
         }
 
         Profile p = panel.getSelectedProfile();
-
+        // Set the result of the label based on the query result
         panel.setResult(pm.addWatchedEpisode(ep, p, duration));
     }
 }

@@ -6,6 +6,8 @@ import presentation.events.SubscriptionCreateListener;
 import javax.swing.*;
 import java.awt.*;
 
+// Panel displays a form that is used to create subscriptions with
+
 public class SubscriptionCreatePanel extends JPanel {
 
     private JTextField nameTextField, ageTextField, streetTextField, houseNumberTextField, houseNumberAdditionTextField, cityTextField;
@@ -43,13 +45,11 @@ public class SubscriptionCreatePanel extends JPanel {
         cityTextField = new JTextField();
         cityTextField.setPreferredSize(new Dimension(175, 24));
 
-        // TODO Add an ActionListener that sends all the data to the apl. logic
         JButton addButton = new JButton("Voeg abonnee toe!");
 
         //Actionlistener for creating the subscription
         addButton.addActionListener(new SubscriptionCreateListener(this));
 
-        // TODO set resultLabel's text to be a result of whether the profile got added or not
         resultLabel = new JLabel();
 
         // Set the constraints, add components to panel

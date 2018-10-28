@@ -17,6 +17,7 @@ public class ProfileAddSeriesEpisodesActionListener implements ActionListener {
         this.panel = panel;
     }
 
+    // When the user selects an series, the actionListener will fetch the associated episodes and put them in an comboBox
     @Override
     public void actionPerformed(ActionEvent e) {
         panel.clearEpisodeComboBox();

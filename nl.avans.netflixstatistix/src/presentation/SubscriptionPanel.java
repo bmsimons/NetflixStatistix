@@ -3,6 +3,8 @@ package presentation;
 import javax.swing.*;
 import java.awt.*;
 
+// Panel displays information about subscriptions.
+
 public class SubscriptionPanel extends JPanel {
     private UserInterface ui;
     private JTextArea subscriptionTextArea;

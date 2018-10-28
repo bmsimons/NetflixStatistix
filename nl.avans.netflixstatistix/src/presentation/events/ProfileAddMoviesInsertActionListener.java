@@ -18,6 +18,7 @@ public class ProfileAddMoviesInsertActionListener implements ActionListener {
         this.panel = panel;
     }
 
+    // When the button gets pressed, this actionListener will check if the input is valid (Minimal requirements) and send it to the manager to be added to the database.
     @Override
     public void actionPerformed(ActionEvent e) {
         UserInterface ui = this.panel.getUi();
@@ -44,6 +45,7 @@ public class ProfileAddMoviesInsertActionListener implements ActionListener {
 
         Profile p = panel.getSelectedProfile();
 
+        // Set the resultLabel based on database result
         panel.setResult(pm.addWatchedMovie(m, p, duration));
     }
 }

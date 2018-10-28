@@ -15,6 +15,7 @@ public class ChooseSeriesItemListener implements ItemListener {
         this.seriesPerSubscriptionPanel = seriesPerSubscriptionPanel;
     }
 
+    // When this gets called, it will fetch the average watch times for given subscription and display them into the panel's textarea
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (e.getStateChange() == ItemEvent.SELECTED) {

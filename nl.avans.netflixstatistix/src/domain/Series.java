@@ -18,6 +18,7 @@ public class Series extends Program {
         return this.serieSuggestion;
     }
 
+    // Supposed to return the suggestion, not used.
     public void setSerieSuggestion(Series serieSuggestion) {
         this.serieSuggestion = serieSuggestion;
     }

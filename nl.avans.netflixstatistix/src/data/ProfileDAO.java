@@ -17,6 +17,7 @@ public class ProfileDAO implements DAO<Profile> {
         conn = new DBConnection();
     }
 
+    // Returns profile based on the given id
     @Override
     public Profile get(int id) {
         //always open the connection when you want to contact the DB
@@ -49,6 +50,7 @@ public class ProfileDAO implements DAO<Profile> {
         return null;
     }
 
+    // Returns all the profiles it was able to find in the database
     @Override
     public List<Profile> getAll() {
         List<Profile> profiles = new ArrayList<>();
@@ -81,6 +83,7 @@ public class ProfileDAO implements DAO<Profile> {
         return null;
     }
 
+    // Returns all the profiles that are associated with given subscription
     public ArrayList<Profile> getAllBySub(Subscription subscription) {
         ArrayList<Profile> profiles = new ArrayList<>();
 
@@ -112,6 +115,7 @@ public class ProfileDAO implements DAO<Profile> {
         return null;
     }
 
+    // Returns a profile based on a profile name and subscriptionID
     public Profile getProfileByNameAndSubscriberId(String profileName, Integer subscriberID) {
         if (conn.openConnection() && subscriberID != null) {
             String query = "SELECT * FROM Profiles WHERE SubscriptionID = " + subscriberID + " AND Name = '" + profileName + "';";
@@ -125,7 +129,7 @@ public class ProfileDAO implements DAO<Profile> {
                             result.getInt("Age"),
                             result.getInt("ID")
                     );
-
+                    conn.closeConnection();
                     return profile;
                 }
             } catch (SQLException e) {
@@ -136,6 +140,7 @@ public class ProfileDAO implements DAO<Profile> {
         return null;
     }
 
+    // Inserts the profile into the database
     @Override
     public boolean insert(Profile profile) {
         if(conn.openConnection()){

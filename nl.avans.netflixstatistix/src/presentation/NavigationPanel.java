@@ -56,6 +56,8 @@ public class NavigationPanel extends JTabbedPane {
         addTab("Gekeken films toevoegen", null, profileAddMoviesWatchedPanel, "Voeg gekeken films toe aan een profiel");
         addTab("Gekeken series toevoegen",null,profileAddSeriesWatchedPanel,"Voeg gekeken afleveringen van een serie toe aan een profiel");
 
+        // changelistener, used for pre-fetching data for Comboboxes, labels and textareas.
+        // Used by most of the panels, each panel has a unique number.
         this.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 switch (NavigationPanel.super.getSelectedIndex()) {
