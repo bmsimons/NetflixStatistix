@@ -23,7 +23,7 @@ public class SubscriptionCreatePanel extends JPanel {
         nameTextField = new JTextField();
         nameTextField.setPreferredSize(new Dimension(175, 24));
 
-        JLabel birthDateLabel = new JLabel("Geboortedatum:");
+        JLabel birthDateLabel = new JLabel("Leeftijd:");
         ageTextField = new JTextField();
         ageTextField.setPreferredSize(new Dimension(175, 24));
 
