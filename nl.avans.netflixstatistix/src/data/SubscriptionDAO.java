@@ -184,7 +184,7 @@ public class SubscriptionDAO implements DAO<Subscription> {
                     profiles.add(new Profile(
                             resultSet.getString("Name"),
                             resultSet.getInt("Age"),
-                            resultSet.getInt("SubscriptionID")
+                            resultSet.getInt("ID")
                     ));
                 }
             }catch(SQLException e){
